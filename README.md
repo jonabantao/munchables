@@ -1,1 +1,1 @@
-## Cookables - An Instructables Clone
+## Munchables - An Instructables Clone
