@@ -1,5 +1,5 @@
 {
-  "name": "cookables",
+  "name": "munchables",
   "private": true,
   "dependencies": {
     "babel-core": "^6.26.0",
@@ -14,7 +14,7 @@
     "redux": "^3.7.2",
     "webpack": "^3.10.0"
   },
-  "description": "Cookables App Academy Fullstack Project",
+  "description": "Munchables - a site for user created recipes",
   "version": "1.0.0",
   "main": ".frontend/index.jsx",
   "directories": {
@@ -27,13 +27,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jonabantao/cookables.git"
+    "url": "git+https://github.com/jonabantao/munchables.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jonabantao/cookables/issues"
+    "url": "https://github.com/jonabantao/munchables/issues"
   },
-  "homepage": "https://github.com/jonabantao/cookables#readme"
+  "homepage": "https://github.com/jonabantao/munchables#readme"
 }
