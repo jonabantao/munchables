@@ -7,7 +7,7 @@ class User < ApplicationRecord
   before_validation :ensure_session_token
 
   def self.find_by_credentials(username, password)
-    user = self.class.find_by(username: username).try(:authenticate, password)
+    user = User.find_by(username: username).try(:authenticate, password)
 
     user ? user : nil
   end

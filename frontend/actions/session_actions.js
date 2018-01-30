@@ -20,17 +20,17 @@ const receiveSessionErrors = errors => ({
 
 export const createUser = user => dispatch => (
   APIUtil.createUser(user)
-    .then(newUser => receiveCurrentUser(newUser),
-          err => receiveSessionErrors(err))
+    .then(newUser => dispatch(receiveCurrentUser(newUser)),
+          err => dispatch(receiveSessionErrors(err.responseJSON)))
 );
 
 export const loginUser = user => dispatch => (
   APIUtil.loginUser(user)
-    .then(loggedUser => receiveCurrentUser(loggedUser),
-          err => receiveSessionErrors(err))
+    .then(loggedUser => dispatch(receiveCurrentUser(loggedUser)),
+          err => dispatch(receiveSessionErrors(err.responseJSON)))
 );
 
 export const logoutUser = () => dispatch => (
   APIUtil.logoutUser()
-    .then(() => logoutCurrentUser())
+    .then(() => dispatch(logoutCurrentUser()))
 );
