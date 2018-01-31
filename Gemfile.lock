@@ -74,7 +74,11 @@ GEM
     concurrent-ruby (1.0.5)
     crass (1.0.3)
     debug_inspector (0.0.3)
+    em-websocket (0.5.1)
+      eventmachine (>= 0.12.9)
+      http_parser.rb (~> 0.6.0)
     erubi (1.7.0)
+    eventmachine (1.2.5)
     execjs (2.7.0)
     factory_bot (4.8.2)
       activesupport (>= 3.0.0)
@@ -84,8 +88,25 @@ GEM
     faker (1.8.7)
       i18n (>= 0.7)
     ffi (1.9.18)
+    formatador (0.2.5)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    guard (2.14.2)
+      formatador (>= 0.2.4)
+      listen (>= 2.7, < 4.0)
+      lumberjack (>= 1.0.12, < 2.0)
+      nenv (~> 0.1)
+      notiffany (~> 0.0)
+      pry (>= 0.9.12)
+      shellany (~> 0.0)
+      thor (>= 0.18.1)
+    guard-compat (1.2.1)
+    guard-livereload (2.5.2)
+      em-websocket (~> 0.5)
+      guard (~> 2.8)
+      guard-compat (~> 1.0)
+      multi_json (~> 1.8)
+    http_parser.rb (0.6.0)
     i18n (0.9.3)
       concurrent-ruby (~> 1.0)
     jbuilder (2.7.0)
@@ -102,6 +123,7 @@ GEM
     loofah (2.1.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
+    lumberjack (1.0.12)
     mail (2.7.0)
       mini_mime (>= 0.1.1)
     method_source (0.9.0)
@@ -109,9 +131,15 @@ GEM
     mini_portile2 (2.3.0)
     minitest (5.11.1)
     multi_json (1.13.1)
+    nenv (0.3.0)
     nio4r (2.2.0)
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
+    normalize-scss (7.0.1)
+      sass (~> 3.3)
+    notiffany (0.1.1)
+      nenv (~> 0.1)
+      shellany (~> 0.0)
     pg (0.21.0)
     pry (0.11.3)
       coderay (~> 1.1.0)
@@ -121,6 +149,8 @@ GEM
     public_suffix (3.0.1)
     puma (3.11.2)
     rack (2.0.3)
+    rack-livereload (0.3.16)
+      rack
     rack-test (0.8.2)
       rack (>= 1.0, < 3)
     rails (5.1.4)
@@ -171,6 +201,7 @@ GEM
     selenium-webdriver (3.8.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
+    shellany (0.0.1)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -214,14 +245,19 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   factory_bot_rails
   faker
+  guard (>= 2.2.2)
+  guard-livereload
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
+  normalize-scss
   pg (~> 0.18)
   pry-rails
   puma (~> 3.7)
+  rack-livereload
   rails (~> 5.1.4)
   rails_12factor
+  rb-fsevent
   sass-rails (~> 5.0)
   selenium-webdriver
   spring

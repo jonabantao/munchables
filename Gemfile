@@ -29,6 +29,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'jquery-rails'
 gem 'rails_12factor'
+gem 'pry-rails'
+gem 'normalize-scss'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -51,9 +53,12 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'annotate'
-  gem 'pry-rails'
   gem 'faker'
   gem 'factory_bot_rails'
+  gem 'guard', '>= 2.2.2', :require => false
+  gem 'guard-livereload', :require => false
+  gem 'rack-livereload'
+  gem 'rb-fsevent', :require => false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
