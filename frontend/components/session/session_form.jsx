@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class sessionForm extends Component {
   constructor(props) {
@@ -20,7 +21,8 @@ class sessionForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
     console.log('test');
-    this.props.handleSession(this.state);
+    this.props.handleSession(this.state)
+      .then(() => this.props.history.push('/'));
   }
 
   formUpdate(property) {
@@ -42,7 +44,7 @@ class sessionForm extends Component {
   confirmPasswordInput() {
     if (this.props.formType === "signup") {
       return <input
-              type="text"
+              type="password"
               placeholder="Confirm Password"
               value={this.state.password_confirmation}
               onChange={this.formUpdate('password_confirmation')}
@@ -51,12 +53,15 @@ class sessionForm extends Component {
     }
   }
 
+  redirectSessionText() {
+    return this.props.formType === "signup" ?
+      (<p>Already a member? <Link to="/login">Login!</Link></p>) :
+      (<p>Looking to signup? <Link to="/signup">Signup here!</Link></p>);
+  }
+
   render() {
     const submitValue = this.props.formType === "signup" ? "Sign Up" : "Login";
-    const emailInput = () => {
 
-    };
-    
     return (
       <section className="session">
         <form onSubmit={e => this.handleSubmit(e)} className="session__form">
@@ -78,6 +83,7 @@ class sessionForm extends Component {
           {this.confirmPasswordInput()}
           <input type="submit" value={submitValue} />
         </form>
+        {this.redirectSessionText()}
       </section>
     );
   }

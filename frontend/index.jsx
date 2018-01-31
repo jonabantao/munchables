@@ -4,8 +4,17 @@ import Root from './components/root';
 import configureStore from './store/store';
 
 document.addEventListener('DOMContentLoaded', () => {
-  const store = configureStore();
+  let preloadedState = undefined;
 
+  if (window.currentUser) {
+    preloadedState = {
+      session: {
+        currentUser: window.currentUser,
+      }
+    };
+  }
+
+  const store = configureStore(preloadedState);
   // DELET THIS vvv
   window.getState = store.getState;
   window.dispatch = store.dispatch;

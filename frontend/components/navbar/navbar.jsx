@@ -2,9 +2,9 @@ import React from 'react';
 import NavBarGreeting from './navbar_greeting';
 import NavBarSessionLinks from './navbar_session_links';
 
-const NavBar = (props) => {
-  const sessionCheck = props.currentUser ? 
-    <NavBarGreeting currentUser={props.currentUser} logout={props.logout} /> : 
+const NavBar = ({ currentUser, logout }) => {
+  const sessionCheck = currentUser ? 
+    <NavBarGreeting currentUser={currentUser} logout={logout} /> : 
     <NavBarSessionLinks />;
 
   return (

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import NavBar from './navbar';
 import { logoutUser } from '../../actions/session_actions';
@@ -13,5 +13,6 @@ const mapDispatchToProps = dispatch => ({
 
 
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(NavBar);
