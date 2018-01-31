@@ -1,32 +1,46 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import SessionErrors from './session_errors';
 
 class sessionForm extends Component {
   constructor(props) {
     super(props);
 
-    let formBody = {
+    this.defaultState = {
       username: '',
       password: '',
+      email: '',
+      password_confirmation: ''
     };
+    this.state = this.defaultState;
+  }
 
-    if (this.props.formType === "signup") {
-      formBody.email = '';
-      formBody.password_confirmation = '';
+  componentWillUnmount() {
+    if (this.props.errors.length) {
+      this.props.clearErrors();
     }
+  }
 
-    this.state = formBody;
+  componentWillReceiveProps() {
+    if (this.props.errors.length) {
+      this.props.clearErrors();
+    }
+    this.resetForm();
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log('test');
     this.props.handleSession(this.state)
-      .then(() => this.props.history.push('/'));
+      .then(() => this.props.history.push('/'),
+      this.resetForm());
   }
 
   formUpdate(property) {
     return e => this.setState({ [property]: e.target.value });
+  }
+
+  resetForm() {
+    this.setState(this.defaultState);
   }
 
   emailInput() {
@@ -54,19 +68,32 @@ class sessionForm extends Component {
   }
 
   redirectSessionText() {
+    const currentPath = this.props.history.location.pathname;
+    const login = currentPath === "/login";
+    const signup = currentPath === "/signup";
+
     return this.props.formType === "signup" ?
       (<p className="session__redirect-text">
         Already a member? &nbsp;
-        <Link to="/login" className="session__redirect-text">Login!</Link>
+        <Link to="/login" replace={login} className="session__redirect-text">
+          Login!
+        </Link>
       </p>) :
       (<p className="session__redirect-text">
         Looking to signup? &nbsp;
-        <Link to="/signup" className="session__redirect-text">Signup here!
-      </Link></p>);
+        <Link to="/signup" replace={signup} className="session__redirect-text">
+          Signup here!
+        </Link>
+      </p>);
+  }
+
+  renderErrorContainer(errors) {
+    return <SessionErrors errors={errors} />;
   }
 
   render() {
     const submitValue = this.props.formType === "signup" ? "Sign Up" : "Login";
+    const errors = this.props.errors;
 
     return (
       <main className="session">
@@ -88,7 +115,12 @@ class sessionForm extends Component {
               className="session__input"
             />
             {this.confirmPasswordInput()}
-            <input type="submit" value={submitValue} className="session__submit" />
+            {errors.length ? this.renderErrorContainer(errors) : null}
+            <input
+              type="submit"
+              value={submitValue}
+              className="session__submit"
+            />
             {this.redirectSessionText()}
           </form>
 

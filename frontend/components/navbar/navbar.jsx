@@ -13,7 +13,7 @@ const NavBar = ({ currentUser, logout }) => {
           className="navbar__logo-img"
         />
       </Link>
-      <input type="text" value="SEARCH BAR PLACEHOLDER" />
+      {/* <input type="text" value="SEARCH BAR PLACEHOLDER" /> */}
       {
         currentUser ? <NavBarGreeting 
                         currentUser={currentUser} 
