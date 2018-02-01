@@ -6,23 +6,35 @@
   border-bottom: 1px solid #A2825C;
   height: 80px;
   &__session {
-    margin-right: 70px;
+    margin-right: 150px;
     display: flex;
     align-items: center;
     width: 125px;
     height: 50px;
-    color: gray;
+  }
+  &__greeting {
+    margin-right: 150px;
+    display: flex;
+    align-items: center;
+    min-width: 150px;
+    height: 50px;
+    text-overflow: ellipsis;
+    padding: 30px 5px;
+    position: relative;
+  }
+  &__greeting:hover {
+    cursor: pointer;
   }
   &__left {
-    margin-left: 70px;
+    margin-left: 150px;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    width: 500px;
+    width: 600px;
   }
   &__button {
     text-decoration: none;
-    color: inherit;
+    padding: 0 5px;
     height: 23px;
   }
   &__logo {
@@ -46,5 +58,84 @@
   }
   &__create-recipe:hover {
     background-color: darken($whitesmoke, 5%);
+  }
+  &__search-bar {
+    display: flex;
+    color: gray;
+    height: 35px;
+    font-size: 1rem;
+    border-radius: 3px;
+    margin: 0 20px;
+    border: 1px solid lightgray;
+  }
+  &__search-bar-input {
+    transition: all ease-in-out 0.6s;
+    width: 175px;
+    padding: 10px;
+    font-size: 1rem;
+    border: 0;
+    outline: none;
+    border: 1px solid transparent;
+  }
+  &__search-bar-input:focus {
+    padding: 10px;
+    box-shadow: 0 0 6px $search-bar-blue;
+    border: 1px solid $search-bar-blue;
+  }
+  &__search-bar-submit {
+    width: 40px;
+    background-color: lightgray;
+    border: none;
+  }
+  &__search-bar-submit:hover {
+    background-color: darken(lightgray, 5%);
+    cursor: pointer;
+  }
+  &__search-bar-icon--white {
+    color: white;
+    font-size: 1rem;
+  }
+  &__profile-img {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    margin-right: 10px;
+  }
+  &__caret {
+    min-width: 15px;
+    margin-left: 5px;
+  }
+  &__profile-overlay {
+    background: transparent;
+    z-index: 3;
+  }
+  &__profile-dropdown {
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    background-color: $whitesmoke;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 10px;
+    width: 300px;
+    height: 200px;
+    z-index: 4;
+    cursor: default;
+  }
+  &__logout-button {
+    float: right;
+    border: 1px solid rgb(158, 156, 156);
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    background-color: $whitesmoke;
+  }
+  &__logout-button:hover {
+    cursor: pointer;
+    background: darken($whitesmoke, 10%);
+  }
+  &__logout-button:focus {
+    outline: 0;
+    box-shadow: inset 0 0 3px rgb(185, 184, 184);
   }
 }

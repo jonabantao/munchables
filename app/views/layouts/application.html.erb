@@ -8,6 +8,13 @@
     <%= javascript_include_tag 'application' %>
     <link href="https://fonts.googleapis.com/css?family=Archivo:400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Kalam:700" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script type="text/javascript">
+      window.staticImages = {
+        defaultProfile: "<%= asset_url "default-image.png" %>"
+      }
+    </script>
+
 
     <% if current_user %>
       <script>
