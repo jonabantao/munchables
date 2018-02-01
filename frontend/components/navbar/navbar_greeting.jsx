@@ -10,12 +10,8 @@ class NavBarGreeting extends Component {
     };
   }
   
-  handleProfileOpen() {
-    this.setState({ isUserMenuOpen: true });
-  }
-
-  handleProfileClose() {
-    this.setState({ isUserMenuOpen: false });
+  handleProfileWindow() {
+    this.setState({ isUserMenuOpen: !this.state.isUserMenuOpen });
   }
 
   renderProfileImage() {
@@ -25,7 +21,7 @@ class NavBarGreeting extends Component {
 
   render() {
     return (
-      <section onClick={() => this.handleProfileOpen()} 
+      <section onClick={() => this.handleProfileWindow()} 
         className="navbar__greeting"
       >
         <img src={this.renderProfileImage()} 

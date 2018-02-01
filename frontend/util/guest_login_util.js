@@ -12,7 +12,7 @@ export const randomGuest = () => {
     username: "jigglybuff",
     password: "pokemonpw",
   }, {
-    username: "mambofiveandahalf",
+    username: "mambo",
     password: "jmonika",
   }];
 

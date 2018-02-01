@@ -19,7 +19,7 @@ User.create([
     email: "poke@example.net",
     password: "pokemonpw"
   }, {
-    username: "mambofiveandahalf", 
+    username: "mambo", 
     email: "just@example.com",
     password: "jmonika"
   }

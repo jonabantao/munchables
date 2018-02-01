@@ -3,7 +3,10 @@ import React from 'react';
 const NavBarUserDropdown = (props) => {
   return (
     <nav className="navbar__profile-dropdown">
-      <button onClick={props.logout} 
+      <button onClick={(e) => {
+        e.preventDefault();
+        props.logout();
+      }} 
         className="navbar__logout-button"
       >
         Logout
