@@ -9,7 +9,7 @@
      display: flex;
      flex-direction: column;
      position: absolute;
-     left: 150px;
+     left: 75px;
      width: 350px;
      padding: 10px 30px;
      background-color: rgba(0, 0, 0, 0.5);
@@ -26,16 +26,15 @@
      background-color: white;
      border: 1px solid lightgray;
      border-radius: 5px;
-     padding: 1rem;
+     padding: 20px 10px;
      font-size: 1rem;
      height: 30px;
      width: 100%;
      margin: 0.4rem 0;
    }
    &__button {
-     margin-top: 0.6rem;
-     margin-bottom: 0.4rem;
-     padding: 0.75rem;
+     margin: 7px 0;
+     padding: 13px;
      font-size: 1rem;
      width: 100%;
      border-radius: 5px;
@@ -46,25 +45,29 @@
        border: 1px solid $red;
      }
      &--red:hover {
-       background-color: darken($red, 10%);
-       border: 1px solid darken($red, 10%);
+       background-color: darken($red, 5%);
+       border: 1px solid darken($red, 5%);
        cursor: pointer;
      }
      &--orange {
-       background-color: $button-orange;
+       background-color: $orange;
        color: $whitesmoke;
-       border: 1px solid $button-orange;
+       border: 1px solid $orange;
      }
      &--orange:hover {
-       background-color: darken($button_orange, 10%);
-       border: 1px solid darken($button_orange, 10%);
+       background-color: darken($orange, 5%);
+       border: 1px solid darken($orange, 5%);
        cursor: pointer;
      }
    }
    &__redirect-text {
      margin-top: 5px;
-     font-size: 14px;
-     color: rgb(247, 239, 239);
+     font-size: 1rem;
+     color: $whitesmoke;
+     &--underline {
+       padding-bottom: 1px;
+       border-bottom: 1px solid $whitesmoke;
+     }
    }
    &__error-container {
      background: transparent;
@@ -72,10 +75,10 @@
      list-style: none;
      margin: 5px;
      text-align: center;
-     font-size: 14px;
+     font-size: 0.9rem;
      color: $error-red;
    }
    &__error-list {
-     margin: 0.25em;
+     margin: 4px 0;
    }
  }

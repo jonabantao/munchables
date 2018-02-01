@@ -2,6 +2,28 @@
   background-image: url(image-path('hero-image1.jpg'));
   background-size: cover;
   height: 400px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  &__text {
+    position: relative;
+    color: $whitesmoke;
+    z-index: 1;
+    font-size: 5rem;
+    text-shadow: 1px 1px 2px black;
+    font-family: 'Kalam', cursive;
+  }
+}
+
+.hero-image:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .main-container {

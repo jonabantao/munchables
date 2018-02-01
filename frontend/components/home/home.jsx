@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <React.Fragment>
       <section className="hero-image">
-
+        <h1 className="hero-image__text">Let's Cook Something Savory</h1>
       </section>
       <section className="main-container">
         <RecipeListContainer />

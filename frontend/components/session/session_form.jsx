@@ -80,14 +80,20 @@ class sessionForm extends Component {
     return this.props.formType === "signup" ?
       (<p className="session__redirect-text">
         Already a member? &nbsp;
-        <Link to="/login" replace={login} className="session__redirect-text">
+        <Link to="/login" 
+          replace={login} 
+          className="session__redirect-text session__redirect-text--underline"
+        >
           Login!
         </Link>
       </p>) :
       (<p className="session__redirect-text">
-        Looking to signup? &nbsp;
-        <Link to="/signup" replace={signup} className="session__redirect-text">
-          Signup here!
+        Looking to sign up? &nbsp;
+        <Link to="/signup" 
+          replace={signup} 
+          className="session__redirect-text session__redirect-text--underline"
+        >
+          Sign Up here!
         </Link>
       </p>
       );

@@ -1,11 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const NavbarSessionLinks = () => {
   return (
     <nav className="navbar__session">
-      <Link to="/login" className="navbar__button">Log In</Link>
-      <Link to="/signup" className="navbar__button">Sign Up</Link>
+      <NavLink to="/login" className="navbar__button">Login</NavLink> 
+      <NavLink to="/signup" className="navbar__button">Sign Up</NavLink>
     </nav>
   );
 };

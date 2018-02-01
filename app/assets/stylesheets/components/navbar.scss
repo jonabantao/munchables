@@ -1,21 +1,37 @@
 .navbar {
   display: flex;
-  align-items: baseline;
-  background-color: #E6D5C1;
+  justify-content: space-around;
+  align-items: center;
+  background-color: $whitesmoke;
   border-bottom: 1px solid #A2825C;
-  min-height: 80px;
+  height: 80px;
   &__session {
+    margin-right: 70px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     width: 125px;
     height: 50px;
+    color: gray;
+  }
+  &__left {
+    margin-left: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 500px;
   }
   &__button {
-    height: 30px;
+    text-decoration: none;
+    color: inherit;
+    height: 23px;
   }
   &__logo {
-    width: 75px;
+    display: inline-block;
+    background-color: $red;
+    border-radius: 3px;
+    color: $whitesmoke;
+    padding: 13px;
+    text-align: center;
   }
   &__logo-img {
     max-width: 100%;
@@ -24,10 +40,11 @@
   &__create-recipe {
     text-decoration: none;
     border: 1px solid gray;
+    border-radius: 3px;
     color: gray;
-    padding: 5px 10px;
+    padding: 7px 15px;
   }
   &__create-recipe:hover {
-    background-color: darken(#E6D5C1, 10%);
+    background-color: darken($whitesmoke, 5%);
   }
 }
