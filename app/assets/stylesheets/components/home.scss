@@ -1,0 +1,11 @@
+.hero-image {
+  background-image: url(image-path('hero-image1.jpg'));
+  background-size: cover;
+  height: 400px;
+}
+
+.main-container {
+  display: flex;
+  padding: 80px;
+  min-height: 800px;
+}
