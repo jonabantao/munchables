@@ -26,6 +26,10 @@ a {
   color: inherit;
 }
 
+button:focus {
+  outline: 0;
+}
+
 .active {
   border-bottom: 1px solid #555454;
 }
