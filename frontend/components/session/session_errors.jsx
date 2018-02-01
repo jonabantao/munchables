@@ -2,7 +2,7 @@ import React from 'react';
 
 const sessionErrors = (props) => {
   let errorList = props.errors.map((err, i) => 
-    <li key={i}>{err}</li>
+    <li className="session__error-list" key={i}>{err}</li>
   );
 
   return (

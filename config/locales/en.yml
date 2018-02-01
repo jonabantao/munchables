@@ -31,3 +31,8 @@
 
 en:
   hello: "Hello world"
+
+activerecord:
+  errors:
+    messages:
+      confirmation: "and Password must match."

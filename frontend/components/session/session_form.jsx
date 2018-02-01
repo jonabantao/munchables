@@ -125,11 +125,11 @@ class sessionForm extends Component {
             <input
               type="submit"
               value={submitValue}
-              className="session__submit"
+              className="session__button session__button--red"
             />
             <button 
               onClick={e => this.handleGuest(e)} 
-              className="session__guest"
+              className="session__button session__button--orange"
             >
               Guest User
             </button>
