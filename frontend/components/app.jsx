@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { AuthRoute } from '../util/route_utils';
+import { AuthRoute, ProtectedRoute } from '../util/route_utils';
 
 import NavBarContainer from './navbar/navbar_container';
 import HomeComponent from './home/home';
@@ -15,6 +15,7 @@ const App = () => (
       <Route exact path="/" component={HomeComponent} />
       <AuthRoute path="/login" component={SessionFormContainer} />
       <AuthRoute path="/signup" component={SessionFormContainer} />
+      <ProtectedRoute path="/recipes/new" component={SessionFormContainer} />
       <Route component={NotFoundComponent} />
     </Switch>
     <Footer />

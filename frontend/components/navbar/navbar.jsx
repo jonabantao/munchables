@@ -4,6 +4,11 @@ import NavBarSessionLinks from './navbar_session_links';
 import { Link } from 'react-router-dom';
 
 const NavBar = ({ currentUser, logout }) => {
+  const sessionContainer = currentUser ? <NavBarGreeting
+                                          currentUser={currentUser}
+                                          logout={logout}
+                                         /> :
+                                        <NavBarSessionLinks />;
   return (
     <nav className="navbar">
       <Link to="/" className="navbar__logo">
@@ -17,13 +22,7 @@ const NavBar = ({ currentUser, logout }) => {
       <Link to="/recipes/new" className="navbar__create-recipe">
         Write a Munchable
       </Link>
-      {
-        currentUser ? <NavBarGreeting 
-                        currentUser={currentUser} 
-                        logout={logout} 
-                      /> :
-                      <NavBarSessionLinks />
-      }
+      {sessionContainer}
     </nav>
   );
 };
