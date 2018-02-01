@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import { 
   createUser, 
   loginUser, 
-  clearErrors
+  clearErrors,
+  loginGuest,
 } from '../../actions/session_actions';
 import SessionForm from './session_form';
 
@@ -24,6 +25,7 @@ const mapDispatchToProps = (dispatch, { location }) => {
   return {
     handleSession: user => dispatch(handleSession(user)),
     clearErrors: err => dispatch(clearErrors()),
+    loginGuest: () => dispatch(loginGuest()),
   };
 };
 

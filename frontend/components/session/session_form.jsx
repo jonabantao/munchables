@@ -35,6 +35,11 @@ class sessionForm extends Component {
       this.resetForm());
   }
 
+  handleGuest(e) {
+    e.preventDefault();
+    this.props.loginGuest();
+  }
+
   formUpdate(property) {
     return e => this.setState({ [property]: e.target.value });
   }
@@ -84,7 +89,8 @@ class sessionForm extends Component {
         <Link to="/signup" replace={signup} className="session__redirect-text">
           Signup here!
         </Link>
-      </p>);
+      </p>
+      );
   }
 
   renderErrorContainer(errors) {
@@ -121,9 +127,11 @@ class sessionForm extends Component {
               value={submitValue}
               className="session__submit"
             />
+            <button onClick={e => this.handleGuest(e)} className="session__submit">
+              Guest User
+            </button>
             {this.redirectSessionText()}
           </form>
-
         </section>
       </main>
     );

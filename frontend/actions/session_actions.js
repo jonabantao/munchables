@@ -1,4 +1,5 @@
 import * as APIUtil from '../util/session_api_util';
+import { randomGuest } from '../util/guest_login_util';
 
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const LOGOUT_CURRENT_USER = "LOGOUT_CURRENT_USER";
@@ -38,6 +39,11 @@ export const loginUser = user => dispatch => (
 export const logoutUser = () => dispatch => (
   APIUtil.logoutUser()
     .then(() => dispatch(logoutCurrentUser()))
+);
+
+export const loginGuest = () => dispatch => (
+  APIUtil.loginUser(randomGuest())
+    .then(guestUser => dispatch(receiveCurrentUser(guestUser)))
 );
 
 export const clearErrors = () => dispatch => dispatch(resetErrors());
