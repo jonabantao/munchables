@@ -127,7 +127,10 @@ class sessionForm extends Component {
               value={submitValue}
               className="session__submit"
             />
-            <button onClick={e => this.handleGuest(e)} className="session__submit">
+            <button 
+              onClick={e => this.handleGuest(e)} 
+              className="session__guest"
+            >
               Guest User
             </button>
             {this.redirectSessionText()}

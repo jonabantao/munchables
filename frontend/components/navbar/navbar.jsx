@@ -13,7 +13,10 @@ const NavBar = ({ currentUser, logout }) => {
           className="navbar__logo-img"
         />
       </Link>
-      {/* <input type="text" value="SEARCH BAR PLACEHOLDER" /> */}
+      <input type="text" value="SEARCH BAR PLACEHOLDER" />
+      <Link to="/recipes/new" className="navbar__create-recipe">
+        Write a Munchable
+      </Link>
       {
         currentUser ? <NavBarGreeting 
                         currentUser={currentUser} 

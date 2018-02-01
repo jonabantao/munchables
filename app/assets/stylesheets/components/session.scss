@@ -32,17 +32,35 @@
      margin: 5px 0;
    }
    &__submit {
-     background-color: rgb(235, 55, 55);
+     background-color: $red;
      margin-top: 8px;
      margin-bottom: 8px;
      padding: 5px 10px;
      font-size: 16px;
+    color: $whitesmoke;
      width: 100%;
-     border: 1px solid red;
+     border: 1px solid $red;
      border-radius: 5px;
    }
    &__submit:hover {
-     background-color: rgb(136, 16, 16);
+     background-color: darken($red, 10%);
+     border: 1px solid darken($red, 10%);
+     cursor: pointer;
+   }
+   &__guest {
+     background: $button-orange;
+     margin-top: 8px;
+     margin-bottom: 8px;
+     padding: 5px 10px;
+     font-size: 16px;
+     color: $whitesmoke;
+     width: 100%;
+     border: 1px solid $button-orange;
+     border-radius: 5px;
+   }
+   &__guest:hover {
+     background: darken($button-orange, 10%);
+     border: 1px solid darken($button-orange, 10%);
      cursor: pointer;
    }
    &__redirect-text {
