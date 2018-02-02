@@ -8,18 +8,41 @@ class NavBarGreeting extends Component {
     this.state = {
       isUserMenuOpen: false,
     };
+
+    this.handleOutsideClick = this.handleOutsideClick.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.setWrapper = this.setWrapper.bind(this);
   }
-  
-  handleProfileWindow() {
-    this.setState({ isUserMenuOpen: !this.state.isUserMenuOpen });
+
+  componentWillUnmount() {
+    document.removeEventListener('click', this.handleOutsideClick);
+  }
+
+  handleOutsideClick(e) {
+    if (!this.node.contains(e.target)) {
+      this.setState({ isUserMenuOpen: false });
+      document.removeEventListener('click', this.handleOutsideClick);
+    }
+  }
+
+  handleClick() {
+    if (!this.state.isUserMenuOpen) {
+      document.addEventListener('click', this.handleOutsideClick);
+      this.setState({ isUserMenuOpen: true });
+    } 
+  }
+
+  setWrapper(node) {
+    this.node = node;
   }
 
   render() {
     const currentUser = this.props.currentUser;
 
     return (
-      <section onClick={() => this.handleProfileWindow()} 
-        className="navbar__greeting"
+      <section className="navbar__greeting" 
+        ref={this.setWrapper} 
+        onClick={this.handleClick}
       >
         <img src={currentUser.profile_img_url} 
           alt="profile image" 
@@ -30,10 +53,10 @@ class NavBarGreeting extends Component {
         {
           this.state.isUserMenuOpen && <NavBarUserDropdown 
                                         logout={this.props.logout}
-                                       />
+                                      />
         }
       </section>
-    );
+  );
   }
 }
 
