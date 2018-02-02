@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180202173052) do
+ActiveRecord::Schema.define(version: 20180202191445) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,10 +19,14 @@ ActiveRecord::Schema.define(version: 20180202173052) do
     t.string "title", null: false
     t.string "body", null: false
     t.integer "author_id", null: false
-    t.string "img_url", null: false
-    t.string "video_url"
+    t.string "recipe_img", null: false
+    t.string "recipe_video"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "recipe_img_file_name"
+    t.string "recipe_img_content_type"
+    t.integer "recipe_img_file_size"
+    t.datetime "recipe_img_updated_at"
     t.index ["author_id"], name: "index_recipes_on_author_id", unique: true
     t.index ["title"], name: "index_recipes_on_title"
   end
