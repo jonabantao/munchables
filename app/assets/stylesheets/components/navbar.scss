@@ -34,8 +34,16 @@
   }
   &__button {
     text-decoration: none;
-    padding: 0 5px;
+    margin: 0 7px;
     height: 23px;
+    color: gray;
+  }
+  &__button:hover {
+    color: darken(gray, 30%);
+  }
+  &__button.active {
+    border-bottom: 1px solid #555454;
+    color: darken(gray, 30%);
   }
   &__logo {
     display: inline-block;
