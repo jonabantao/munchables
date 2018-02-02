@@ -3,7 +3,6 @@
   margin: 0 auto;
   &__heading {
     vertical-align: baseline;
-    text-align: center;
   }
   &__icon {
     margin-right: 9px;
@@ -17,10 +16,9 @@
   }
   &__contents {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     flex-wrap: wrap;
     width: 100%;
-    min-width: 600px;
     margin: 20px 0;
     min-height: 800px;
   }
@@ -30,9 +28,9 @@
     height: 375px;
     margin: 10px;
     border: 1px solid rgb(190, 186, 186);
-    box-shadow: 1px 0 2px rgb(190, 186, 186);
+    box-shadow: 1px 1px 5px -5px rgb(190, 186, 186);
+    overflow: hidden;
   }
-  // 
   &__item-img-container {
     flex: 0 0 auto;
     position: relative;

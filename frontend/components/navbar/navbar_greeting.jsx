@@ -14,21 +14,18 @@ class NavBarGreeting extends Component {
     this.setState({ isUserMenuOpen: !this.state.isUserMenuOpen });
   }
 
-  renderProfileImage() {
-    let knownProfileImg = this.props.currentUser.profile_img_url; 
-    return knownProfileImg ? knownProfileImg : staticImages.defaultProfile;
-  }
-
   render() {
+    const currentUser = this.props.currentUser;
+
     return (
       <section onClick={() => this.handleProfileWindow()} 
         className="navbar__greeting"
       >
-        <img src={this.renderProfileImage()} 
+        <img src={currentUser.profile_img_url} 
           alt="profile image" 
           className="navbar__profile-img"
         />
-        <small>{this.props.currentUser.username}</small>
+        <small>{currentUser.username}</small>
         <i className="fas fa-caret-down navbar__caret"></i>
         {
           this.state.isUserMenuOpen && <NavBarUserDropdown 
