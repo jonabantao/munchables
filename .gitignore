@@ -25,3 +25,4 @@ bundle.js.map
 npm-debug.log
 Guardfile
 livereload/
+application.yml
