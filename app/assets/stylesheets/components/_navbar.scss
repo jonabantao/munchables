@@ -3,17 +3,15 @@
   justify-content: space-around;
   align-items: center;
   background-color: $whitesmoke;
-  border-bottom: 1px solid #A2825C;
+  border-bottom: 1px solid $olive;
   height: 80px;
   &__session {
-    margin-right: 150px;
     display: flex;
     align-items: center;
     width: 125px;
     height: 50px;
   }
   &__greeting {
-    margin-right: 150px;
     display: flex;
     align-items: center;
     min-width: 150px;
@@ -26,7 +24,6 @@
     cursor: pointer;
   }
   &__left {
-    margin-left: 150px;
     display: flex;
     align-items: center;
     justify-content: space-around;

@@ -13,25 +13,9 @@
  *= require_self
  */
 
-
-* {
-  padding: 0;
-  margin: 0 auto;
-  box-sizing: border-box;
-  font-family: Archivo, sans-serif;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-button:focus {
-  outline: 0;
-}
-
-
-@import "base/colors.scss";
+@import "base/normalize";
+@import "base/reset";
+@import "base/colors";
 
 @import "components/*";
 
