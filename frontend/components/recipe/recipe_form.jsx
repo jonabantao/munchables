@@ -66,7 +66,7 @@ class RecipeForm extends Component {
                   <input type="text" 
                   value="" 
                   className="recipe-form__textinput"
-                  placeholder="Your Munchable titlesan"
+                  placeholder="Your Munchable title"
                   />
               </label>
               <label className="recipe-form__intro-label">Intro:<br />

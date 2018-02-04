@@ -1,4 +1,5 @@
 User.destroy_all
+Recipe.destroy_all
 
 # Guest usernames to be used for demo login (found in frontend/util) #
 User.create([
@@ -25,3 +26,5 @@ User.create([
   }
 ])
 #############
+user1 = User.create({ username: "test", email: "test", password: "tester"})
+Recipe.create(title: "Test", body: "testbody", author_id: user1.id)
