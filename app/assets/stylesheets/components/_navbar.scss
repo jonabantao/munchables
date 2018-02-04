@@ -19,8 +19,6 @@
     text-overflow: ellipsis;
     padding: 30px 5px;
     position: relative;
-  }
-  &__greeting:hover {
     cursor: pointer;
   }
   &__left {
@@ -34,13 +32,13 @@
     margin: 0 7px;
     height: 23px;
     color: gray;
-  }
-  &__button:hover {
-    color: darken(gray, 30%);
-  }
-  &__button.active {
-    border-bottom: 1px solid #555454;
-    color: darken(gray, 30%);
+    &:hover {
+      color: darken(gray, 30%);
+    }
+    &.active {
+      border-bottom: 1px solid #555454;
+      color: darken(gray, 30%);
+    }
   }
   &__logo {
     display: inline-block;
@@ -60,9 +58,12 @@
     border-radius: 3px;
     color: gray;
     padding: 7px 15px;
-  }
-  &__create-recipe:hover {
-    background-color: darken($whitesmoke, 5%);
+    &:hover {
+      background-color: darken($whitesmoke, 5%);
+    }
+    &:active {
+      box-shadow: inset 0 0 5px darken($whitesmoke, 50%);
+    }
   }
   &__search-bar {
     display: flex;
@@ -81,20 +82,20 @@
     border: 0;
     outline: none;
     border: 1px solid transparent;
-  }
-  &__search-bar-input:focus {
-    padding: 10px;
-    box-shadow: 0 0 6px $search-bar-blue;
-    border: 1px solid $search-bar-blue;
+    &:focus {
+      padding: 10px;
+      box-shadow: 0 0 6px $searchbar-blue;
+      border: 1px solid $searchbar-blue;
+    }
   }
   &__search-bar-submit {
     width: 40px;
     background-color: lightgray;
     border: none;
-  }
-  &__search-bar-submit:hover {
-    background-color: darken(lightgray, 5%);
-    cursor: pointer;
+    &:hover {
+      background-color: darken(lightgray, 5%);
+      cursor: pointer;
+    }
   }
   &__search-bar-icon--white {
     color: white;
@@ -134,13 +135,13 @@
     padding: 8px 15px;
     font-size: 0.9rem;
     background-color: $whitesmoke;
-  }
-  &__logout-button:hover {
     cursor: pointer;
-    background: darken($whitesmoke, 10%);
-  }
-  &__logout-button:focus {
-    outline: 0;
-    box-shadow: inset 0 0 3px rgb(185, 184, 184);
+    &:hover {
+      background: darken($whitesmoke, 10%);
+    }
+    &:active {
+      outline: 0;
+      box-shadow: inset 0 0 3px rgb(185, 184, 184);
+    }
   }
 }

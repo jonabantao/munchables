@@ -76,17 +76,9 @@
     border-bottom: 1px solid $olive;
   }
   &__title-window {
-    display:flex;
+    display: flex;
     justify-content: space-between;
     width: auto;
-  }
-  &__img_container {
-    background-color: rgb(226, 225, 225);
-    box-shadow: inset 0 0 15px rgb(175, 175, 175);
-    width: 400px;
-    height: 355px;
-    border-radius: 8px;
-    cursor: pointer;
   }
   &__title-subform {
     display: flex;
@@ -99,35 +91,86 @@
     font-size: 1.2rem;
     margin-bottom: 9px;
   }
+  &__img-upload {
+    background-color: rgb(226, 225, 225);
+    box-shadow: inset 0 0 15px rgb(175, 175, 175);
+    width: 400px;
+    height: 355px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 15px;
+    text-align: center;
+  }
+  &__img-input {
+    display: none;
+  }
+  &__img-main {
+    width: 100%;
+  }
+  &__img-upload-text {
+    font-size: 1.6rem;
+    color: $gray;
+  }
   &__intro-label {
     font-size: 1.2rem;
   }
   &__textinput {
     padding: 8px;
-    width: 450px;
+    width: 500px;
     height: 40px;
     margin-left: 10px;
     font-size: 1rem;
     font-weight: 700;
+    border: 1px solid $gray;
   }
   &__textarea {
     resize: none;
-    width: 500px;
+    width: 550px;
     height: 200px;
     font-size: 1rem;
     padding: 8px 12px;
     margin-top: 5px;
+    outline: none;
+    border: 1px solid $gray;
   }
-  &__title-subform, & {
-
+  &__button {
+    display: block;
+    width: 250px;
+    height: 60px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin: 5px auto;
+    border: 1px solid $publishmunch-red;
+    background-color: $publishmunch-red;
+    border-radius: 5px;
+    color: $whitesmoke;
+    &:hover {
+      background-color: darken($publishmunch-red, 10%);
+      border: 1px solid darken($publishmunch-red, 10%);
+    }
+    &:active {
+      box-shadow: 0px 0px 5px darken($publishmunch-red, 50%);
+    }
   }
-}
-
-.te {
-  display: block;
-  width: 250px;
-  height: 60px;
-  margin-top: 5px;
-  font-size: 1.5rem;
-  cursor: pointer;
+  &__add-step-button {
+    display: block;
+    padding: 10px 20px;
+    height: 40px;
+    margin: 10px auto;
+    border: 1px solid $addstep-blue;
+    border-radius: 5px;
+    background-color: $addstep-blue;
+    cursor: pointer;
+    &:hover {
+      background-color: darken($addstep-blue, 10%);
+      border: 1px solid darken($addstep-blue, 10%);
+    }
+    &:active {
+      box-shadow: 0px 0px 5px darken($addstep-blue, 50%);
+    }
+  }
 }
