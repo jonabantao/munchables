@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // DELET THIS vvv
   window.getState = store.getState;
   window.dispatch = store.dispatch;
-  window.requestAllRecipes = () => store.dispatch(requestAllRecipes());
+  window.requestRecipe = (id) => store.dispatch(requestRecipe(id));
   // REMOVE THIS ^^^
 
   ReactDOM.render(<Root store={store} />, document.getElementById('root'));

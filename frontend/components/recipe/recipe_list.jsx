@@ -19,7 +19,6 @@ class RecipeList extends Component {
   }
 
   render() {
-    console.log(this.props.recipes);
     return (
       <nav className="recipe-list">
         <section className="recipe-list__heading">

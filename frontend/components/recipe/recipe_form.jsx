@@ -7,15 +7,30 @@ class RecipeForm extends Component {
     this.state = {
       body: '',
       title: '',
+      recipe_video_url: '',
       imageFile: null,
       imageUrl: null,
-      hasPressedBegun: false,
     };
 
     this.uploadImage = this.uploadImage.bind(this);
     this.handleInitialSubmit = this.handleInitialSubmit.bind(this);
+    this.handlePublishSubmit = this.handlePublishSubmit.bind(this);
+    this.updateEditedState = this.updateEditedState.bind(this);
+  }
 
-    this.recipeId = null;
+  componentWillMount() {
+    if (this.props.formType === "edit") {
+      this.props.requestRecipe(this.props.ownProps.match.params.recipeId)
+        .then(() => this.updateEditedState());
+    }
+  }
+
+  updateEditedState() {
+    this.setState({
+      body: this.props.recipe.body,
+      title: this.props.recipe.title,
+      recipe_video_url: this.props.recipe.recipe_video_url,
+    });
   }
 
   uploadImage(e) {
@@ -49,25 +64,46 @@ class RecipeForm extends Component {
       formData.append('recipe[recipe_img]', this.state.imageFile);
     }
     
-    console.log(formData);
     this.props.createRecipe(formData)
       .then(newRecipe => {
         this.props.history.replace(`/recipes/${newRecipe.recipe.id}/edit`);
-        // this.recipeId = newRecipe.recipe.id;
-        // this.setState({ hasPressedBegun: true });
-      });
-  } 
+      }, err => console.log(err));
+  }
+
+  handlePublishSubmit(e) {
+    e.preventDefault();
+
+    const file = this.state.imageFile;
+    let formData = new FormData();
+    formData.append('recipe[id]', this.props.match.params.recipeId);
+    formData.append('recipe[body]', this.state.body);
+    formData.append('recipe[title]', this.state.title);
+    if (file) {
+      formData.append('recipe[recipe_img]', this.state.imageFile);
+    }
+    formData.append('recipe[published]', true);
+
+    this.props.updateRecipe(formData);
+  }
 
   displayImage() {
-    return this.state.imageUrl ? 
-      <img src={`${this.state.imageUrl}`} className="recipe-form__img-main"/> : 
-      <h3 className="recipe-form__img-upload-text">
-        <i className="fas fa-plus"></i> Click To Add Title Image
-      </h3>;
+    if (this.props.formType === "edit" && this.state.imageFile === null && this.props.recipe) {
+      return <img src={`${this.props.recipe.recipe_img_url}`} 
+              className="recipe-form__img-main"/>;
+    } else if (this.state.imageUrl) {
+      return <img src={`${this.state.imageUrl}`} 
+              className="recipe-form__img-main" />;
+    } else {
+      return (
+        <h3 className="recipe-form__img-upload-text">
+          <i className="fas fa-plus"></i> Click To Add Title Image
+        </h3>
+      );
+    }
   }
 
   displayBeginStepAddButton() {
-    if (!this.state.hasPressedBegun) {
+    if (this.props.formType === "new") {
       return  <button 
                 className="recipe-form__button"
                 onClick={this.handleInitialSubmit}
@@ -76,10 +112,25 @@ class RecipeForm extends Component {
               </button>;
     }
   }
+  
+  displayPublishButton() {
+    if (this.props.formType === "edit") {
+      return  <button className="recipe-form__button"
+                onClick={this.handlePublishSubmit}
+              >
+                Publish Munchable
+              </button>;
+    }
+  }
+
+  // displayStepContainer() {
+  //   if (this.props.formType === "edit") {
+  //     return <StepFormContainer recipeId={this.props} />
+  //   }
+  // }
 
   render() {
-    console.log(this.props);
-    console.log(this.recipeId);
+    console.log(this.state);
     return (
       <section className="recipe-form-page">
         <div className="recipe-form">
@@ -103,6 +154,14 @@ class RecipeForm extends Component {
                     onChange={this.update('title')}
                   />
               </label>
+              <label className="recipe-form__title-label">Video Url:
+                  <input type="text" 
+                    value={this.state.recipe_video_url} 
+                    className="recipe-form__textinput"
+                    placeholder="Video Url"
+                    onChange={this.update('recipe_video_url')}
+                  />
+              </label>
               <label className="recipe-form__intro-label">Intro:<br />
                 <textarea
                   className="recipe-form__textarea"
@@ -111,12 +170,11 @@ class RecipeForm extends Component {
                   onChange={this.update('body')}
                 />
                 {this.displayBeginStepAddButton()}
-                <button className="recipe-form__button">Publish Munchable</button>
               </label>
             </div>
           </div>
         </div>
-        <button className="recipe-form__add-step-button">Add Step</button>
+        {this.displayPublishButton()}
       </section>
     );
   }

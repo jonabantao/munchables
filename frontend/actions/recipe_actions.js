@@ -20,7 +20,7 @@ export const requestAllRecipes = () => dispatch => (
     .then(allFetchedPayloads => dispatch(receiveAllRecipes(allFetchedPayloads)))
 );
 
-export const requestReceipe = id => dispatch => (
+export const requestRecipe = id => dispatch => (
   APIUtil.fetchRecipe(id)
     .then(fetchedPayload => dispatch(receiveRecipe(fetchedPayload)))
 );

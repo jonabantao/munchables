@@ -21,6 +21,8 @@ class Api::RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:title, :body, :recipe_img, :published)
+    params.require(:recipe).permit(:title, :body, :recipe_img, :published,
+      :recipe_video_url
+    )
   end
 end

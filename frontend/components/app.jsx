@@ -17,6 +17,7 @@ const App = () => (
       <AuthRoute path="/login" component={SessionFormContainer} />
       <AuthRoute path="/signup" component={SessionFormContainer} />
       <ProtectedRoute path="/recipes/new" component={RecipeFormContainer} />
+      <Route path="/recipes/:recipeId/edit" component={RecipeFormContainer} />
       <Route component={NotFoundComponent} />
     </Switch>
     <Footer />
