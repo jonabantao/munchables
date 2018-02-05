@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20180204071340) do
     t.string "body", null: false
     t.integer "author_id", null: false
     t.string "recipe_video_url"
+    t.boolean "published", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "recipe_img_file_name"

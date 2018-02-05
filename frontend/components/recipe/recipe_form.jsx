@@ -26,10 +26,13 @@ class RecipeForm extends Component {
   }
 
   updateEditedState() {
+    const recipeVideoUrl = this.props.recipe.recipe_video_url ? 
+      this.props.recipe.recipe_video_url : '';
+
     this.setState({
       body: this.props.recipe.body,
       title: this.props.recipe.title,
-      recipe_video_url: this.props.recipe.recipe_video_url,
+      recipe_video_url: recipeVideoUrl,
     });
   }
 
