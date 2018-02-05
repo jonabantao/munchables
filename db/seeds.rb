@@ -2,7 +2,7 @@ User.destroy_all
 Recipe.destroy_all
 
 # Guest usernames to be used for demo login (found in frontend/util) #
-User.create([
+guest_users = User.create([
   { 
     username: "chef_excellence", 
     email: "chefex@example.com",
@@ -26,5 +26,10 @@ User.create([
   }
 ])
 #############
-user1 = User.create({ username: "test", email: "test", password: "tester"})
-Recipe.create(title: "Test", body: "testbody", author_id: user1.id)
+Recipe.create(title: "Test", body: "testbody", author_id: guest_users[0].id)
+Recipe.create(title: "Tesfast", body: "testbody", author_id: guest_users[3].id)
+Recipe.create(title: "Tesfsafsat", body: "testbody", author_id: guest_users[2].id)
+Recipe.create(title: "Tesfsafsat", body: "testbody", author_id: guest_users[1].id)
+Recipe.create(title: "Testsa", body: "testbody", author_id: guest_users[4].id)
+Recipe.create(title: "Tesfsat", body: "testbody", author_id: guest_users[2].id)
+Recipe.create(title: "Testa", body: "testbody", author_id: guest_users[1].id)
