@@ -29,7 +29,7 @@ export const updateStep = step => (
   })
 );
 
-export const deleteRecipe = id => (
+export const deleteStep = id => (
   $.ajax({
     method: "DELETE",
     url: `/api/steps/${id}`

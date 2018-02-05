@@ -167,21 +167,4 @@
       box-shadow: 0px 0px 5px darken($publishmunch-red, 50%);
     }
   }
-  &__add-step-button {
-    display: block;
-    padding: 10px 20px;
-    height: 40px;
-    margin: 10px auto;
-    border: 1px solid $addstep-blue;
-    border-radius: 5px;
-    background-color: $addstep-blue;
-    cursor: pointer;
-    &:hover {
-      background-color: darken($addstep-blue, 10%);
-      border: 1px solid darken($addstep-blue, 10%);
-    }
-    &:active {
-      box-shadow: 0px 0px 5px darken($addstep-blue, 50%);
-    }
-  }
 }

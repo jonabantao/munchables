@@ -1,0 +1,43 @@
+.step {
+  &__form-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 900px;
+    border: 1px solid $gray;
+    border-radius: 5px;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background: $whitesmoke;
+  }
+  &__form-actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &__form-action-button {
+    padding: 5px;
+    cursor: pointer;
+    margin: 10px 0;
+  }
+  &__form-step-title:hover {
+    text-decoration: underline;
+  }
+  &__add-step-button {
+    display: block;
+    padding: 10px 20px;
+    height: 40px;
+    margin: 0 auto;
+    border: 1px solid $addstep-blue;
+    border-radius: 5px;
+    background-color: $addstep-blue;
+    cursor: pointer;
+    &:hover {
+      background-color: darken($addstep-blue, 10%);
+      border: 1px solid darken($addstep-blue, 10%);
+    }
+    &:active {
+      box-shadow: 0px 0px 5px darken($addstep-blue, 50%);
+    }
+  }
+}

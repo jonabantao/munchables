@@ -1,7 +1,11 @@
 import { connect } from 'react-redux';
 import StepForm from './step_form';
 import {
-  requestAllSteps
+  requestAllSteps,
+  createStep,
+  updateStep,
+  requestStep,
+  removeStep,
 } from '../../../actions/step_actions';
 
 const mapStateToProps = (state, ownProps) => ({
