@@ -21,6 +21,8 @@ gem "paperclip", "~> 5.2.1"
 gem 'pry-rails'
 gem 'normalize-scss'
 gem 'figaro'
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+gem 'factory_bot_rails'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -36,8 +38,6 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'annotate'
-  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
-  gem 'factory_bot_rails'
   gem 'guard', '>= 2.2.2', require: false
   gem 'guard-livereload', require: false
   gem 'rack-livereload'
