@@ -1,6 +1,6 @@
 class Api::RecipesController < ApplicationController
   def index
-    @recipes = Recipe.all.includes(:author)
+    @recipes = Recipe.all.includes(:author, :steps)
   end
 
   def create

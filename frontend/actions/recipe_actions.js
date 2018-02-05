@@ -15,9 +15,19 @@ const receiveRecipe = payload => ({
   payload
 });
 
+const receiveRecipeErrors = errors => ({
+  type: RECEIVE_RECIPE_ERRORS,
+  errors
+});
+
+const resetRecipeErrors = () => ({
+  type: RESET_RECIPE_ERRORS,
+});
+
 export const requestAllRecipes = () => dispatch => (
   APIUtil.fetchRecipes()
-    .then(allFetchedPayloads => dispatch(receiveAllRecipes(allFetchedPayloads)))
+    .then(allFetchedPayloads => dispatch(receiveAllRecipes(allFetchedPayloads)),
+          err => dispatch(receiveRecipeErrors(err.responseJSON)))
 );
 
 export const requestRecipe = id => dispatch => (
@@ -30,10 +40,13 @@ export const createRecipe = recipe => dispatch => (
     .then(newRecipe => {
       dispatch(receiveRecipe(newRecipe));
       return newRecipe;
-    })
+    },
+    err => dispatch(receiveRecipeErrors(err.responseJSON))
+  )
 );
 
 export const updateRecipe = recipe => dispatch => (
   APIUtil.updateRecipe(recipe)
-    .then(updatedRecipe => dispatch(receiveRecipe(updatedRecipe)))  
+    .then(updatedRecipe => dispatch(receiveRecipe(updatedRecipe)),
+          err => dispatch(receiveRecipeErrors(err.responseJSON)))  
 );

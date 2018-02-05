@@ -7,3 +7,11 @@ end
 json.author do
   json.partial! 'api/users/user', user: @recipe.author
 end
+
+json.steps do
+  @recipe.steps.each do |step|
+    json.set! step.id do
+      json.partial! 'api/steps/step', step: step
+    end
+  end
+end
