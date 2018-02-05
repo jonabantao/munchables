@@ -15,7 +15,7 @@ class RecipeForm extends Component {
     this.uploadImage = this.uploadImage.bind(this);
     this.handleInitialSubmit = this.handleInitialSubmit.bind(this);
 
-    this.recipeId;
+    this.recipeId = null;
   }
 
   uploadImage(e) {
@@ -40,8 +40,17 @@ class RecipeForm extends Component {
 
   handleInitialSubmit(e) {
     e.preventDefault();
-
-    this.props.createRecipe(this.state)
+    
+    const file = this.state.imageFile;
+    let formData = new FormData();
+    formData.append('recipe[body]', this.state.body);
+    formData.append('recipe[title]', this.state.title);
+    if (file) {
+      formData.append('recipe[recipe_img]', this.state.imageFile);
+    }
+    
+    console.log(formData);
+    this.props.createRecipe(formData)
       .then(newRecipe => {
         this.recipeId = newRecipe.recipe.id;
         this.setState({ hasPressedBegun: true });
