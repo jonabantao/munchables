@@ -52,8 +52,9 @@ class RecipeForm extends Component {
     console.log(formData);
     this.props.createRecipe(formData)
       .then(newRecipe => {
-        this.recipeId = newRecipe.recipe.id;
-        this.setState({ hasPressedBegun: true });
+        this.props.history.replace(`/recipes/${newRecipe.recipe.id}/edit`);
+        // this.recipeId = newRecipe.recipe.id;
+        // this.setState({ hasPressedBegun: true });
       });
   } 
 
@@ -77,7 +78,7 @@ class RecipeForm extends Component {
   }
 
   render() {
-    console.log(this.state);
+    console.log(this.props);
     console.log(this.recipeId);
     return (
       <section className="recipe-form-page">
