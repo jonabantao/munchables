@@ -1,7 +1,9 @@
-json.set! @recipe.id do
-    json.extract! @recipe, :id, :title, :body, :recipe_video_url, :created_at
-    json.author do
-      json.extract! @recipe.author, :id, :username
-      json.profile_img_url asset_path(@recipe.author.profile_img.url)
-    end
+json.recipe do
+  json.extract! @recipe, :id, :title, :body, :author_id, :recipe_video_url,
+    :created_at
+  json.recipe_img_url asset_path(@recipe.recipe_img)
+end
+
+json.author do
+  json.partial! 'api/users/user', user: @recipe.author
 end

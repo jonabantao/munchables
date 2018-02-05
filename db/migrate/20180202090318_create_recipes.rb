@@ -10,6 +10,6 @@ class CreateRecipes < ActiveRecord::Migration[5.1]
     end
 
     add_index :recipes, :title
-    add_index :recipes, :author_id, unique: true
+    add_index :recipes, :author_id
   end
 end

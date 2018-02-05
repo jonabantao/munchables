@@ -1,7 +1,7 @@
 class Recipe < ApplicationRecord
   validates :title, :body, presence: true
 
-  has_attached_file :recipe_img, default_url: nil
+  has_attached_file :recipe_img, default_url: "default-profile.png"
   validates_attachment_content_type :recipe_img, content_type: /\Aimage\/.*\Z/
 
   belongs_to :author,

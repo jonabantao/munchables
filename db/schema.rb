@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20180204071340) do
     t.string "recipe_img_content_type"
     t.integer "recipe_img_file_size"
     t.datetime "recipe_img_updated_at"
-    t.index ["author_id"], name: "index_recipes_on_author_id", unique: true
+    t.index ["author_id"], name: "index_recipes_on_author_id"
     t.index ["title"], name: "index_recipes_on_title"
   end
 
