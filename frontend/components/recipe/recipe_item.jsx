@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const RecipeItem = (props) => {
   return (
     <li className="recipe-list__item">
-      <Link to={`/api/recipes/${props.recipe.id}`}>
+      <Link to={`/recipes/${props.recipe.id}`}>
         <section className="recipe-list__item-img-container">
           <img src="http://via.placeholder.com/325x250"
             className="recipe-list__item-placeholder"
