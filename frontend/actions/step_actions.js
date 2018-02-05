@@ -12,6 +12,12 @@ const receiveStep = step => ({
   step
 });
 
-const receiveSteps = () => {
+const receiveSteps = steps => ({
+  type: RECEIVE_STEPS,
+  steps
+});
 
-};
+export const requestAllSteps = recipeId => dispatch => (
+  APIUtil.fetchSteps(recipeId)
+    .then(allRecipeSteps => dispatch(receiveSteps(allRecipeSteps)))
+);

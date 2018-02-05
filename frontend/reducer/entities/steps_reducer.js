@@ -14,7 +14,7 @@ const stepsReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_RECIPE:
-      return action.payload.steps;
+      return _.merge({}, action.payload.steps);
     default:
       return state;
   }

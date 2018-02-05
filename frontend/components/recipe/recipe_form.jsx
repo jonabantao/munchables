@@ -129,12 +129,11 @@ class RecipeForm extends Component {
 
   displayStepContainer() {
     if (this.props.formType === "edit") {
-      return <StepFormContainer recipeId={this.props} />;
+      return <StepFormContainer recipeId={this.props.match.params.recipeId} />;
     }
   }
 
   render() {
-    console.log(this.state);
     return (
       <section className="recipe-form-page">
         <div className="recipe-form">
@@ -178,6 +177,7 @@ class RecipeForm extends Component {
             </div>
           </div>
         </div>
+        {this.displayStepContainer()}
         {this.displayPublishButton()}
       </section>
     );

@@ -10,7 +10,7 @@ const recipesReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_ALL_RECIPES:
-      return action.payload.recipes;
+      return _.merge({}, action.payload.recipes);
     case RECEIVE_RECIPE:
       newState[action.payload.recipe.id] = action.payload.recipe;
       return _.merge({}, state, newState);

@@ -10,7 +10,7 @@ const authorsReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_ALL_RECIPES:
-      return action.payload.authors;
+      return _.merge({}, action.payload.authors);
     case RECEIVE_RECIPE:
       newState[action.payload.author.id] = action.payload.author;
       return _.merge({}, state, newState);

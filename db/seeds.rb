@@ -78,6 +78,12 @@ steps = Step.create([
   {
     title: Faker::Hacker.noun,
     body: Faker::Hacker.say_something_smart,
+    order: 3,
+    recipe_id: recipes[0].id,
+  },
+  {
+    title: Faker::Hacker.noun,
+    body: Faker::Hacker.say_something_smart,
     order: 1,
     recipe_id: recipes[0].id,
   },
@@ -85,12 +91,6 @@ steps = Step.create([
     title: Faker::Hacker.noun,
     body: Faker::Hacker.say_something_smart,
     order: 2,
-    recipe_id: recipes[0].id,
-  },
-  {
-    title: Faker::Hacker.noun,
-    body: Faker::Hacker.say_something_smart,
-    order: 3,
     recipe_id: recipes[0].id,
   },
 ])
