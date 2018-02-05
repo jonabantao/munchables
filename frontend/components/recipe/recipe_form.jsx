@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import StepFormContainer from './step/step_form_container';
 
 class RecipeForm extends Component {
   constructor(props) {
@@ -126,11 +127,11 @@ class RecipeForm extends Component {
     }
   }
 
-  // displayStepContainer() {
-  //   if (this.props.formType === "edit") {
-  //     return <StepFormContainer recipeId={this.props} />
-  //   }
-  // }
+  displayStepContainer() {
+    if (this.props.formType === "edit") {
+      return <StepFormContainer recipeId={this.props} />;
+    }
+  }
 
   render() {
     console.log(this.state);

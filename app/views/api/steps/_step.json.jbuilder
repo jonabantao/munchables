@@ -1,0 +1,1 @@
+json.extract! step, :id, :body, :order, :recipe_id, :title
