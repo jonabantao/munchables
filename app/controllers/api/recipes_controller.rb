@@ -4,7 +4,7 @@ class Api::RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.new
+    @recipe = Recipe.new(recipe_params)
     @recipe.author_id = current_user.id
 
     if @recipe.save
@@ -21,6 +21,6 @@ class Api::RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:title, :body, :recipe_img)
+    params.require(:recipe).permit(:title, :body, :recipe_img, :published)
   end
 end

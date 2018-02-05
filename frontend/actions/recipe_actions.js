@@ -24,3 +24,16 @@ export const requestReceipe = id => dispatch => (
   APIUtil.fetchRecipe(id)
     .then(fetchedPayload => dispatch(receiveRecipe(fetchedPayload)))
 );
+
+export const createRecipe = recipe => dispatch => (
+  APIUtil.createRecipe(recipe)
+    .then(newRecipe => {
+      dispatch(receiveRecipe(newRecipe));
+      return newRecipe;
+    })
+);
+
+export const updateRecipe = recipe => dispatch => (
+  APIUtil.updateRecipe(recipe)
+    .then(updatedRecipe => dispatch(receiveRecipe(updatedRecipe)))  
+);

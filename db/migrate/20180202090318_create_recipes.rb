@@ -5,6 +5,7 @@ class CreateRecipes < ActiveRecord::Migration[5.1]
       t.string :body, null: false
       t.integer :author_id, null: false
       t.string :recipe_video_url
+      t.boolean :published, default: false
 
       t.timestamps
     end
