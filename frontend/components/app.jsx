@@ -5,7 +5,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_utils';
 import NavBarContainer from './navbar/navbar_container';
 import HomeComponent from './home/home';
 import SessionFormContainer from './session/session_container';
-import RecipeFormContainer from './recipe/recipe_form';
+import RecipeFormContainer from './recipe/recipe_form_container';
 import NotFoundComponent from './not_found';
 import Footer from './footer/footer';
 

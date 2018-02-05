@@ -5,6 +5,7 @@ class Api::RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new
+    @recipe.author_id = current_user.id
 
     if @recipe.save
       render :show
@@ -15,5 +16,11 @@ class Api::RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
+  end
+
+  private
+
+  def recipe_params
+    params.require(:recipe).permit(:title, :body, :recipe_img)
   end
 end

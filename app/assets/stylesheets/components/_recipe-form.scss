@@ -1,0 +1,138 @@
+.recipe-form-page {
+  background-color: $background-olive;
+  overflow: auto;
+  min-height: 800px;
+}
+
+.recipe-form {
+  margin: 50px auto;
+  width: 1000px;
+  height: 100%;
+  padding: 12px;
+  border: 1px solid $olive;
+  border-radius: 10px;
+  background-color: $whitesmoke;
+  overflow: hidden;
+  &__menu {
+    background-color: rgb(236, 236, 236);
+    height: 375px;
+    padding: 10px 12px;
+    border-bottom: 1px solid $olive;
+  }
+  &__title-window {
+    display: flex;
+    justify-content: space-between;
+    width: auto;
+  }
+  &__title-subform {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 25px;
+    width: 575px;
+  }
+  &__title-label {
+    font-size: 1.2rem;
+    margin-bottom: 9px;
+  }
+  &__img-upload {
+    background-color: rgb(226, 225, 225);
+    box-shadow: inset 0 0 15px rgb(175, 175, 175);
+    width: 400px;
+    height: 355px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 15px;
+  }
+  &__img-input {
+    display: none;
+  }
+  &__img-container {
+    display: flex;
+    align-items: center;
+    height: 330px;
+    width: 380px;
+    border-radius: 5px;
+    justify-content: center;
+  }
+  &__img-main {
+    width: 100%;
+  }
+  &__img-upload-text {
+    display: block;
+    font-size: 1.6rem;
+    color: $gray;
+  }
+  &__intro-label {
+    font-size: 1.2rem;
+  }
+  &__video-label {
+    font-size: 1.2rem;
+  }
+  &__textinput {
+    padding: 8px;
+    width: 493px;
+    height: 40px;
+    margin-left: 10px;
+    font-size: 1rem;
+    border: 1px solid $gray;
+  }
+  &__videoinput {
+    padding: 8px;
+    width: 450px;
+    height: 40px;
+    margin-left: 10px;
+    font-size: 1rem;
+    border: 1px solid $gray;
+  }
+  &__textarea {
+    resize: none;
+    width: 550px;
+    height: 200px;
+    font-size: 1rem;
+    padding: 8px 12px;
+    margin-top: 5px;
+    outline: none;
+    border: 1px solid $gray;
+  }
+  &__button {
+    display: block;
+    width: 250px;
+    height: 60px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin: 5px auto;
+    border: 1px solid $publishmunch-red;
+    background-color: $publishmunch-red;
+    border-radius: 5px;
+    color: $whitesmoke;
+    &:hover {
+      background-color: darken($publishmunch-red, 10%);
+      border: 1px solid darken($publishmunch-red, 10%);
+    }
+    &:active {
+      box-shadow: 0px 0px 5px darken($publishmunch-red, 50%);
+    }
+  }
+  &__add-step-button {
+    display: block;
+    padding: 10px 20px;
+    height: 40px;
+    margin: 10px auto;
+    border: 1px solid $addstep-blue;
+    border-radius: 5px;
+    background-color: $addstep-blue;
+    cursor: pointer;
+    &:hover {
+      background-color: darken($addstep-blue, 10%);
+      border: 1px solid darken($addstep-blue, 10%);
+    }
+    &:active {
+      box-shadow: 0px 0px 5px darken($addstep-blue, 50%);
+    }
+  }
+}
