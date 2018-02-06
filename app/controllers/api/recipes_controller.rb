@@ -1,4 +1,6 @@
 class Api::RecipesController < ApplicationController
+  before_action :ensure_logged_in, only: [:create, :update]
+
   def index
     @recipes = Recipe.all.where(published: true).includes(:author, :steps)
   end
@@ -21,10 +23,12 @@ class Api::RecipesController < ApplicationController
   def update
     @recipe = Recipe.find(params[:id])
 
-    if @recipe.update_attributes(recipe_params)
+    if @recipe.author_id != current_user.try(:id) ? @recipe : nil
+      render json: ["You are not the author of this recipe."], status: 403
+    elsif @recipe.update_attributes(recipe_params)
       render 'api/recipes/show'
     else
-      render json: @concept.errors, status: 422
+      render json: @recipe.errors.full_messages, status: 422
     end
   end
 
