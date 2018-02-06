@@ -16,6 +16,10 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = dispatch => ({
   requestAllSteps: recipeId => dispatch(requestAllSteps(recipeId)),
+  createStep: step => dispatch(createStep(step)),
+  updateStep: step => dispatch(updateStep(step)),
+  requestStep: stepId => dispatch(requestStep(stepId)),
+  removeStep: stepId => dispatch(requestStep(stepId)),
 });
 
 export default connect(

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import StepFormList from './step_form_list';
 
 class StepForm extends Component {
   constructor(props) {
@@ -50,19 +51,13 @@ class StepForm extends Component {
   displaySteps() {
     if (this.state.steps.length) {
       return this.state.steps.map(step => (
-        <section key={step.id} className="step__form-list">
-          <h4>
-            <Link to={`/recipe/${this.props.recipeId}/steps/${step.id}`}
-              className="step__form-step-title"
-            >
-              Step #{step.order}: {step.title ? step.title : "(Click to Edit)"}
-            </Link>
-          </h4>
-          <div className="step__form-actions">
-            <button className="step__form-action-button">Edit</button>
-            <button className="step__form-action-button">Delete</button>
-          </div>
-        </section>
+        <StepFormList 
+          key={step.id} 
+          step={step} 
+          recipeId={this.props.recipeId} 
+          updateStep={this.props.updateStep}
+          removeStep={this.props.removeStep}
+        />
       ));
     } else {
       return null;
