@@ -30,7 +30,9 @@ class StepFormListEdit extends Component {
     let updateState = Object.assign({}, this.state, { id: this.props.stepId });
 
     this.props.updateStep(updateState)
-      .then(this.props.history.push(`/recipes/${this.props.recipeId}/edit`));
+      .then(
+        () => this.props.history.push(`/recipes/${this.props.recipeId}/edit`)
+      );
   }
 
   update(propType) {

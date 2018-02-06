@@ -9,5 +9,6 @@ class Recipe < ApplicationRecord
     class_name: :User,
     foreign_key: :author_id,
     primary_key: :id
-  has_many :steps
+  has_many :steps, dependent: :destroy
+  has_many :comments, dependent: :destroy
 end

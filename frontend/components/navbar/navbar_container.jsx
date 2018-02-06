@@ -4,8 +4,9 @@ import NavBar from './navbar';
 import { logoutUser } from '../../actions/session_actions';
 import { withRouter } from 'react-router-dom';
 
-const mapStateToProps = ({ session }) => ({
+const mapStateToProps = ({ session }, { history }) => ({
   currentUser: session.currentUser,
+  history
 });
 
 const mapDispatchToProps = dispatch => ({

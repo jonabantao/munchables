@@ -5,7 +5,8 @@ const NavBarUserDropdown = (props) => {
     <nav className="navbar__profile-dropdown">
       <button onClick={(e) => {
         e.preventDefault();
-        props.logout();
+        props.logout()
+          .then(() => props.history.push('/'));
       }} 
         className="navbar__logout-button"
       >

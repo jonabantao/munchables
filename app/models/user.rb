@@ -13,6 +13,11 @@ class User < ApplicationRecord
     class_name: :Recipe,
     foreign_key: :author_id,
     primary_key: :id
+  has_many :authored_comments,
+    class_name: :Comment,
+    foreign_key: :commenter_id,
+    primary_key: :id
+
 
 
   def self.find_by_credentials(username, password)

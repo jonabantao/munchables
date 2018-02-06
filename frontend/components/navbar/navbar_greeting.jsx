@@ -53,6 +53,7 @@ class NavBarGreeting extends Component {
         {
           this.state.isUserMenuOpen && <NavBarUserDropdown 
                                         logout={this.props.logout}
+                                        history={this.props.history}
                                       />
         }
       </section>
