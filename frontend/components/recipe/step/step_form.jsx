@@ -20,7 +20,7 @@ class StepForm extends Component {
     this.setState({ steps: sorted });
   }
 
-  // Steps can possibly be out of order
+  // Steps can possibly be out of order?
   sortSteps(arr) {
     let tempSteps = Array.from(arr);
     return tempSteps.sort((step, nextStep) => step.order - nextStep.order);
@@ -38,20 +38,28 @@ class StepForm extends Component {
   handleAddStep(e) {
     e.preventDefault();
 
-    const nextOrder = this.props.steps.length + 1;
+    const numOfSteps = this.state.steps;
     const recipeId = this.props.recipeId;
+    // Default order if no steps created
+    let nextOrder = 1;
+
+    // If steps are present, add + 1 to order of last step.
+    if (numOfSteps.length) {
+      nextOrder = numOfSteps[numOfSteps.length - 1].order + 1;
+    }
 
     this.props.createStep(this.createNewStepLayout(nextOrder, recipeId));
   }
 
   displaySteps() {
     if (this.state.steps.length) {
-      return this.state.steps.map(step => (
+      return this.state.steps.map((step, idx) => (
         <StepFormList 
           key={step.id} 
           step={step} 
           recipeId={this.props.recipeId} 
           removeStep={this.props.removeStep}
+          stepNum={idx + 1}
         />
       ));
     } else {

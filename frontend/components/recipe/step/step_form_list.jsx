@@ -10,7 +10,7 @@ const StepFormList = (props) => {
           className="step__form-step-title"
           step={step}
         >
-          Step #{step.order}: {step.title ? step.title : "(Click to Edit)"}
+          Step #{props.stepNum}: {step.title ? step.title : "(Click to Edit)"}
         </Link>
       </h4>
       <div className="step__form-actions">
