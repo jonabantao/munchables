@@ -13,6 +13,17 @@
   border-radius: 10px;
   background-color: $whitesmoke;
   overflow: hidden;
+  &__errors-container {
+    width: 300px;
+    text-align: center;
+    line-height: 1.2;
+    color: $error-red;
+    margin-top: -20px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    list-style: none;
+  }
   &__menu {
     background-color: rgb(236, 236, 236);
     height: 375px;

@@ -2,15 +2,35 @@ import React, { Component } from 'react';
 import RecipeStep from './recipe_step';
 
 class RecipeItemDetail extends Component {
+  constructor(props) {
+    super(props);
+    
+    this.formatYoutubeEmbed = this.formatYoutubeEmbed.bind(this);
+  }
+  
+
   componentDidMount() {
     this.props.requestRecipe(this.props.match.params.recipeId);
   }
 
+  formatYoutubeEmbed() {
+    const regEx = "^(?:https?:)?//[^/]*(?:youtube(?:-nocookie)?\.com|youtu\.be).*[=/]([-\\w]{11})(?:\\?|=|&|$)";
+    const match = this.props.recipe.recipe_video_url.match(regEx);
+
+    return match ? match[1] : '';
+  }
+
   displayVideo() {
     if (this.props.recipe.recipe_video_url) {
+      const youTubeId = this.formatYoutubeEmbed();
       return (
         <div>
-          <iframe width="420" height="315" src={this.props.recipe.recipe_video_url} frameBorder="0" allowFullScreen></iframe>
+          <iframe width="640" 
+            height="390" 
+            src={`https://www.youtube.com/embed/${youTubeId}`} 
+            frameBorder="0" 
+            allowFullScreen
+          ></iframe>
         </div>
       );
     }
@@ -20,8 +40,8 @@ class RecipeItemDetail extends Component {
     if (this.props.steps.length) {
       let sortedSteps = this.sortSteps(this.props.steps);
 
-      return sortedSteps.map(step => 
-        <RecipeStep key={step.id} step={step} />
+      return sortedSteps.map((step, idx) => 
+        <RecipeStep key={step.id} step={step} stepNum={idx + 1} />
       );
     }
   }
@@ -31,7 +51,6 @@ class RecipeItemDetail extends Component {
   }
 
   render() {
-    console.log(this.props.steps);
     if (!this.props.recipe) {
       return <article className="detail">Loading</article>;
     }

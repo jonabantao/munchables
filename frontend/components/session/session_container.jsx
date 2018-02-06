@@ -23,7 +23,7 @@ const mapDispatchToProps = (dispatch, { location }) => {
 
   return {
     handleSession: user => dispatch(handleSession(user)),
-    clearErrors: err => dispatch(clearErrors()),
+    clearErrors: () => dispatch(clearErrors()),
     loginGuest: () => dispatch(loginGuest()),
   };
 };

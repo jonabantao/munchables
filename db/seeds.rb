@@ -40,6 +40,7 @@ recipes = Recipe.create([
 
 Rather like a creamy fruit salad with a crisp sugar topping, it really is delicious, though the concept sounded strange to me before I first tasted it. Other versions, I hear, call for softened cream cheese and nondairy “whipped topping”; I can’t say I’ll be trying that. Some cooks caramelize the brown sugar under the broiler and some don’t, but I definitely recommend this step, which gives the dish a crème brûlée aura.", 
     published: true,
+    recipe_video_url: "https://www.youtube.com/watch?v=_-r0jUj6SXI",
     recipe_img: open("https://i.imgur.com/cjhTAQs.jpg"),
     author_id: guest_users[3].id
   },
@@ -55,6 +56,7 @@ Rather like a creamy fruit salad with a crisp sugar topping, it really is delici
     body: "Ever since i was a kid i was always obsessed with how good the food on animes looked. One in particular was a well known piece of meat that had a bone poking out either end, it was caveman meat etc. This kind of meat can be seen in many animes, mangas and games, including monster hunter. I decided to have a go at making my own version of this tasty dish!
 
 This would be perfect for anime/games/geek night! Impress your friends :D", 
+    recipe_video_url: "https://www.youtube.com/watch?v=BofLbbh_gPU",
     recipe_img: open("https://i.imgur.com/xLHLFtS.jpg"),
     published: true,
     author_id: guest_users[1].id
@@ -70,6 +72,7 @@ This would be perfect for anime/games/geek night! Impress your friends :D",
     title: "Buffalo Chicken Wings", 
     body: "Americans are a wing-loving people. The Buffalo variety, by most accounts “invented” at the Anchor Bar in, yes, Buffalo, is the official food of our most sacred event of the year: the Super Bowl. These can be made on the grill or in the oven.", 
     recipe_img: open("https://i.imgur.com/hslD8Pe.jpg"),
+    recipe_video_url: "https://www.youtube.com/watch?v=wuJdS_0aeAs",
     published: true,
     author_id: guest_users[2].id
   },
@@ -220,7 +223,7 @@ recipe_four_steps = Step.create([
     title: "Chicken Bones",
     body: "This first step is really fiddly so i did it first and just put them in the fridge when i was finished.
 
-If your chicken leg has skin on it, its fairly easy to remove, if you pull on it hard enough, half the time it will just rip off. When it gets to the base of the drumstick, cutting the skin off as you go, you will need to dig your scissors in and cut the joint off the end to reveal that nice looking bone which will be one of the bones sticking out of your Ano Niku.
+If your chicken leg has skin on it, its fairly easy to remove, if you pull on it hard enough, half the time it will just rip off. When it gets to the base of the drumstick, cutting the skin off as you go, you will need to dig your scissors in and cut the joint off the end to reveal that nice looking bone which will be one of the bones sticking out of your Well Done Steak.
 
 Once thats gone you can start snipping the meat in a few places to push it upward and expose more of the bone. Turning it kind of inside out in a way. Please remember in a drumstick theres actually 2 bones, one is very very fine, you WILL need to remove this just to be on the safe side, but its easy enough to cut it out.",
     order: 2,

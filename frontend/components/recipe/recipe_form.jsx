@@ -17,12 +17,25 @@ class RecipeForm extends Component {
     this.handleInitialSubmit = this.handleInitialSubmit.bind(this);
     this.handlePublishSubmit = this.handlePublishSubmit.bind(this);
     this.updateEditedState = this.updateEditedState.bind(this);
+    this.checkValidYouTubeUrl = this.checkValidYouTubeUrl.bind(this);
   }
 
   componentWillMount() {
     if (this.props.formType === "edit") {
       this.props.requestRecipe(this.props.ownProps.match.params.recipeId)
         .then(() => this.updateEditedState());
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.props.errors.length) {
+      this.props.clearErrors();
+    }
+  }
+
+  componentWillReceiveProps() {
+    if (this.props.errors.length) {
+      this.props.clearErrors();
     }
   }
 
@@ -57,6 +70,13 @@ class RecipeForm extends Component {
     return e => this.setState({ [propType]: e.target.value });
   }
 
+  checkValidYouTubeUrl() {
+    const regEx = "^(?:https?:)?//[^/]*(?:youtube(?:-nocookie)?\.com|youtu\.be).*[=/]([-\\w]{11})(?:\\?|=|&|$)";
+    const match = this.state.recipe_video_url.match(regEx);
+
+    return match ? this.state.recipe_video_url : '';
+  }
+
   handleInitialSubmit(e) {
     e.preventDefault();
     
@@ -64,15 +84,14 @@ class RecipeForm extends Component {
     let formData = new FormData();
     formData.append('recipe[body]', this.state.body);
     formData.append('recipe[title]', this.state.title);
-    formData.append('recipe[recipe_video_url', this.state.recipe_video_url);
+    formData.append('recipe[recipe_video_url]', this.checkValidYouTubeUrl());
     if (file) {
       formData.append('recipe[recipe_img]', this.state.imageFile);
     }
     
     this.props.createRecipe(formData)
-      .then(newRecipe => {
-        this.props.history.replace(`/recipes/${newRecipe.recipe.id}/edit`);
-      }, err => console.log(err));
+      .then(newRecipe => (
+        this.props.history.replace(`/recipes/${newRecipe.recipe.id}/edit`)));
   }
 
   handlePublishSubmit(e) {
@@ -83,7 +102,7 @@ class RecipeForm extends Component {
     let formData = new FormData();
     formData.append('recipe[body]', this.state.body);
     formData.append('recipe[title]', this.state.title);
-    formData.append('recipe[recipe_video_url', this.state.recipe_video_url);
+    formData.append('recipe[recipe_video_url]', this.checkValidYouTubeUrl());
 
     if (file) {
       formData.append('recipe[recipe_img]', this.state.imageFile);
@@ -140,6 +159,20 @@ class RecipeForm extends Component {
     }
   }
 
+  displayErrors() {
+    if (this.props.errors.length) {
+      let errorListItem = this.props.errors.map(err => 
+        <li key={err} className="recipe-form__error">{err}</li>
+      );
+
+      return (
+        <ul className="recipe-form__errors-container">
+          {errorListItem}
+        </ul>
+      );
+    }
+  }
+
   render() {
     return (
       <section className="recipe-form-page">
@@ -168,7 +201,7 @@ class RecipeForm extends Component {
                   <input type="text" 
                     value={this.state.recipe_video_url} 
                     className="recipe-form__textinput"
-                    placeholder="Video Url"
+                    placeholder="Youtube Video Urls Only"
                     onChange={this.update('recipe_video_url')}
                   />
               </label>
@@ -183,6 +216,7 @@ class RecipeForm extends Component {
             </div>
           </div>
         </div>
+        {this.displayErrors()}
         {this.displayBeginStepAddButton()}
         {this.displayStepContainer()}
         {this.displayPublishButton()}

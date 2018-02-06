@@ -50,3 +50,7 @@ export const updateRecipe = (recipe, id) => dispatch => (
     .then(updatedRecipe => dispatch(receiveRecipe(updatedRecipe)),
           err => dispatch(receiveRecipeErrors(err.responseJSON)))  
 );
+
+export const clearRecipeErrors = () => dispatch => (
+  dispatch(resetRecipeErrors())
+);

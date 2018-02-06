@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { AuthRoute, ProtectedRoute } from '../util/route_utils';
+import { AuthRoute, ProtectedRoute, AuthorRoute } from '../util/route_utils';
 
 import NavBarContainer from './navbar/navbar_container';
 import HomeComponent from './home/home';
@@ -20,8 +20,8 @@ const App = () => (
       <AuthRoute path="/signup" component={SessionFormContainer} />
       <ProtectedRoute path="/recipes/new" component={RecipeFormContainer} />
       <Route exact path="/recipes/:recipeId" component={RecipeItemDetailContainer} />
-      <ProtectedRoute exact path="/recipes/:recipeId/edit" component={RecipeFormContainer} />
-      <ProtectedRoute exact path="/recipes/:recipeId/steps/:stepId/edit" component={StepFormListEditContainer} />
+      <AuthorRoute exact path="/recipes/:recipeId/edit" component={RecipeFormContainer} />
+      <AuthorRoute exact path="/recipes/:recipeId/steps/:stepId/edit" component={StepFormListEditContainer} />
       <Route component={NotFoundComponent} />
     </Switch>
     <Footer />

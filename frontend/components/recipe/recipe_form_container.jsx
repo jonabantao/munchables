@@ -5,6 +5,7 @@ import {
   createRecipe, 
   updateRecipe, 
   requestRecipe,
+  clearRecipeErrors
 } from '../../actions/recipe_actions';
 
 const mapStateToProps = (state, ownProps) => {
@@ -14,6 +15,7 @@ const mapStateToProps = (state, ownProps) => {
     formType,
     ownProps,
     steps: state.entities.steps,
+    errors: state.errors.recipe,
   };
 
   if (formType === "edit") {
@@ -27,6 +29,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   createRecipe: recipe => dispatch(createRecipe(recipe)),
   updateRecipe: (recipe, recipeId) => dispatch(updateRecipe(recipe, recipeId)),
   requestRecipe: id => dispatch(requestRecipe(id)),
+  clearErrors: () => dispatch(clearRecipeErrors()),
 });
 
 

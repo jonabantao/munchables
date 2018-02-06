@@ -5,7 +5,7 @@ const RecipeStep = (props) => {
   const title = step.title ? `: ${step.title}` : null;
   return (
     <section className="detail__step-container">
-      <h3 className="detail__step-title">Step #{step.order}{title}</h3>
+      <h3 className="detail__step-title">Step #{props.stepNum}{title}</h3>
       <div className="detail__step-body">
         <p>
           {step.body}
