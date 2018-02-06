@@ -23,7 +23,7 @@ export const fetchSteps = recipeId => (
 
 export const updateStep = step => (
   $.ajax({
-    method: "POST",
+    method: "PATCH",
     url: `/api/steps/${step.id}`,
     data: { step }
   })

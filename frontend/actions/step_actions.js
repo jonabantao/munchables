@@ -44,7 +44,7 @@ export const createStep = step => dispatch => (
 export const updateStep = step => dispatch => (
   APIUtil.updateStep(step)
     .then(
-      updatedStep => dispatch(receiveStep(step)),
+      updatedStep => dispatch(receiveStep(updatedStep)),
       err => dispatch(receiveStepErrors(err))
     )
 );

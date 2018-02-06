@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import RecipeItemDetail from './recipe_item_detail';
 import {
   requestRecipe
-} from '../../actions/recipe_actions';
+} from '../../../actions/recipe_actions';
 
 const mapStateToProps = (state, ownProps) => {
   const recipe = state.entities.recipes[ownProps.match.params.recipeId];

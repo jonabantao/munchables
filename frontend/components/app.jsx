@@ -6,7 +6,7 @@ import NavBarContainer from './navbar/navbar_container';
 import HomeComponent from './home/home';
 import SessionFormContainer from './session/session_container';
 import RecipeFormContainer from './recipe/recipe_form_container';
-import RecipeItemDetailContainer from './recipe/recipe_item_detail_container';
+import RecipeItemDetailContainer from './recipe/detail/recipe_item_detail_container';
 import StepFormListEditContainer from './recipe/step/step_form_list_edit_container';
 import NotFoundComponent from './not_found';
 import Footer from './footer/footer';

@@ -17,6 +17,10 @@ const stepsReducer = (state = {}, action) => {
       return _.merge({}, state, action.step);
     case RECEIVE_RECIPE:
       return _.merge({}, action.payload.steps);
+    case DELETE_STEP:
+      newState = _.merge({}, state);
+      delete newState[action.stepId];
+      return newState;
     default:
       return state;
   }

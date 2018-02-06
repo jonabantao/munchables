@@ -176,11 +176,11 @@ class RecipeForm extends Component {
                   placeholder="Brief summary of your Munchable"
                   onChange={this.update('body')}
                 />
-                {this.displayBeginStepAddButton()}
               </label>
             </div>
           </div>
         </div>
+        {this.displayBeginStepAddButton()}
         {this.displayStepContainer()}
         {this.displayPublishButton()}
       </section>
