@@ -35,14 +35,15 @@ const Protected = ({ loggedIn, path, component: Component }) => (
 );
 
 const Author = ({ loggedIn, currentUserId, path, component: Component, recipes, matchParams }) => {
-  const isAuthor = loggedIn && recipes[matchParams.recipeId].author_id === currentUserId;
+  const recipe = recipes[matchParams.recipeId];
+  const isAuthor = recipe && recipe.author_id === currentUserId;
 
   return <Route
     path={path}
     render={props => (
-      isAuthor ? <Component {...props} /> : <Redirect to="/" />
+      (loggedIn && isAuthor) ? <Component {...props} /> : <Redirect to="/" />
     )}
-  />
+  />;
 };
 
 export const AuthRoute = withRouter(connect(mapStateToProps)(Auth));
