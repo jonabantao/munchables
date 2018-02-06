@@ -18,6 +18,16 @@ class Api::RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
   end
 
+  def update
+    @recipe = Recipe.find(params[:id])
+
+    if @recipe.update_attributes(recipe_params)
+      render 'api/recipes/show'
+    else
+      render json: @concept.errors, status: 422
+    end
+  end
+
   private
 
   def recipe_params

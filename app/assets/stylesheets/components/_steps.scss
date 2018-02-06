@@ -20,6 +20,24 @@
     cursor: pointer;
     margin: 10px 0;
   }
+  &__form-edit-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid $gray;
+    cursor: pointer;
+    height: 30px;
+    &:hover {
+      background-color: darken($whitesmoke, 30%);
+    }
+  }
+  &__form-delete-button {
+    border: 1px solid $red;
+    background-color: $red;
+    margin-top: 20px;
+    padding: 5px 5px;
+  }
   &__form-step-title:hover {
     text-decoration: underline;
   }

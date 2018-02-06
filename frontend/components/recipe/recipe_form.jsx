@@ -78,8 +78,8 @@ class RecipeForm extends Component {
     e.preventDefault();
 
     const file = this.state.imageFile;
+    let recipeId = this.props.match.params.recipeId;
     let formData = new FormData();
-    formData.append('recipe[id]', this.props.match.params.recipeId);
     formData.append('recipe[body]', this.state.body);
     formData.append('recipe[title]', this.state.title);
     if (file) {
@@ -87,7 +87,8 @@ class RecipeForm extends Component {
     }
     formData.append('recipe[published]', true);
 
-    this.props.updateRecipe(formData);
+    this.props.updateRecipe(formData, recipeId)
+      .then(this.props.history.push(`/recipes/${recipeId}`));
   }
 
   displayImage() {
@@ -129,7 +130,10 @@ class RecipeForm extends Component {
 
   displayStepContainer() {
     if (this.props.formType === "edit") {
-      return <StepFormContainer recipeId={this.props.match.params.recipeId} />;
+      return <StepFormContainer 
+        recipeId={this.props.match.params.recipeId} 
+        steps={this.props.steps}
+      />;
     }
   }
 

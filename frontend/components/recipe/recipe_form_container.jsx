@@ -13,6 +13,7 @@ const mapStateToProps = (state, ownProps) => {
   let propState = {
     formType,
     ownProps,
+    steps: state.entities.steps,
   };
 
   if (formType === "edit") {
@@ -24,7 +25,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   createRecipe: recipe => dispatch(createRecipe(recipe)),
-  updateRecipe: recipe => dispatch(updateRecipe(recipe)),
+  updateRecipe: (recipe, recipeId) => dispatch(updateRecipe(recipe, recipeId)),
   requestRecipe: id => dispatch(requestRecipe(id)),
 });
 

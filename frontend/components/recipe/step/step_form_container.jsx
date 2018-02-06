@@ -3,23 +3,19 @@ import StepForm from './step_form';
 import {
   requestAllSteps,
   createStep,
-  updateStep,
-  requestStep,
   removeStep,
 } from '../../../actions/step_actions';
 
 const mapStateToProps = (state, ownProps) => ({
   state,
-  steps: Object.values(state.entities.steps),
+  steps: Object.values(ownProps.steps),
   recipeId: ownProps.recipeId
 });
 
 const mapDispatchToProps = dispatch => ({
   requestAllSteps: recipeId => dispatch(requestAllSteps(recipeId)),
   createStep: step => dispatch(createStep(step)),
-  updateStep: step => dispatch(updateStep(step)),
-  requestStep: stepId => dispatch(requestStep(stepId)),
-  removeStep: stepId => dispatch(requestStep(stepId)),
+  removeStep: stepId => dispatch(removeStep(stepId)),
 });
 
 export default connect(

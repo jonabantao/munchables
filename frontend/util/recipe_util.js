@@ -22,11 +22,13 @@ export const fetchRecipes = () => (
   })
 );
 
-export const updateRecipe = recipe => (
+export const updateRecipe = (recipe, id) => (
   $.ajax({
-    method: "POST",
-    url: `/api/recipes/${recipe.id}`,
-    data: { recipe }
+    method: "PATCH",
+    url: `/api/recipes/${id}`,
+    processData: false,
+    contentType: false,
+    data: recipe,
   })
 );
 

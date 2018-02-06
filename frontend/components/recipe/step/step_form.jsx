@@ -15,10 +15,6 @@ class StepForm extends Component {
     this.handleAddStep = this.handleAddStep.bind(this);
   }
 
-  componentDidMount() {
-    this.props.requestAllSteps(this.props.recipeId);
-  }
-
   componentWillReceiveProps(newProps) {
     let sorted = this.sortSteps(newProps.steps);
     this.setState({ steps: sorted });
@@ -55,7 +51,6 @@ class StepForm extends Component {
           key={step.id} 
           step={step} 
           recipeId={this.props.recipeId} 
-          updateStep={this.props.updateStep}
           removeStep={this.props.removeStep}
         />
       ));

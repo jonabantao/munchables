@@ -45,8 +45,8 @@ export const createRecipe = recipe => dispatch => (
   )
 );
 
-export const updateRecipe = recipe => dispatch => (
-  APIUtil.updateRecipe(recipe)
+export const updateRecipe = (recipe, id) => dispatch => (
+  APIUtil.updateRecipe(recipe, id)
     .then(updatedRecipe => dispatch(receiveRecipe(updatedRecipe)),
           err => dispatch(receiveRecipeErrors(err.responseJSON)))  
 );
