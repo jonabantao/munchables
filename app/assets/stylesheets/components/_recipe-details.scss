@@ -13,6 +13,7 @@
   }
   &__title {
     font-size: 1.8rem;
+    margin-bottom: 8px;
   }
   &__author {
     font-size: 0.9rem;
@@ -41,6 +42,7 @@
   &__step-body {
     width: 600px;
     white-space: pre-wrap;
+    line-height: 1.5;
   }
   &__step-title {
     font-size: 1.3rem;
