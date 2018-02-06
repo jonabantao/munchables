@@ -25,18 +25,26 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    border: 1px solid $gray;
+    border: 1px solid $edit-orange;
+    background-color: $edit-orange;
+    border-radius: 3px;
     cursor: pointer;
-    height: 30px;
+    height: 35px;
     &:hover {
-      background-color: darken($whitesmoke, 30%);
+      background-color: darken($edit-orange, 5%);
     }
   }
   &__form-delete-button {
-    border: 1px solid $red;
-    background-color: $red;
+    border: 1px solid $delete-red;
+    background-color: $delete-red;
+    border-radius: 3px;
     margin-top: 20px;
-    padding: 5px 5px;
+    padding: 8px 9px;
+    cursor: pointer;
+    &:hover {
+      background-color: darken($delete-red, 15%);
+      border: 1px solid darken($delete-red, 15%);
+    }
   }
   &__form-step-title:hover {
     text-decoration: underline;
@@ -99,5 +107,38 @@
     display: flex;
     justify-content: space-between;
     padding: 20px;
+  }
+  &__update-button {
+    outline: 0;
+    padding: 9px 12px;
+    border-radius: 5px;
+    border: 1px solid $edit-orange;
+    background-color: $edit-orange;
+    cursor: pointer;
+    &:hover {
+      border: 1px solid darken($edit-orange, 5%);
+      background-color: darken($edit-orange, 5%);
+    }
+    &:active {
+      box-shadow: inset 2px 2px 10px darken($edit-orange, 20%);
+    }
+  }
+  &__back-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+    width: 120px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+    &:hover {
+      border: 1px solid darken(black, 5%);
+      background-color: darken(white, 3%);
+    }
+    &:active {
+      box-shadow: inset 2px 2px 10px darken(white, 20%);
+    }
   }
 }

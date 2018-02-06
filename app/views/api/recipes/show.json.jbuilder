@@ -1,7 +1,8 @@
 json.recipe do
   json.extract! @recipe, :id, :title, :body, :author_id, :recipe_video_url,
-    :created_at, :recipe_img, :published
-  json.recipe_img_url asset_path(@recipe.recipe_img.url)
+    :recipe_img, :published
+  json.creation @recipe.created_at.to_date
+  json.recipe_img_url asset_path(@recipe.recipe_img.url(:original))
 end
 
 json.author do

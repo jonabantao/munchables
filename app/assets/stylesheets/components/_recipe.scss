@@ -30,6 +30,9 @@
     border: 1px solid rgb(190, 186, 186);
     box-shadow: 1px 1px 5px rgb(190, 186, 186);
     overflow: hidden;
+    &:hover {
+      box-shadow: 1px 1px 10px rgb(90, 87, 87);
+    }
   }
   &__item-img-container {
     flex: 0 0 auto;

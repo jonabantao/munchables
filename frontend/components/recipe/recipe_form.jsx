@@ -64,6 +64,7 @@ class RecipeForm extends Component {
     let formData = new FormData();
     formData.append('recipe[body]', this.state.body);
     formData.append('recipe[title]', this.state.title);
+    formData.append('recipe[recipe_video_url', this.state.recipe_video_url);
     if (file) {
       formData.append('recipe[recipe_img]', this.state.imageFile);
     }
@@ -82,13 +83,15 @@ class RecipeForm extends Component {
     let formData = new FormData();
     formData.append('recipe[body]', this.state.body);
     formData.append('recipe[title]', this.state.title);
+    formData.append('recipe[recipe_video_url', this.state.recipe_video_url);
+
     if (file) {
       formData.append('recipe[recipe_img]', this.state.imageFile);
     }
     formData.append('recipe[published]', true);
 
     this.props.updateRecipe(formData, recipeId)
-      .then(this.props.history.push(`/recipes/${recipeId}`));
+      .then(() => this.props.history.push(`/recipes/${recipeId}`));
   }
 
   displayImage() {

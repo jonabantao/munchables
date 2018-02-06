@@ -7,11 +7,11 @@ import {
 
 const mapStateToProps = (state, ownProps) => {
   const recipe = state.entities.recipes[ownProps.match.params.recipeId];
-  // const author = state.entities.authors[recipe.author_id];
 
   return {
     recipe,
-    // author
+    authors: state.entities.authors,
+    steps: Object.values(state.entities.steps),
   };
 };
 

@@ -2,7 +2,7 @@
   json.recipes do
     json.set! recipe.id do
       json.extract! recipe, :id, :title, :body, :author_id, :published
-      json.recipe_img_url asset_path(recipe.recipe_img.url)
+      json.recipe_img_url asset_path(recipe.recipe_img.url(:original))
     end
   end
   

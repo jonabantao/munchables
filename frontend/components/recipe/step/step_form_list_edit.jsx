@@ -56,10 +56,16 @@ class StepFormListEdit extends Component {
             />
           </label>
           <nav className="step-edit__nav">
-            <Link to={`/recipes/${this.props.recipeId}/edit`}>
+            <Link 
+              to={`/recipes/${this.props.recipeId}/edit`}
+              className="step-edit__back-button"
+            >
               Go Back
             </Link>
-            <button onClick={this.handleUpdate}>
+            <button 
+              onClick={this.handleUpdate}
+              className="step-edit__update-button"
+            >
               Update Step
             </button>
           </nav>
