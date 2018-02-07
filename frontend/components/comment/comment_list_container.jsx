@@ -13,8 +13,8 @@ const mapStateToProps = (state, { recipeId }) => ({
   recipeId
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchRecipeComments: id => dispatch(fetchRecipeComments(id)),
+const mapDispatchToProps = (dispatch, { recipeId }) => ({
+  fetchRecipeComments: () => dispatch(fetchRecipeComments(recipeId)),
   createComment: comment => dispatch(createComment(comment)),
   removeComment: id => dispatch(removeComment(id)),
   clearErrors: () => dispatch(clearCommentErrors()),

@@ -18,11 +18,14 @@ class CommentsList extends Component {
     if (!this.props.comments.length) {
       this.setState({ isNewCommentOpen: true });
     }
+
+    this.props.fetchRecipeComments();
   }
   
-  componentDidUpdate(prevProps, prevState) {
-    console.log(prevProps);
-    console.log(prevState);
+  componentDidUpdate(prevProps) {
+    if (prevProps.recipeId !== this.props.recipeId) {
+      this.props.fetchRecipeComments();
+    }
   }
 
   displayCommentsHeader() {
