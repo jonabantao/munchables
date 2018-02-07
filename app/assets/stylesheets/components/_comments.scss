@@ -1,20 +1,46 @@
 .comments-list {
   margin: 30px auto;
-  background-color: $background-offwhite;
+  background-color: transparent;
   min-width: 700px;
   display: flex;
   flex-direction: column;
   align-items: center;
   &__title {
     font-size: 1.8rem;
+    margin-bottom: 20px;
   }
   &__item-container {
     width: 100%;
     list-style: none;
+    border-top: 1px solid $border-gray;
+    &:last-child {
+      border-bottom: 1px solid $border-gray;
+    }
   }
   &__item {
-    min-width: 700px;
-    border-top: 1px solid black;
+    width: 700px;
     display: flex;
+    padding: 25px 10px;
+  }
+  &__commenter-img-container {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  &__commenter-img {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+  }
+  &__postdate {
+    display: inline-block;
+    color: $text-gray;
+  }
+  &__footer {
+    margin-bottom: 5px;
+  }
+  &__comment-text {
+    white-space: pre-wrap;
   }
 }

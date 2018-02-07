@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CommentListItem from './comment_list_item';
+import CommentForm from './comment_form';
 
 class CommentsList extends Component {
   constructor(props) {
@@ -10,7 +11,7 @@ class CommentsList extends Component {
     };
 
     this.displayCommentsHeader = this.displayCommentsHeader.bind(this);
-    this.displayNewCommentForm = this.displayNewCommentForm.bind(this);
+    this.displayCommentForm = this.displayCommentForm.bind(this);
     this.displayComments = this.displayComments.bind(this);
   }
 
@@ -28,6 +29,10 @@ class CommentsList extends Component {
     }
   }
 
+  openCommentForm() {
+    this.setState({ isNewCommentOpen: false });
+  }
+
   displayCommentsHeader() {
     const length = this.props.comments.length;
 
@@ -39,9 +44,9 @@ class CommentsList extends Component {
     }
   }
 
-  displayNewCommentForm() {
+  displayCommentForm() {
     if (this.state.isNewCommentOpen) {
-      // Display new comment form
+      return <CommentForm recipeId={this.props.recipeId} />;
     }
   }
 
@@ -50,8 +55,8 @@ class CommentsList extends Component {
       let allComments = this.props.comments.map(comment => (
         <CommentListItem 
           key={comment.id} 
-          comment={comment} 
-          author={comment.commenter_name}
+          comment={comment}
+          commenter={this.props.users[comment.commenter_id]}
         />
       ));
 
@@ -70,6 +75,12 @@ class CommentsList extends Component {
           {this.displayCommentsHeader()}
         </h3>
         {this.displayComments()}
+        <button 
+          disabled={!this.state.isNewCommentOpen}
+          onClick={this.openCommentForm}
+        >
+          test
+        </button>
       </section>
     );
   }

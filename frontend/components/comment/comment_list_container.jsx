@@ -10,6 +10,7 @@ import CommentList from './comment_list';
 
 const mapStateToProps = (state, { recipeId }) => ({
   comments: Object.values(state.entities.comments),
+  users: state.entities.users,
   recipeId
 });
 
