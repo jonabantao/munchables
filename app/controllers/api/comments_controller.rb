@@ -1,5 +1,5 @@
 class Api::CommentsController < ApplicationController
-  before_action :ensure_logged_in
+  before_action :ensure_logged_in, only: [:create, :delete]
 
   def create
     @comment = Comment.new(comment_params)
@@ -24,7 +24,7 @@ class Api::CommentsController < ApplicationController
   def delete
     @comment = Comment.find(params[:id])
 
-    if @comment.author_id == current_user.try(:id)
+    if @comment.author_id == current_user.id
       @comment.destroy
       render "api/comments/show"
     else
