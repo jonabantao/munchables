@@ -83,7 +83,10 @@ class RecipeItemDetail extends Component {
           </div>
         </section>
         {this.displaySteps()}
-        <CommentListContainer recipeId={recipe.id} />
+        <CommentListContainer 
+          recipeId={recipe.id} 
+          history={this.props.history} 
+        />
       </article>
     );
   }

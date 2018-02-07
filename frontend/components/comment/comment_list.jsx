@@ -7,19 +7,16 @@ class CommentsList extends Component {
     super(props);
     
     this.state = {
-      isNewCommentOpen: false,
+      isCommentFormOpen: false,
     };
 
     this.displayCommentsHeader = this.displayCommentsHeader.bind(this);
     this.displayCommentForm = this.displayCommentForm.bind(this);
     this.displayComments = this.displayComments.bind(this);
+    this.handleOpenCommentForm = this.handleOpenCommentForm.bind(this);
   }
 
   componentDidMount() {
-    if (!this.props.comments.length) {
-      this.setState({ isNewCommentOpen: true });
-    }
-
     this.props.fetchRecipeComments();
   }
   
@@ -30,7 +27,17 @@ class CommentsList extends Component {
   }
 
   openCommentForm() {
-    this.setState({ isNewCommentOpen: false });
+    this.setState({ isCommentFormOpen: true });
+  }
+
+  handleOpenCommentForm(e) {
+    e.preventDefault();
+
+    if (!this.props.currentUser) {
+      this.props.history.push("/login");
+    } else {
+      this.setState({ isCommentFormOpen: true });
+    }
   }
 
   displayCommentsHeader() {
@@ -45,8 +52,13 @@ class CommentsList extends Component {
   }
 
   displayCommentForm() {
-    if (this.state.isNewCommentOpen) {
-      return <CommentForm recipeId={this.props.recipeId} />;
+    if (this.state.isCommentFormOpen) {
+      return (
+        <CommentForm 
+          recipeId={this.props.recipeId}       
+          currentUser={this.props.currentUser}
+        />
+      ); 
     }
   }
 
@@ -75,11 +87,12 @@ class CommentsList extends Component {
           {this.displayCommentsHeader()}
         </h3>
         {this.displayComments()}
-        <button 
-          disabled={!this.state.isNewCommentOpen}
-          onClick={this.openCommentForm}
+        <button
+          className="comments-list__open-form-button"
+          disabled={this.state.isCommentFormOpen}
+          onClick={this.handleOpenCommentForm}
         >
-          test
+          Post Comment
         </button>
       </section>
     );

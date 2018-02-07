@@ -1,6 +1,7 @@
 import React from 'react';
 
-const CommentListItem = ({ comment, commenter }) => {
+const CommentListItem = ({ comment, commenter, ownProps }) => {
+  console.log(ownProps);
   return (
     <li className="comments-list__item-container">
       <article className="comments-list__item">

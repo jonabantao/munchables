@@ -8,10 +8,12 @@ import {
 } from '../../actions/comment_actions';
 import CommentList from './comment_list';
 
-const mapStateToProps = (state, { recipeId }) => ({
+const mapStateToProps = (state, ownProps) => ({
   comments: Object.values(state.entities.comments),
   users: state.entities.users,
-  recipeId
+  recipeId: ownProps.recipeId,
+  currentUser: state.session.currentUser,
+  history: ownProps.history,
 });
 
 const mapDispatchToProps = (dispatch, { recipeId }) => ({

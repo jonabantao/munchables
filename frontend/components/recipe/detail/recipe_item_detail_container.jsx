@@ -13,6 +13,7 @@ const mapStateToProps = (state, ownProps) => {
     authors: state.entities.users,
     steps: Object.values(state.entities.steps),
     recipeId: ownProps.match.params.recipeId,
+    history: ownProps.history,
   };
 };
 
