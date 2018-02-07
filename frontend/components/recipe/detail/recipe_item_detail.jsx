@@ -13,6 +13,12 @@ class RecipeItemDetail extends Component {
     this.props.requestRecipe(this.props.match.params.recipeId);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.recipeId !== nextProps.match.params.recipeId) {
+      this.props.requestRecipe(nextProps.match.params.recipeId);
+    }
+  }
+
   formatYoutubeEmbed() {
     const regEx = "^(?:https?:)?//[^/]*(?:youtube(?:-nocookie)?\.com|youtu\.be).*[=/]([-\\w]{11})(?:\\?|=|&|$)";
     const match = this.props.recipe.recipe_video_url.match(regEx);
@@ -77,7 +83,7 @@ class RecipeItemDetail extends Component {
           </div>
         </section>
         {this.displaySteps()}
-        <CommentListContainer />
+        {/* <CommentListContainer recipeId={recipe.id} /> */}
       </article>
     );
   }

@@ -1,6 +1,10 @@
 class Api::CommentsController < ApplicationController
   before_action :ensure_logged_in, only: [:create, :delete]
 
+  def index
+    @comments = Comment.includes(:commenter).where(recipe_id: params[:recipeId])
+  end
+
   def create
     @comment = Comment.new(comment_params)
     @comment.commenter_id = current_user.id
@@ -13,7 +17,7 @@ class Api::CommentsController < ApplicationController
   end
 
   def show
-    @comment = Comment.find_by(id: params[:id])
+    @comment = Comment.includes(:commenter).find_by(id: params[:id])
 
     if @comment
       render "api/comments/show"

@@ -20,6 +20,11 @@ class CommentsList extends Component {
     }
   }
   
+  componentDidUpdate(prevProps, prevState) {
+    console.log(prevProps);
+    console.log(prevState);
+  }
+
   displayCommentsHeader() {
     const length = this.props.comments.length;
 
@@ -56,7 +61,6 @@ class CommentsList extends Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <section className="comments-list">
         <h3 className="comments-list__title">

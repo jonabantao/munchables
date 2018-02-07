@@ -13,6 +13,14 @@ export const fetchComment = id => (
   })
 );
 
+export const fetchComments = recipeId => (
+  $.ajax({
+    method: "GET",
+    url: "/api/comments",
+    data: { recipeId }
+  })
+);
+
 export const deleteComment = id => (
   $.ajax({
     method: "DELETE",
