@@ -20,8 +20,8 @@ const App = () => (
       <AuthRoute path="/signup" component={SessionFormContainer} />
       <ProtectedRoute path="/recipes/new" component={RecipeFormContainer} />
       <Route exact path="/recipes/:recipeId" component={RecipeItemDetailContainer} />
-      <AuthorRoute exact path="/recipes/:recipeId/edit" component={RecipeFormContainer} />
-      <AuthorRoute exact path="/recipes/:recipeId/steps/:stepId/edit" component={StepFormListEditContainer} />
+      <Route exact path="/recipes/:recipeId/edit" component={RecipeFormContainer} />
+      <Route exact path="/recipes/:recipeId/steps/:stepId/edit" component={StepFormListEditContainer} />
       <Route component={NotFoundComponent} />
     </Switch>
     <Footer />

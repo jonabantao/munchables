@@ -10,6 +10,8 @@ const mapStateToProps = (state, ownProps) => {
     stepId: ownProps.match.params.stepId,
     recipeId: ownProps.match.params.recipeId,
     step: state.entities.steps[ownProps.match.params.stepId],
+    state,
+    ownProps,
   };
 };
 

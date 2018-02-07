@@ -43,14 +43,14 @@ class StepFormListEdit extends Component {
     return (
       <section className="step-edit">
         <section className="step-edit__container">
-          <label>Step Title:<br />
+          <label className="step-edit__title">Step Title:<br />
             <input type="text"
               value={this.state.title}
               onChange={this.update('title')}
               className="step-edit__texttitle"
             />
           </label>
-          <label>Step Body:<br />
+          <label className="step-edit__title">Step Body:<br />
             <textarea
               value={this.state.body}
               onChange={this.update('body')}

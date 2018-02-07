@@ -13,6 +13,7 @@ class StepForm extends Component {
     this.sortSteps = this.sortSteps.bind(this);
     this.createNewStepLayout = this.createNewStepLayout.bind(this);
     this.handleAddStep = this.handleAddStep.bind(this);
+    this.displaySteps = this.displaySteps.bind(this);
   }
 
   componentWillReceiveProps(newProps) {
@@ -53,15 +54,21 @@ class StepForm extends Component {
 
   displaySteps() {
     if (this.state.steps.length) {
-      return this.state.steps.map((step, idx) => (
-        <StepFormList 
-          key={step.id} 
-          step={step} 
-          recipeId={this.props.recipeId} 
+      let totalSteps = this.state.steps.map((step, idx) => (
+        <StepFormList
+          key={step.id}
+          step={step}
+          recipeId={this.props.recipeId}
           removeStep={this.props.removeStep}
           stepNum={idx + 1}
         />
       ));
+
+      return (
+        <ul className="step-container">
+          {totalSteps}
+        </ul>
+      );
     } else {
       return null;
     }
@@ -76,7 +83,7 @@ class StepForm extends Component {
           onClick={this.handleAddStep}
         >
           Add Step
-        </button>;
+        </button>
       </React.Fragment>
     );
   }
