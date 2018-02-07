@@ -7,7 +7,7 @@
   &__icon {
     margin-right: 9px;
     min-width: 20px;
-    color: rgb(185, 181, 181);
+    color: darken($shadow-gray, 15%);
     font-size: 1.2rem;
   }
   &__header-text {
@@ -26,12 +26,12 @@
     list-style: none;
     width: 325px;
     height: 375px;
-    margin: 10px;
-    border: 1px solid rgb(190, 186, 186);
-    box-shadow: 1px 1px 5px rgb(190, 186, 186);
+    margin: 25px 10px;
+    border: 1px solid $border-gray;
+    box-shadow: 1px 1px 10px $shadow-gray;
     overflow: hidden;
     &:hover {
-      box-shadow: 1px 1px 10px rgb(90, 87, 87);
+      box-shadow: 1px 1px 10px darken($shadow-gray, 25%);
     }
   }
   &__item-img-container {
@@ -46,14 +46,16 @@
   }
   &__title-container {
     height: 125px;
-    padding: 10px 15px;
+    padding: 23px 18px;
   }
   &__title-text {
     font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: $text-black;
   }
   &__author-text {
     display: block;
-    margin-left: 10px;
+    color: $text-gray;
   }
   &__item-img {
     top: 0;
@@ -69,7 +71,7 @@
 }
 
 .recipe-form-page {
-  background-color: $background-olive;
+  background-color: $background-offwhite;
   overflow: auto;
   min-height: 800px;
   padding-bottom: 40px;
