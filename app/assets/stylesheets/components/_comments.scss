@@ -39,7 +39,29 @@
   &__footer {
     margin-bottom: 5px;
   }
+  &__author-txt {
+    color: $text-gray;
+  }
   &__comment-text {
     white-space: pre-wrap;
+  }
+  &__open-form-button {
+    border: none;
+    padding: 10px 15px;
+    border-radius: 3px;
+    font-size: 1.4rem;
+    margin-top: 25px;
+    background-color: $background-orange;
+    color: $text-whitesmoke;
+    &:disabled {
+      opacity: 0.5;
+    }
+  }
+  &::after {
+    content: '';
+    display: block;
+    width: 90px;
+    margin: 50px auto;
+    border-top: 1px solid $border-gray;
   }
 }

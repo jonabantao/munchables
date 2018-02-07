@@ -86,6 +86,7 @@ class RecipeItemDetail extends Component {
         <CommentListContainer 
           recipeId={recipe.id} 
           history={this.props.history} 
+          authorId={recipe.author_id}
         />
       </article>
     );

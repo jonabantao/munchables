@@ -69,6 +69,7 @@ class CommentsList extends Component {
           key={comment.id} 
           comment={comment}
           commenter={this.props.users[comment.commenter_id]}
+          authorId={this.props.authorId}
         />
       ));
 

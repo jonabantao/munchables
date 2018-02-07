@@ -14,6 +14,7 @@ const mapStateToProps = (state, ownProps) => ({
   recipeId: ownProps.recipeId,
   currentUser: state.session.currentUser,
   history: ownProps.history,
+  authorId: ownProps.authorId,
 });
 
 const mapDispatchToProps = (dispatch, { recipeId }) => ({
