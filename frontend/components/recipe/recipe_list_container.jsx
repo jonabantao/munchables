@@ -5,7 +5,7 @@ import { requestAllRecipes, requestRecipe } from '../../actions/recipe_actions';
 
 const mapStateToProps = ({ entities }) => ({
   recipes: Object.values(entities.recipes),
-  authors: entities.authors,
+  authors: entities.users,
 });
 
 const mapDispatchToProps = (dispatch) => ({

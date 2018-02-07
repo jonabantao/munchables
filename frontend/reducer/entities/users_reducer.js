@@ -4,7 +4,7 @@ import {
 } from '../../actions/recipe_actions';
 import _ from 'lodash';
 
-const authorsReducer = (state = {}, action) => {
+const usersReducer = (state = {}, action) => {
   Object.freeze(state);
   let newState = {};
 
@@ -19,4 +19,4 @@ const authorsReducer = (state = {}, action) => {
   }
 };
 
-export default authorsReducer;
+export default usersReducer;

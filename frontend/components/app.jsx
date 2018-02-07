@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { AuthRoute, ProtectedRoute, AuthorRoute } from '../util/route_utils';
+import { AuthRoute, ProtectedRoute } from '../util/route_utils';
 
 import NavBarContainer from './navbar/navbar_container';
 import HomeComponent from './home/home';

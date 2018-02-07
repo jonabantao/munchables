@@ -10,7 +10,7 @@ const mapStateToProps = (state, ownProps) => {
 
   return {
     recipe,
-    authors: state.entities.authors,
+    authors: state.entities.users,
     steps: Object.values(state.entities.steps),
   };
 };
