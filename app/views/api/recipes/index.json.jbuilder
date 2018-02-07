@@ -6,7 +6,6 @@
     end
   end
   
-  # Explicitly done here instead of re-rendering the user partial for all recipes
   json.authors do
     json.set! recipe.author.id do
       json.extract! recipe.author, :username

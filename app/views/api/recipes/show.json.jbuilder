@@ -14,3 +14,9 @@ json.steps do
     json.partial! 'api/steps/step', step: step
   end
 end
+
+json.comments do
+  @recipe.comments.each do |comment|
+    json.partial! 'api/comments/comment', comment: comment
+  end
+end
