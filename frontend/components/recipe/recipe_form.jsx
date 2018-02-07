@@ -201,7 +201,7 @@ class RecipeForm extends Component {
                   <input type="text" 
                     value={this.state.recipe_video_url} 
                     className="recipe-form__textinput"
-                    placeholder="Youtube Video Urls Only"
+                    placeholder="Youtube URLs Only"
                     onChange={this.update('recipe_video_url')}
                   />
               </label>

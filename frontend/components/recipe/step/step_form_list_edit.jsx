@@ -19,8 +19,8 @@ class StepFormListEdit extends Component {
 
   componentWillReceiveProps({ step }) {
     let updatedState = {
-      title: step.title,
-      body: step.body,
+      title: step.title || '',
+      body: step.body || '',
     };
     
     this.setState(updatedState);

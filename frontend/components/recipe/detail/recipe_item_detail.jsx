@@ -8,7 +8,6 @@ class RecipeItemDetail extends Component {
     this.formatYoutubeEmbed = this.formatYoutubeEmbed.bind(this);
   }
   
-
   componentDidMount() {
     this.props.requestRecipe(this.props.match.params.recipeId);
   }

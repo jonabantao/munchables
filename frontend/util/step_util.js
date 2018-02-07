@@ -13,14 +13,6 @@ export const fetchStep = id => (
   })
 );
 
-export const fetchSteps = recipeId => (
-  $.ajax({
-    method: "GET",
-    url: "/api/steps",
-    data: { step: { recipe_id: recipeId } }
-  })
-);
-
 export const updateStep = step => (
   $.ajax({
     method: "PATCH",

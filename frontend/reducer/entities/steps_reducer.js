@@ -1,5 +1,4 @@
 import {
-  RECEIVE_STEPS,
   RECEIVE_STEP,
   DELETE_STEP,
 } from '../../actions/step_actions';
