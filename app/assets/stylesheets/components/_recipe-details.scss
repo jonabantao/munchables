@@ -26,12 +26,12 @@
     align-items: center;
     margin: 25px 0;
     min-height: 200px;
-    width: 800px;
+    width: 900px;
   }
   &__intro-img-container {
     display: flex;
     justify-content: center;
-    width: 800px;
+    width: 900px;
     margin-bottom: 30px;
     max-height: 450px;
     overflow: hidden;
@@ -41,7 +41,7 @@
     align-self: center;
   }
   &__step-body {
-    width: 600px;
+    width: 700px;
     white-space: pre-wrap;
     line-height: 1.5;
   }

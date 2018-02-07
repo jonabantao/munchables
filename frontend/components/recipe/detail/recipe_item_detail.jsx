@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import RecipeStep from './recipe_step';
+import CommentListContainer from '../../comment/comment_list_container';
 
 class RecipeItemDetail extends Component {
   constructor(props) {
@@ -76,6 +77,7 @@ class RecipeItemDetail extends Component {
           </div>
         </section>
         {this.displaySteps()}
+        <CommentListContainer />
       </article>
     );
   }

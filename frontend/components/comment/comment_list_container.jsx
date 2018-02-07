@@ -5,8 +5,11 @@ import {
   removeComment,
   clearCommentErrors,
 } from '../../actions/comment_actions';
+import CommentList from './comment_list';
 
-const mapStateToProps = (state, ownProps) => ({});
+const mapStateToProps = (state, ownProps) => ({
+  comments: Object.values(state.entities.comments),
+});
 
 const mapDispatchToProps = dispatch => ({
   createComment: comment => dispatch(createComment(comment)),
@@ -18,4 +21,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(RecipeItemDetail);
+)(CommentList);

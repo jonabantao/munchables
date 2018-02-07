@@ -221,9 +221,9 @@ class RecipeForm extends Component {
             </div>
           </section>
         </div>
+        {this.displayStepContainer()}
         {this.displayErrors()}
         {this.displayBeginStepAddButton()}
-        {this.displayStepContainer()}
         {this.displayPublishButton()}
       </section>
     );

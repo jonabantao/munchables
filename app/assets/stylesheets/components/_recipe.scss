@@ -28,14 +28,14 @@
     height: 375px;
     margin: 25px 10px;
     border: 1px solid $border-gray;
-    box-shadow: 1px 1px 10px $shadow-gray;
+    box-shadow: 0px 1px 10px $shadow-gray;
     overflow: hidden;
     &:hover {
-      box-shadow: 1px 1px 10px darken($shadow-gray, 25%);
+      box-shadow: 0px 1px 10px;
     }
   }
   &__item-img-container {
-    flex: 0 0 auto;
+    flex: 0 auto;
     position: relative;
     height: 250px;
   }
