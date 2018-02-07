@@ -21,8 +21,11 @@ class CommentsList extends Component {
   }
   
   displayCommentsHeader() {
-    if (this.props.comments.length) {
-      return `${this.props.comments.length} Comments`;
+    const length = this.props.comments.length;
+
+    if (length) {
+      const addS = length > 1 ? 's' : '';
+      return `${length} Comment${addS}`;
     } else {
       return "No comments yet.";
     }
@@ -37,7 +40,11 @@ class CommentsList extends Component {
   displayComments() {
     if (this.props.comments.length) {
       let allComments = this.props.comments.map(comment => (
-        <CommentListItem key={comment.id} comment={comment} />
+        <CommentListItem 
+          key={comment.id} 
+          comment={comment} 
+          author={comment.commenter_name}
+        />
       ));
 
       return (

@@ -8,4 +8,13 @@
   &__title {
     font-size: 1.8rem;
   }
+  &__item-container {
+    width: 100%;
+    list-style: none;
+  }
+  &__item {
+    min-width: 700px;
+    border-top: 1px solid black;
+    display: flex;
+  }
 }
