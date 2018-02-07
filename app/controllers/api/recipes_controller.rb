@@ -17,7 +17,7 @@ class Api::RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.includes(:author, :steps, :comments).find(params[:id])
 
     if @recipe
       render "api/recipes/show"
