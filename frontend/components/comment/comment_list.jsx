@@ -5,22 +5,22 @@ import CommentForm from './comment_form';
 class CommentsList extends Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
-      // set to false
-      isCommentFormOpen: true,
+      isCommentFormOpen: false,
     };
 
     this.displayCommentsHeader = this.displayCommentsHeader.bind(this);
     this.displayCommentForm = this.displayCommentForm.bind(this);
     this.displayComments = this.displayComments.bind(this);
-    this.handleOpenCommentForm = this.handleOpenCommentForm.bind(this);
+    this.toggleCommentForm = this.toggleCommentForm.bind(this);
+    this.handleOutsideClick = this.handleOutsideClick.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchRecipeComments();
   }
-  
+
   componentDidUpdate(prevProps) {
     if (prevProps.recipeId !== this.props.recipeId) {
       this.props.fetchRecipeComments();
@@ -30,18 +30,32 @@ class CommentsList extends Component {
     }
   }
 
-  openCommentForm() {
-    this.setState({ isCommentFormOpen: true });
+  componentWillUnmount() {
+    document.removeEventListener('click', this.handleOutsideClick, false);
   }
 
-  handleOpenCommentForm(e) {
+  handleOutsideClick(e) {
+    if (this.node.contains(e.target)) {
+      return;
+    }
+
+    this.toggleCommentForm(e);
+  }
+
+  toggleCommentForm(e) {
     e.preventDefault();
 
     if (!this.props.currentUser) {
       this.props.history.push("/login");
+    } else if (!this.state.isCommentFormOpen) {
+      document.addEventListener('click', this.handleOutsideClick, false);
     } else {
-      this.setState({ isCommentFormOpen: true });
+      document.removeEventListener('click', this.handleOutsideClick, false);
     }
+    
+    this.setState(prevState => ({
+      isCommentFormOpen: !prevState.isCommentFormOpen 
+    }));
   }
 
   displayCommentsHeader() {
@@ -58,22 +72,22 @@ class CommentsList extends Component {
   displayCommentForm() {
     if (this.state.isCommentFormOpen) {
       return (
-        <CommentForm 
-          recipeId={this.props.recipeId}       
+        <CommentForm
+          recipeId={this.props.recipeId}
           currentUser={this.props.currentUser}
           createComment={this.props.createComment}
           clearErrors={this.props.clearErrors}
           errors={this.props.errors}
         />
-      ); 
+      );
     }
   }
 
   displayComments() {
     if (this.props.comments.length) {
       let allComments = this.props.comments.map(comment => (
-        <CommentListItem 
-          key={comment.id} 
+        <CommentListItem
+          key={comment.id}
           comment={comment}
           commenter={this.props.users[comment.commenter_id]}
           authorId={this.props.authorId}
@@ -95,14 +109,16 @@ class CommentsList extends Component {
           {this.displayCommentsHeader()}
         </h3>
         {this.displayComments()}
-        <button
-          className="comments-list__open-form-button"
-          disabled={this.state.isCommentFormOpen}
-          onClick={this.handleOpenCommentForm}
-        >
-          Post Comment
-        </button>
-        {this.displayCommentForm()}
+        <div className="comments-list__click-wrapper" ref={node => { this.node = node; }}>
+          <button
+            className="comments-list__open-form-button"
+            disabled={this.state.isCommentFormOpen}
+            onClick={this.toggleCommentForm}
+          >
+            Post Comment
+          </button>
+          {this.displayCommentForm()}
+        </div>
       </section>
     );
   }
