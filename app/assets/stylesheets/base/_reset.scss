@@ -4,10 +4,19 @@
   box-sizing: border-box;
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
   background-color: transparent;
-  box-sizing: border-box;
   font-family: Archivo, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-wrapper {
+  flex: 1 0 auto;
 }
 
 a {

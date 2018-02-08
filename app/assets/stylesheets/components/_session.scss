@@ -1,8 +1,9 @@
+ 
  .session {
    background-image: url(image-path('session-image2.jpeg'));
    background-size: cover;
    background-attachment: fixed;
-   height: 800px;
+   height: 80vh;
    position: relative;
    overflow: hidden;
    &__container {
