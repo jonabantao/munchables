@@ -4,7 +4,7 @@ import NavBarUserDropdown from './navbar_user_dropdown';
 class NavBarGreeting extends Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
       isUserMenuOpen: false,
     };
@@ -12,6 +12,7 @@ class NavBarGreeting extends Component {
     this.handleOutsideClick = this.handleOutsideClick.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.setWrapper = this.setWrapper.bind(this);
+    this.displayDropdown = this.displayDropdown.bind(this);
   }
 
   componentWillUnmount() {
@@ -19,45 +20,57 @@ class NavBarGreeting extends Component {
   }
 
   handleOutsideClick(e) {
-    if (!this.node.contains(e.target)) {
-      this.setState({ isUserMenuOpen: false });
-      document.removeEventListener('click', this.handleOutsideClick);
+    if (this.node.contains(e.target)) {
+      return;
     }
+
+    this.handleClick();
   }
 
   handleClick() {
     if (!this.state.isUserMenuOpen) {
-      document.addEventListener('click', this.handleOutsideClick);
-      this.setState({ isUserMenuOpen: true });
-    } 
+      console.log('set');
+      document.addEventListener('click', this.handleOutsideClick, false);
+    } else {
+      document.removeEventListener('click', this.handleOutsideClick, false);
+    }
+
+    this.setState(prevState => ({
+      isUserMenuOpen: !prevState.isUserMenuOpen
+    }));
   }
 
   setWrapper(node) {
     this.node = node;
   }
 
+  displayDropdown() {
+    if (this.state.isUserMenuOpen) {
+      return (
+        <NavBarUserDropdown
+          logout={this.props.logout}
+          history={this.props.history}
+        />
+      );
+    }
+  }
+
   render() {
     const currentUser = this.props.currentUser;
 
     return (
-      <section className="navbar__greeting" 
-        ref={this.setWrapper} 
-        onClick={this.handleClick}
-      >
-        <img src={currentUser.profile_img_url} 
-          alt="profile image" 
-          className="navbar__profile-img"
-        />
-        <small>{currentUser.username}</small>
-        <i className="fas fa-caret-down navbar__caret"></i>
-        {
-          this.state.isUserMenuOpen && <NavBarUserDropdown 
-                                        logout={this.props.logout}
-                                        history={this.props.history}
-                                      />
-        }
-      </section>
-  );
+      <div className="navbar__wrapper" ref={this.setWrapper}>
+        <section className="navbar__greeting" onClick={this.handleClick}>
+          <img src={currentUser.profile_img_url}
+            alt="profile image"
+            className="navbar__profile-img"
+          />
+          <small>{currentUser.username}</small>
+          <i className="fas fa-caret-down navbar__caret"></i>
+        </section>
+        {this.displayDropdown()}
+      </div>
+    );
   }
 }
 

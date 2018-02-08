@@ -15,6 +15,7 @@ class CommentsList extends Component {
     this.displayComments = this.displayComments.bind(this);
     this.toggleCommentForm = this.toggleCommentForm.bind(this);
     this.handleOutsideClick = this.handleOutsideClick.bind(this);
+    this.setWrapper = this.setWrapper.bind(this);
   }
 
   componentDidMount() {
@@ -41,6 +42,10 @@ class CommentsList extends Component {
     }
 
     this.toggleCommentForm(e);
+  }
+
+  setWrapper(node) {
+    this.node = node;
   }
 
   toggleCommentForm(e) {
@@ -110,7 +115,7 @@ class CommentsList extends Component {
           {this.displayCommentsHeader()}
         </h3>
         {this.displayComments()}
-        <div className="comments-list__click-wrapper" ref={node => { this.node = node; }}>
+        <div className="comments-list__click-wrapper" ref={this.setWrapper}>
           <button
             className="comments-list__open-form-button"
             disabled={this.state.isCommentFormOpen}
