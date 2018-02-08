@@ -1,9 +1,16 @@
 import * as APIUtil from '../util/recipe_util';
 
+export const RECEIVE_FITLERED_RECIPES = "RECEIVE_FILTERED_RECIPES";
 export const RECEIVE_ALL_RECIPES = "RECEIVE_ALL_RECIPES";
 export const RECEIVE_RECIPE = "RECEIVE_RECIPE";
 export const RECEIVE_RECIPE_ERRORS = "RECEIVE_RECIPE_ERRORS";
 export const RESET_RECIPE_ERRORS = "RESET_RECIPE_ERRORS";
+
+const receiveFilteredRecipes = (payload, term) => ({
+  type: RECEIVE_FITLERED_RECIPES,
+  payload,
+  term
+});
 
 const receiveAllRecipes = payload => ({
   type: RECEIVE_ALL_RECIPES,
@@ -24,10 +31,17 @@ const resetRecipeErrors = () => ({
   type: RESET_RECIPE_ERRORS,
 });
 
-export const requestAllRecipes = () => dispatch => (
-  APIUtil.fetchRecipes()
+export const requestAllRecipes = optionalSearch => dispatch => (
+  APIUtil.fetchRecipes(optionalSearch)
     .then(allFetchedPayloads => dispatch(receiveAllRecipes(allFetchedPayloads)),
           err => dispatch(receiveRecipeErrors(err.responseJSON)))
+);
+
+export const requestFilteredRecipes = searchTerm => dispatch => (
+  APIUtil.fetchRecipes(searchTerm)
+    .then(filteredRecipes => {
+      return dispatch(receiveFilteredRecipes(filteredRecipes, searchTerm));
+    })
 );
 
 export const requestRecipe = id => dispatch => (

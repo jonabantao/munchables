@@ -3,7 +3,9 @@ class Api::RecipesController < ApplicationController
 
   def index
     if params[:search].present?
-      @recipes = Recipe.where("title ILIKE ?", "%#{params[:search]}%")
+      @recipes = Recipe
+        .where(published: true)
+        .where("title ILIKE ?", "%#{params[:search]}%")
     else
       @recipes = Recipe.where(published: true).includes(:author, :steps)
     end
