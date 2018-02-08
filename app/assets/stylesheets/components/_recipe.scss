@@ -1,7 +1,11 @@
 .recipe-list {
-  max-width: 1600px;
+  max-width: 1800px;
+  display: flex;
+  flex-direction: column;
   &__heading {
     vertical-align: baseline;
+    text-align: center;
+    margin-bottom: 10px;
   }
   &__icon {
     margin-right: 9px;
@@ -12,10 +16,11 @@
   &__header-text {
     display: inline-block;
     font-size: 1.5rem;
+    color: $text-offblack;
   }
   &__contents {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
     width: 100%;
     margin: 20px 0;
@@ -24,7 +29,7 @@
     list-style: none;
     width: 325px;
     height: 375px;
-    margin: 25px 10px;
+    margin: 25px;
     border: 1px solid $border-gray;
     box-shadow: 0px 1px 10px $shadow-gray;
     overflow: hidden;
