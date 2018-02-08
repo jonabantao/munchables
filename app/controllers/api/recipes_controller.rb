@@ -2,7 +2,11 @@ class Api::RecipesController < ApplicationController
   before_action :ensure_logged_in, only: [:create, :update, :destroy]
 
   def index
-    @recipes = Recipe.all.where(published: true).includes(:author, :steps)
+    if params[:search].present?
+      @recipes = Recipe.where("title ILIKE ?", "%#{params[:search]}%")
+    else
+      @recipes = Recipe.where(published: true).includes(:author, :steps)
+    end
   end
 
   def create

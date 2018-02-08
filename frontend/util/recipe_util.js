@@ -15,10 +15,11 @@ export const fetchRecipe = id => (
   })
 );
 
-export const fetchRecipes = () => (
+export const fetchRecipes = search => (
   $.ajax({
     method: "GET",
     url: "/api/recipes",
+    data: { search }
   })
 );
 
