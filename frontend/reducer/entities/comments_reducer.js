@@ -13,6 +13,7 @@ const commentsReducer = (state = {}, action) => {
     case RECEIVE_COMMENTS:
       return _.merge({}, action.payload.comments);
     case RECEIVE_COMMENT:
+      console.log(action);
       return _.merge({}, state, action.payload.comment);
     case DELETE_COMMENT:
       newState = _.merge({}, state);

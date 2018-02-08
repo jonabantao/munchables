@@ -33,8 +33,8 @@ const resetCommentErrors = () => ({
 
 export const createComment = comment => dispatch => (
   APIUtil.createComment(comment)
-    .then(newComment => dispatch(receiveComment(comment)),
-          err => dispatch(receiveCommentErrors(err))
+    .then(newComment => dispatch(receiveComment(newComment)),
+          err => dispatch(receiveCommentErrors(err.responseJSON))
     )
 );
 

@@ -7,7 +7,8 @@ class CommentsList extends Component {
     super(props);
     
     this.state = {
-      isCommentFormOpen: false,
+      // set to false
+      isCommentFormOpen: true,
     };
 
     this.displayCommentsHeader = this.displayCommentsHeader.bind(this);
@@ -23,6 +24,9 @@ class CommentsList extends Component {
   componentDidUpdate(prevProps) {
     if (prevProps.recipeId !== this.props.recipeId) {
       this.props.fetchRecipeComments();
+    }
+    if (prevProps.comments.length !== this.props.comments.length) {
+      this.setState({ isCommentFormOpen: false });
     }
   }
 
@@ -57,6 +61,9 @@ class CommentsList extends Component {
         <CommentForm 
           recipeId={this.props.recipeId}       
           currentUser={this.props.currentUser}
+          createComment={this.props.createComment}
+          clearErrors={this.props.clearErrors}
+          errors={this.props.errors}
         />
       ); 
     }
@@ -95,6 +102,7 @@ class CommentsList extends Component {
         >
           Post Comment
         </button>
+        {this.displayCommentForm()}
       </section>
     );
   }

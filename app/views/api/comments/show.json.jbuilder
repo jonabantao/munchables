@@ -5,7 +5,7 @@ json.comment do
 end
 
 json.user do
-  json.set! comment.commenter.id do
-    json.partial! 'api/users/user', user: comment.commenter
+  json.set! @comment.commenter.id do
+    json.partial! 'api/users/user', user: @comment.commenter
   end
 end

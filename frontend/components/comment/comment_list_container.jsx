@@ -15,12 +15,13 @@ const mapStateToProps = (state, ownProps) => ({
   currentUser: state.session.currentUser,
   history: ownProps.history,
   authorId: ownProps.authorId,
+  errors: state.errors.comment,
 });
 
 const mapDispatchToProps = (dispatch, { recipeId }) => ({
   fetchRecipeComments: () => dispatch(fetchRecipeComments(recipeId)),
   createComment: comment => dispatch(createComment(comment)),
-  removeComment: id => dispatch(removeComment(id)),
+  // removeComment: id => dispatch(removeComment(id)), to be implemented later?
   clearErrors: () => dispatch(clearCommentErrors()),
 });
 
