@@ -26,6 +26,7 @@ class CommentsList extends Component {
       this.props.fetchRecipeComments();
     }
     if (prevProps.comments.length !== this.props.comments.length) {
+      document.removeEventListener('click', this.handleOutsideClick, false);
       this.setState({ isCommentFormOpen: false });
     }
   }
