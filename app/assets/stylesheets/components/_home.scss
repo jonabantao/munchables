@@ -1,7 +1,8 @@
 .hero-image {
   background-image: url(image-path('hero-image1.jpg'));
   background-size: cover;
-  height: 400px;
+  min-height: 400px;
+  height: 600px;
   position: relative;
   display: flex;
   align-items: center;
@@ -29,8 +30,9 @@
 
 .main-container {
   display: flex;
-  justify-content: center;
-  padding: 80px;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 0;
   min-height: 800px;
   background-color: $background-offwhite;
 }

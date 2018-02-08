@@ -1,7 +1,7 @@
 import React from 'react';
 
 const CommentListItem = ({ comment, commenter, authorId }) => {
-  const showAuthor = commenter.id === authorId ? 
+  const showAuthor = (commenter && commenter.id === authorId) ? 
     <small className="comments-list__author-txt">(author)</small> : '';
 
   return (
