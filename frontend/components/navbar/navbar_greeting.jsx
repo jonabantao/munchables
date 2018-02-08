@@ -61,10 +61,12 @@ class NavBarGreeting extends Component {
     return (
       <div className="navbar__wrapper" ref={this.setWrapper}>
         <section className="navbar__greeting" onClick={this.handleClick}>
-          <img src={currentUser.profile_img_url}
-            alt="profile image"
-            className="navbar__profile-img"
-          />
+          <div className="navbar__profile-img-container">
+            <img src={currentUser.profile_img_url}
+              alt="profile image"
+              className="navbar__profile-img"
+            />
+          </div>
           <small>{currentUser.username}</small>
           <i className="fas fa-caret-down navbar__caret"></i>
         </section>

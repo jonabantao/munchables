@@ -8,10 +8,12 @@ const CommentListItem = ({ comment, commenter, authorId }) => {
     <li className="comments-list__item-container">
       <article className="comments-list__item">
         <div className="comments-list__commenter-img-container">
+          <div className="comments-list__img-wrapper">
           <img src={commenter.profile_img_url}
             alt="profile image"
             className="comments-list__commenter-img"
           />
+          </div>
         </div>
         <div>
           <footer className="comments-list__footer">

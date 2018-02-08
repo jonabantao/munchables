@@ -40,17 +40,14 @@
       color: darken(gray, 30%);
     }
   }
-  &__logo {
-    display: inline-block;
-    background-color: $red;
-    border-radius: 3px;
-    color: $whitesmoke;
-    padding: 13px;
-    text-align: center;
+  &__logo-container {
+    max-width: 200px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
   }
   &__logo-img {
-    max-width: 100%;
-    max-height: 100%;
+    width: 100%
   }
   &__create-recipe {
     text-decoration: none;
@@ -103,11 +100,21 @@
     color: white;
     font-size: 1rem;
   }
-  &__profile-img {
-    border-radius: 50%;
-    height: 50px;
+  &__profile-img-container {
+    display: flex;
+    justify-content: center;
     width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
     margin-right: 10px;
+  }
+  &__profile-img {
+    max-width: 80px;
+    max-height: 80px;
+    width: auto;
+    height: auto;
+    align-self: center;
   }
   &__caret {
     min-width: 15px;

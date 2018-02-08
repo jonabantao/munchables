@@ -15,9 +15,11 @@ const NavBar = ({ currentUser, logout, history }) => {
   return (
     <nav className="navbar">
       <section className="navbar__left">
+          <div className="navbar__logo-container">
         <Link to="/" className="navbar__logo">
-            <h4>MUNCHABLES</h4>
+            <img src="https://i.imgur.com/iPT49li.png" className="navbar__logo-img"/>
         </Link>
+          </div>
         <SearchBarContainer />
         <Link to="/recipes/new" className="navbar__create-recipe">
           Write a Munchable
