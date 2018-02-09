@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const NavBarUserDropdown = (props) => {
   return (
@@ -12,7 +13,12 @@ const NavBarUserDropdown = (props) => {
       >
         Logout
       </button>
-            Placeholder text for (bonus) userprofile
+      
+      <Link to="/recipes/new/">
+        <div className="navbar__dropdown-create">
+            Write a Munchable
+        </div>
+      </Link>
     </nav>
   );
 };

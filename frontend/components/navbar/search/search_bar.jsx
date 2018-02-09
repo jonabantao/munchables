@@ -19,9 +19,12 @@ class SearchBar extends Component {
     this.setState({term: e.target.value});
   }
 
-  handleSearch() {
+  handleSearch(e) {
+    e.preventDefault();
+
     const search = this.state.term.trim();
     const isAtSearchPage = this.props.path === "/search";
+
 
     // If searchable => Go to search detail page and search
     if (isAtSearchPage) {

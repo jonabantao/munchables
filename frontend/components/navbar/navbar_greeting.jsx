@@ -20,9 +20,7 @@ class NavBarGreeting extends Component {
   }
 
   handleOutsideClick(e) {
-    if (this.node.contains(e.target)) {
-      return;
-    }
+    e.preventDefault();
 
     this.handleClick();
   }
