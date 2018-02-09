@@ -1,5 +1,6 @@
 User.destroy_all
 Recipe.destroy_all
+Comment.destroy_all
 
 # Guest usernames to be used for demo login (found in frontend/util) #
 guest_users = User.create([
@@ -26,6 +27,76 @@ guest_users = User.create([
   }
 ])
 #############
+# 14 Faker users
+users = User.create([
+  { 
+    username: Faker::Internet.unique.user_name, 
+    email: Faker::Internet.unique.safe_email,
+    password: Faker::Internet.password,
+    profile_img: open("https://i.imgur.com/gCsOLgG.jpg")
+  }, { 
+    username: Faker::Internet.unique.user_name, 
+    email: Faker::Internet.unique.safe_email,
+    password: Faker::Internet.password,
+    profile_img: open("https://i.imgur.com/SFQdO4q.jpg")
+  }, { 
+    username: Faker::Internet.unique.user_name, 
+    email: Faker::Internet.unique.safe_email,
+    password: Faker::Internet.password,
+    profile_img: open("https://i.imgur.com/OV499EK.jpg")
+  }, { 
+    username: Faker::Internet.unique.user_name, 
+    email: Faker::Internet.unique.safe_email,
+    password: Faker::Internet.password
+  }, { 
+    username: Faker::Internet.unique.user_name, 
+    email: Faker::Internet.unique.safe_email,
+    password: Faker::Internet.password,
+    profile_img: open("https://i.imgur.com/L394Jvq.jpg")
+  }, { 
+    username: Faker::Internet.unique.user_name, 
+    email: Faker::Internet.unique.safe_email,
+    password: Faker::Internet.password
+  }, { 
+    username: Faker::Internet.unique.user_name, 
+    email: Faker::Internet.unique.safe_email,
+    password: Faker::Internet.password,
+    profile_img: open("https://i.imgur.com/6icEa9c.jpg")
+  }, { 
+    username: Faker::Internet.unique.user_name, 
+    email: Faker::Internet.unique.safe_email,
+    password: Faker::Internet.password,
+    profile_img: open("https://i.imgur.com/OloXC7j.jpg")
+  }, { 
+    username: Faker::Internet.unique.user_name, 
+    email: Faker::Internet.unique.safe_email,
+    password: Faker::Internet.password
+  }, { 
+    username: Faker::Internet.unique.user_name, 
+    email: Faker::Internet.unique.safe_email,
+    password: Faker::Internet.password,
+    profile_img: open("https://i.imgur.com/RLyjd3y.jpg")
+  }, { 
+    username: Faker::Internet.unique.user_name, 
+    email: Faker::Internet.unique.safe_email,
+    password: Faker::Internet.password
+  }, { 
+    username: Faker::Internet.unique.user_name, 
+    email: Faker::Internet.unique.safe_email,
+    password: Faker::Internet.password,
+    profile_img: open("https://i.imgur.com/fpoRqWK.jpg")
+  }, { 
+    username: Faker::Internet.unique.user_name, 
+    email: Faker::Internet.unique.safe_email,
+    password: Faker::Internet.password,
+    profile_img: open("https://i.imgur.com/OretiVT.jpg")
+  }, { 
+    username: Faker::Internet.unique.user_name, 
+    email: Faker::Internet.unique.safe_email,
+    password: Faker::Internet.password
+  } 
+])
+
 recipes = Recipe.create([
   {
     title: "Russian Salmon Pie", 
@@ -74,28 +145,182 @@ This would be perfect for anime/games/geek night! Impress your friends :D",
     recipe_img: open("https://i.imgur.com/hslD8Pe.jpg"),
     recipe_video_url: "https://www.youtube.com/watch?v=wuJdS_0aeAs",
     published: true,
-    author_id: guest_users[2].id
+    author_id: users.sample.id
   },
   {
     title: "Crisp Peanut Butter Sandwich Cookies", 
     body: "Inspired by two recipes in Maida Heatter’s “Book of Great Cookies,” these crisp treats are the best peanut butter cookies I’ve ever tasted.", 
     recipe_img: open("https://i.imgur.com/gB3yMeC.jpg"),
     published: true,
-    author_id: guest_users[2].id
+    author_id: users.sample.id
   },
   {
     title: "Beer Braised Beef and Onions", 
     body: "This hearty, warming beef and onion stew is flavored with Belgian beer, bay leaves and sweet paprika. A variation on a traditional Flemish carbonnade, it’s rich and homey but still lively, with a ruddy color from the paprika. The very large quantity of onions adds sweetness, and also helps make the sauce velvety soft. Serve it over potatoes, noodles or polenta.",
     recipe_img: open("https://i.imgur.com/0KGh2Igr.jpg"),
     published: true,
-    author_id: guest_users[1].id
+    author_id: users.sample.id
   },
   {
     title: "Slow-Cooker Butter Chicken", 
     body: "Not every version of butter chicken uses butter. Coconut milk gives this slow-cooker chicken its creamy richness. This is a fast recipe for the cook: Just prep it earlier in the day, even during your morning routine, getting your onion and spices going on the stove while simultaneously making lunches for grumpy children, folding dish towels, feeding the dogs and wondering once again why no one else has done any of the above. If you're preparing pork or beef in the slow cooker, you'll want to brown the meat first, but that's not necessary with boneless cuts of chicken. The meat will be cooked within 4 1/2 or 5 hours, but if you need to let it sit a little longer — up to 7 hours total, on low heat — it will still be delicious, though the chicken may be very soft and shred a tad.",
     recipe_img: open("https://i.imgur.com/Fgry7V7.jpg"),
     published: true,
-    author_id: guest_users[3].id
+    author_id: users.sample.id
+  },
+  {
+    title: Faker::Food.unique.dish, 
+    body: Faker::Lorem.paragraph,
+    recipe_img: open("https://imgur.com/r/food/TU6Tk1B"),
+    published: true,
+    author_id: users.sample.id
+  },
+  {
+    title: Faker::Food.unique.dish, 
+    body: Faker::Lorem.paragraph,
+    recipe_img: open("https://i.imgur.com/sLEJw0q.jpg"),
+    published: true,
+    author_id: users.sample.id
+  },
+  {
+    title: Faker::Food.unique.dish, 
+    body: Faker::Lorem.paragraph,
+    recipe_img: open("https://i.imgur.com/fbZXXZj.jpg"),
+    published: true,
+    author_id: users.sample.id
+  },
+  {
+    title: Faker::Food.unique.dish, 
+    body: Faker::Lorem.paragraph,
+    recipe_img: open("https://i.imgur.com/8VqZPgx.jpg"),
+    published: true,
+    author_id: users.sample.id
+  },
+  {
+    title: Faker::Food.unique.dish, 
+    body: Faker::Lorem.paragraph,
+    recipe_img: open("https://i.imgur.com/HD8Pw0e.jpg"),
+    published: true,
+    author_id: users.sample.id
+  },
+  {
+    title: Faker::Food.unique.dish, 
+    body: Faker::Lorem.paragraph,
+    recipe_img: open("https://i.imgur.com/ZNi7cee.jpg"),
+    published: true,
+    author_id: users.sample.id
+  },
+  {
+    title: Faker::Food.unique.dish, 
+    body: Faker::Lorem.paragraph,
+    recipe_img: open("https://i.imgur.com/XDSbt0c.jpg"),
+    published: true,
+    author_id: users.sample.id
+  },
+  {
+    title: Faker::Food.unique.dish, 
+    body: Faker::Lorem.paragraph,
+    recipe_img: open("https://i.imgur.com/r18Aw7C.jpg"),
+    published: true,
+    author_id: users.sample.id
+  },
+  {
+    title: Faker::Food.unique.dish, 
+    body: Faker::Lorem.paragraph,
+    recipe_img: open("https://i.imgur.com/yEE8OLH.jpg"),
+    published: true,
+    author_id: users.sample.id
+  },
+  {
+    title: Faker::Food.unique.dish, 
+    body: Faker::Lorem.paragraph,
+    recipe_img: open("https://i.imgur.com/pPnwo7K.jpg"),
+    published: true,
+    author_id: users.sample.id
+  },
+  {
+    title: Faker::Food.unique.dish, 
+    body: Faker::Lorem.paragraph,
+    recipe_img: open("https://i.imgur.com/0boEAwO.jpg"),
+    published: true,
+    author_id: users.sample.id
+  },
+  {
+    title: Faker::Food.unique.dish, 
+    body: Faker::Lorem.paragraph,
+    recipe_img: open("https://i.imgur.com/CjRz23o.jpg"),
+    published: true,
+    author_id: users.sample.id
+  },
+  {
+    title: Faker::Food.unique.dish, 
+    body: Faker::Lorem.paragraph,
+    recipe_img: open("https://i.imgur.com/nqgqJwV.jpg"),
+    published: true,
+    author_id: users.sample.id
+  },
+  {
+    title: Faker::Food.unique.dish, 
+    body: Faker::Lorem.paragraph,
+    recipe_img: open("https://i.imgur.com/RrvFsX7.jpg"),
+    published: true,
+    author_id: users.sample.id
+  },
+  {
+    title: Faker::Food.unique.dish, 
+    body: Faker::Lorem.paragraph,
+    recipe_img: open("https://i.imgur.com/Iel2MAF.jpg"),
+    published: true,
+    author_id: users.sample.id
+  },
+  {
+    title: Faker::Food.unique.dish, 
+    body: Faker::Lorem.paragraph,
+    recipe_img: open("https://i.imgur.com/TqJCQhb.jpg"),
+    published: true,
+    author_id: users.sample.id
+  },
+  {
+    title: Faker::Food.unique.dish, 
+    body: Faker::Lorem.paragraph,
+    recipe_img: open("https://i.imgur.com/DbDNr16.jpg"),
+    published: true,
+    author_id: users.sample.id
+  },
+  {
+    title: Faker::Food.unique.dish, 
+    body: Faker::Lorem.paragraph,
+    recipe_img: open("https://i.imgur.com/dweVsuD.jpg"),
+    published: true,
+    author_id: users.sample.id
+  },
+  {
+    title: Faker::Food.unique.dish, 
+    body: Faker::Lorem.paragraph,
+    recipe_img: open("https://i.imgur.com/7Kx1t1m.jpg"),
+    published: true,
+    author_id: users.sample.id
+  },
+  {
+    title: Faker::Food.unique.dish, 
+    body: Faker::Lorem.paragraph,
+    recipe_img: open("https://i.imgur.com/vpblaZo.jpg"),
+    published: true,
+    author_id: users.sample.id
+  },
+  {
+    title: Faker::Food.unique.dish, 
+    body: Faker::Lorem.paragraph,
+    recipe_img: open("https://i.imgur.com/mC2R25e.jpg"),
+    published: true,
+    author_id: users.sample.id
+  },
+  {
+    title: Faker::Food.unique.dish, 
+    body: Faker::Lorem.paragraph,
+    recipe_img: open("https://i.imgur.com/L2noMXk.jpg"),
+    published: true,
+    author_id: users.sample.id
   },
 ])
 
@@ -445,3 +670,33 @@ recipe_nine_steps = Step.create([
     recipe_id: recipes[8].id,
   }
 ])
+
+
+# Faker starts at [9-30]
+(9..30).each do |recipe_num|
+  steps = rand(4..9)
+  recipe_id = recipes[recipe_num].id
+
+  (1..steps).each do |step_order|
+    Step.create(
+      title: Faker::Lorem.sentence(rand(3..4)),
+      body: Faker::Lorem.paragraph,
+      order: step_order,
+      recipe_id: recipe_id
+    )
+  end
+end
+
+
+
+
+
+
+
+
+### Comments
+100.times do |x|
+  Comment.create(body: Faker::Lorem.unique.sentence(4, true, 6),
+                  commenter_id: users.sample.id,
+                  recipe_id: recipes.sample.id)
+end
