@@ -6,6 +6,7 @@ import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (_, ownProps) => ({
   pushHistory: ownProps.history.push,
+  path: ownProps.location.pathname,
 });
 
 const mapDispatchToProps = dispatch => ({

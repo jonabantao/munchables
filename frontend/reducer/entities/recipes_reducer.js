@@ -1,7 +1,7 @@
 import {
   RECEIVE_ALL_RECIPES,
   RECEIVE_RECIPE,
-  RECEIVE_FITLERED_RECIPES
+  RECEIVE_FILTERED_RECIPES,
 } from '../../actions/recipe_actions';
 import _ from 'lodash';
 
@@ -11,8 +11,7 @@ const recipesReducer = (state = {}, action) => {
 
   switch (action.type) {
     case RECEIVE_ALL_RECIPES:
-    case RECEIVE_FITLERED_RECIPES:
-    console.log(action);
+    case RECEIVE_FILTERED_RECIPES:
       return _.merge({}, action.payload.recipes);
     case RECEIVE_RECIPE:
       newState[action.payload.recipe.id] = action.payload.recipe;

@@ -29,7 +29,6 @@ class NavBarGreeting extends Component {
 
   handleClick() {
     if (!this.state.isUserMenuOpen) {
-      console.log('set');
       document.addEventListener('click', this.handleOutsideClick, false);
     } else {
       document.removeEventListener('click', this.handleOutsideClick, false);

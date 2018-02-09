@@ -11,24 +11,38 @@ class SearchBar extends Component {
     this.handleSearch = this.handleSearch.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
     this.clearForm = this.clearForm.bind(this);
+    this.moveToSearchPage = this.moveToSearchPage.bind(this);
   }
+
   
   handleUpdate(e) {
     this.setState({term: e.target.value});
   }
 
   handleSearch() {
-    let searchState = Object.assign(this.state);
+    const search = this.state.term.trim();
+    const isAtSearchPage = this.props.path === "/search";
 
-    this.props.searchRecipes(searchState)
-      .then(() => {
-        this.props.pushHistory("/search");
-        this.clearForm();
-      });
+    // If searchable => Go to search detail page and search
+    if (isAtSearchPage) {
+      this.props.searchRecipes(search)
+        .then(this.clearForm);
+    } else if (!isAtSearchPage) {
+      // If not at search page, redirect 
+      this.props.searchRecipes(search)
+        .then(() => {
+          this.moveToSearchPage();
+          this.clearForm();
+        });
+    }
   }
 
   clearForm() {
     this.setState({ term: '' });
+  }
+
+  moveToSearchPage() {
+    this.props.pushHistory("/search");
   }
 
 
