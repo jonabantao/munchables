@@ -23,6 +23,8 @@ class SearchResults extends Component {
     // Used to fill in list if page is reloaded
     if (this.props.searchTerm.length === 0) {
       this.props.searchRecipes('');
+    } else {
+      this.setState({ term: this.props.searchTerm });
     }
   }
 
