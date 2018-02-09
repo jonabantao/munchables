@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 import RecipeList from './recipe_list';
 import { requestAllRecipes, requestRecipe } from '../../actions/recipe_actions';
 
-const mapStateToProps = ({ entities }) => ({
+const mapStateToProps = ({ entities, ui }) => ({
   recipes: Object.values(entities.recipes),
   authors: entities.users,
+  isLoadingRecipe: ui.loading.recipeLoading,
 });
 
 const mapDispatchToProps = (dispatch) => ({

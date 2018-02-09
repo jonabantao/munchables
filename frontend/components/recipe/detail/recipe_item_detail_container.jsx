@@ -14,6 +14,7 @@ const mapStateToProps = (state, ownProps) => {
     steps: Object.values(state.entities.steps),
     recipeId: ownProps.match.params.recipeId,
     history: ownProps.history,
+    isLoadingRecipe: state.ui.loading.recipeLoading,
   };
 };
 
