@@ -21,7 +21,6 @@ gem "paperclip", "~> 5.2.1"
 gem 'normalize-scss'
 gem 'figaro'
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
-gem 'factory_bot_rails'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
