@@ -21,8 +21,8 @@ const App = () => (
         <AuthRoute path="/login" component={SessionFormContainer} />
         <AuthRoute path="/signup" component={SessionFormContainer} />
         <Route path="/search" component={SearchResultsContainer} />
-        <Route exact path="/recipes/:recipeId" component={RecipeItemDetailContainer} />
         <ProtectedRoute path="/recipes/new" component={RecipeFormContainer} />
+        <Route exact path="/recipes/:recipeId" component={RecipeItemDetailContainer} />
         <ProtectedRoute exact path="/recipes/:recipeId/edit" component={RecipeFormContainer} />
         <ProtectedRoute exact path="/recipes/:recipeId/steps/:stepId/edit" component={StepFormListEditContainer} />
         <Route component={NotFoundComponent} />
