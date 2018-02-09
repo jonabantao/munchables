@@ -52,10 +52,13 @@ class CommentForm extends Component {
       <section className="comment-form">
         <div className="comment-form__top">
           <div className="comments-list__commenter-img-container">
-            <img src={this.props.currentUser.profile_img_url}
-              alt="profile image"
-              className="comments-list__commenter-img"
-            />
+            <div className="comments-list__img-wrapper 
+            comments-list__img-wrapper--shift-down">
+              <img src={this.props.currentUser.profile_img_url}
+                alt="profile image"
+                className="comments-list__commenter-img"
+              />
+            </div>
           </div>
           <div className="comment-form__textfield-container">
             <textarea

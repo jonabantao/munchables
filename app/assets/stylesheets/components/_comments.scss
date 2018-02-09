@@ -52,6 +52,9 @@
     height: 50px;
     border-radius: 50%;
     overflow: hidden;
+    &--shift-down {
+      margin-top: 10px;
+    }
   }
   &__commenter-img {
       max-width: 100px;

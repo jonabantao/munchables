@@ -81,7 +81,6 @@ class SearchResults extends Component {
   }
   
   render() {
-    console.log(this.state);
     return (
       <React.Fragment>
         <section className="search-page-top">
