@@ -20,10 +20,16 @@ class RecipeForm extends Component {
     this.checkValidYouTubeUrl = this.checkValidYouTubeUrl.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     if (this.props.formType === "edit") {
       this.props.requestRecipe(this.props.ownProps.match.params.recipeId)
-        .then(() => this.updateEditedState());
+        .then(recipe => {
+          if (recipe.author_id === this.props.currentUser.id) {
+            return this.updateEditedState();
+          } else {
+            this.props.history.replace("/");
+          }
+        });
     }
   }
 

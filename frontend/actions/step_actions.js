@@ -21,7 +21,10 @@ const receiveStepErrors = errors => ({
 
 export const requestStep = stepId => dispatch => (
   APIUtil.fetchStep(stepId)
-    .then(fetchedStep => dispatch(receiveStep(fetchedStep)))
+    .then(fetchedStep => {
+      dispatch(receiveStep(fetchedStep));
+      return fetchedStep;
+    })
 );
 
 export const createStep = step => dispatch => (

@@ -46,7 +46,10 @@ export const requestFilteredRecipes = search => dispatch => (
 
 export const requestRecipe = id => dispatch => (
   APIUtil.fetchRecipe(id)
-    .then(fetchedPayload => dispatch(receiveRecipe(fetchedPayload)))
+    .then(fetchedPayload => {
+      dispatch(receiveRecipe(fetchedPayload));
+      return fetchedPayload.recipe;
+    })
 );
 
 export const createRecipe = recipe => dispatch => (

@@ -16,6 +16,7 @@ const mapStateToProps = (state, ownProps) => {
     ownProps,
     steps: state.entities.steps,
     errors: state.errors.recipe,
+    currentUser: state.session.currentUser,
   };
 
   if (formType === "edit") {
