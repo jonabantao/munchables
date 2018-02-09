@@ -29,3 +29,12 @@
   background-color: $background-darkgray;
   padding: 5px 25px;
 }
+
+.missing {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  height: 1200px;
+}
