@@ -1,6 +1,11 @@
 import React from 'react';
 
 const CommentListItem = ({ comment, commenter, authorId }) => {
+  if (!commenter) {
+    return <p>Loading</p>;
+  }
+
+
   const showAuthor = (commenter && commenter.id === authorId) ? 
     <small className="comments-list__author-txt">(author)</small> : '';
 

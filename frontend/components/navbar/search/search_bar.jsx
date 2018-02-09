@@ -26,12 +26,10 @@ class SearchBar extends Component {
     const isAtSearchPage = this.props.path === "/search";
 
 
-    // If searchable => Go to search detail page and search
     if (isAtSearchPage) {
       this.props.searchRecipes(search)
         .then(this.clearForm);
     } else if (!isAtSearchPage) {
-      // If not at search page, redirect 
       this.props.searchRecipes(search)
         .then(() => {
           this.moveToSearchPage();
