@@ -40,7 +40,9 @@ class SearchResults extends Component {
     this.setState({ term: e.target.value });
   }
 
-  handleSearch() {
+  handleSearch(e) {
+    e.preventDefault();
+
     const search = this.state.term.trim();
 
     this.props.searchRecipes(search);
