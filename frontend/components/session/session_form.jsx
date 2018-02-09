@@ -6,13 +6,14 @@ class sessionForm extends Component {
   constructor(props) {
     super(props);
 
-    this.defaultState = {
+    this.state = {
       username: '',
       password: '',
       email: '',
       password_confirmation: ''
     };
-    this.state = this.defaultState;
+
+    this.displayGuestButton = this.displayGuestButton.bind(this);
   }
 
   componentWillUnmount() {
@@ -32,7 +33,7 @@ class sessionForm extends Component {
     e.preventDefault();
     this.props.handleSession(this.state)
       .then(() => this.props.history.push('/'),
-      this.resetForm());
+        this.resetForm());
   }
 
   handleGuest(e) {
@@ -45,7 +46,12 @@ class sessionForm extends Component {
   }
 
   resetForm() {
-    this.setState(this.defaultState);
+    this.setState({
+      username: '',
+      password: '',
+      email: '',
+      password_confirmation: ''
+    });
   }
 
   emailInput() {
@@ -80,8 +86,8 @@ class sessionForm extends Component {
     return this.props.formType === "signup" ?
       (<p className="session__redirect-text">
         Already a member? &nbsp;
-        <Link to="/login" 
-          replace={login} 
+        <Link to="/login"
+          replace={login}
           className="session__redirect-text session__redirect-text--underline"
         >
           Login!
@@ -89,14 +95,27 @@ class sessionForm extends Component {
       </p>) :
       (<p className="session__redirect-text">
         Looking to sign up? &nbsp;
-        <Link to="/signup" 
-          replace={signup} 
+        <Link to="/signup"
+          replace={signup}
           className="session__redirect-text session__redirect-text--underline"
         >
           Sign Up here!
         </Link>
       </p>
       );
+  }
+
+  displayGuestButton() {
+    if (this.props.formType === "signup") {
+      return (
+        <button
+          onClick={e => this.handleGuest(e)}
+          className="session__button session__button--orange"
+        >
+          Guest User
+        </button>
+      );
+    }
   }
 
   renderErrorContainer(errors) {
@@ -133,13 +152,8 @@ class sessionForm extends Component {
               value={submitValue}
               className="session__button session__button--red"
             />
-            <button 
-              onClick={e => this.handleGuest(e)} 
-              className="session__button session__button--orange"
-            >
-              Guest User
-            </button>
             {this.redirectSessionText()}
+            {this.displayGuestButton()}
           </form>
         </section>
       </main>

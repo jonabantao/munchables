@@ -10,7 +10,7 @@
 .search-page-top {
   background-color: $background-grayish;
   height: 100px;
-  border-bottom: 1px solid $gray;
+  border-bottom: 1px solid $border-gray;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -52,7 +52,7 @@
   background-color: transparent;
   font-size: 1.9rem;
   border: none;
-  border-bottom: 3px solid black;
+  border-bottom: 3px solid $text-offblack;
   margin-top: 6px;
   margin-left: 10px;
   color: $text-offblack;
