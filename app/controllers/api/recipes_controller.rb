@@ -3,7 +3,7 @@ class Api::RecipesController < ApplicationController
 
   def index
     if params[:search].present?
-      @recipes = Recipe.search_all_words(params[:search])
+      @recipes = Recipe.where(published: true).search_all_words(params[:search])
     else
       @recipes = Recipe.where(published: true).includes(:author, :steps)
     end

@@ -106,7 +106,7 @@ class sessionForm extends Component {
   }
 
   displayGuestButton() {
-    if (this.props.formType === "signup") {
+    if (this.props.formType !== "signup") {
       return (
         <button
           onClick={e => this.handleGuest(e)}
