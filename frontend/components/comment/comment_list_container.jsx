@@ -16,6 +16,7 @@ const mapStateToProps = (state, ownProps) => ({
   history: ownProps.history,
   authorId: ownProps.authorId,
   errors: state.errors.comment,
+  isLoadingComments: state.ui.loading.commentLoading,
 });
 
 const mapDispatchToProps = (dispatch, { recipeId }) => ({

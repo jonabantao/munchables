@@ -18,7 +18,6 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'jquery-rails'
 gem 'rails_12factor'
 gem "paperclip", "~> 5.2.1"
-gem 'pry-rails'
 gem 'normalize-scss'
 gem 'figaro'
 gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
@@ -28,6 +27,7 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'pry-rails'
 end
 
 group :development do

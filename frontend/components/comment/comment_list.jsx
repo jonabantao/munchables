@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CommentListItem from './comment_list_item';
 import CommentForm from './comment_form';
+import LoadingComments from '../loading/loading_comments';
 
 class CommentsList extends Component {
   constructor(props) {
@@ -109,6 +110,10 @@ class CommentsList extends Component {
   }
 
   render() {
+    if (this.props.isLoadingComments) {
+      return <LoadingComments />;
+    }
+
     return (
       <section className="comments-list">
         <h3 className="comments-list__title">

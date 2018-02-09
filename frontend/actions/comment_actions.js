@@ -6,6 +6,11 @@ export const RECEIVE_COMMENTS = "RECEIVE_COMMENTS";
 export const DELETE_COMMENT = "DELETE_COMMENT";
 export const RECEIVE_COMMENT_ERRORS = "RECEIVE_COMMENT_ERRORS";
 export const RESET_COMMENT_ERRORS = "RESET_COMMENT_ERRORS";
+export const START_LOADING_COMMENTS = "START_LOADING_COMMENTS";
+
+const startLoadingComments = () => ({
+  type: START_LOADING_COMMENTS,
+});
 
 const receiveComment = payload => ({
   type: RECEIVE_COMMENT,
@@ -43,10 +48,11 @@ export const fetchComment = commentId => dispatch => (
     .then(fetchedComment => dispatch(receiveComment(fetchedComment)))
 );
 
-export const fetchRecipeComments = recipeId => dispatch => (
-  APIUtil.fetchComments(recipeId)
-    .then(recipeComments => dispatch(receiveRecipeComments(recipeComments)))
-);
+export const fetchRecipeComments = recipeId => dispatch => {
+  dispatch(startLoadingComments());
+  return APIUtil.fetchComments(recipeId)
+    .then(recipeComments => dispatch(receiveRecipeComments(recipeComments)));
+};
 
 export const removeComment = commentId => dispatch => (
   APIUtil.deleteComment(commentId)
