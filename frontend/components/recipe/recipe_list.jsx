@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import RecipeItem from './recipe_item';
+import LoadingRecipes from '../loading_recipes';
 
-class RecipeList extends Component {
+class RecipeList extends Component {  
   componentDidMount() {
     this.props.requestAllRecipes();
   }
@@ -13,12 +14,14 @@ class RecipeList extends Component {
         recipe={recipe}
         authorName={this.props.authors[recipe.author_id].username} 
       />);
-    } else {
-      return <h1>Loading...</h1>;
-    }
+    } 
   }
 
   render() {
+    if (this.props.isLoadingRecipe) {
+      return <LoadingRecipes />;
+    }
+
     return (
       <nav className="recipe-list">
         <section className="recipe-list__heading">

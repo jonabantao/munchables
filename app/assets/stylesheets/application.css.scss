@@ -20,6 +20,7 @@
 @import "base/normalize";
 @import "base/reset";
 @import "base/colors";
+@import "base/loading";
 
 @import "components/*";
 
@@ -28,4 +29,3 @@
   background-color: $background-darkgray;
   padding: 5px 25px;
 }
-

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import RecipeStep from './recipe_step';
 import CommentListContainer from '../../comment/comment_list_container';
+import LoadingRecipes from '../../loading_recipes';
+
 
 class RecipeItemDetail extends Component {
   constructor(props) {
@@ -57,8 +59,8 @@ class RecipeItemDetail extends Component {
   }
 
   render() {
-    if (!this.props.recipe) {
-      return <article className="detail">Loading</article>;
+    if (this.props.isLoadingRecipe || !this.props.recipe) {
+      return <LoadingRecipes />;
     }
 
     const recipe = this.props.recipe;
