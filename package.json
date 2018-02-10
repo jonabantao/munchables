@@ -16,10 +16,9 @@
     "redux-thunk": "^2.2.0",
     "webpack": "^3.10.0"
   },
-  "devDependencies": {},
   "description": "Munchables - a site for user created recipes",
   "version": "1.0.0",
-  "main": ".frontend/index.jsx",
+  "main": "webpack.config.js",
   "directories": {
     "lib": "lib",
     "test": "test"
