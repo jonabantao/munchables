@@ -103,7 +103,7 @@ recipes = Recipe.create([
     body: "The Russians call it kulebyaka, but in Alaska it is pirok, perok or peroche — all amendments of pirog, the more general Russian word for pie. Inside the flaky crust, wild salmon from Alaskan waters is layered with rice and cabbage, crops introduced to the 18th-century natives of Kodiak Island by fur traders from across the strait. Long after the Russians gave up the hunt for sea otter pelts and sold their claim to the territory to the United States, the frontier fish-camp dish remained a staple of the Alaskan table.",
     recipe_img: open("http://i.imgur.com/EJZip9T.jpg"),
     published: true,
-    author_id: guest_users[0].id
+    author_id: users.sample.id
   },
   {
     title: "Grape Salad", 
@@ -113,31 +113,31 @@ Rather like a creamy fruit salad with a crisp sugar topping, it really is delici
     published: true,
     recipe_video_url: "https://www.youtube.com/watch?v=_-r0jUj6SXI",
     recipe_img: open("https://i.imgur.com/cjhTAQs.jpg"),
-    author_id: guest_users[3].id
+    author_id: users.sample.id
   },
   {
     title: "Portuguese Egg Custard Tarts", 
     body: "These diminutive egg tarts — pasteis de nata — a specialty all over Portugal, have a cinnamon flavored custard nestled in a flaky puff pastry crust. The trick here is to bake them in a very hot oven, which causes the custard to puff and the pastry to turn brown and crunchy. You can make the crust and filling ahead, but don’t bake them more than an hour or two before serving. They’re at their best still warm.", 
     recipe_img: open("https://i.imgur.com/qwMhYBQ.jpg"),
     published: true,
-    author_id: guest_users[2].id
+    author_id: users.sample.id
   },
   {
-    title: "Well Done Steak",
+    title: "Ano Niku",
     body: "Ever since i was a kid i was always obsessed with how good the food on animes looked. One in particular was a well known piece of meat that had a bone poking out either end, it was caveman meat etc. This kind of meat can be seen in many animes, mangas and games, including monster hunter. I decided to have a go at making my own version of this tasty dish!
 
 This would be perfect for anime/games/geek night! Impress your friends :D", 
     recipe_video_url: "https://www.youtube.com/watch?v=BofLbbh_gPU",
     recipe_img: open("https://i.imgur.com/xLHLFtS.jpg"),
     published: true,
-    author_id: guest_users[1].id
+    author_id: users.sample.id
   },
   {
     title: "Roast Lamb", 
     body: "If you haven't cooked a whole leg of lamb before, here is the place to start. This is not a revolutionary recipe, but slathering on butter and (take our word for it) anchovies makes this version truly essential. It is excellent for the Easter feast — lamb has ancient associations with springtime, and it pairs well with sharp spring vegetables like asparagus, dandelion greens and artichokes. Lamb is also popular for Passover, but the leg is not considered kosher unless the sciatic nerve is removed. Some kosher butchers offer that, but we also give options for other cuts like shoulder and double loin. The butter can be replaced by duck or goose fat, or olive oil, but the gravy (made from pan drippings) will need to be adjusted. For roasting, meaty American lamb is preferable to cuts from Australia and New Zealand. Most American lambs are fed both grass and grain, yielding meat that is fine-grained, earthy and mild.", 
     recipe_img: open("https://i.imgur.com/38qja3sr.jpg"),
     published: true,
-    author_id: guest_users[4].id
+    author_id: users.sample.id
   },
   {
     title: "Buffalo Chicken Wings", 
@@ -169,159 +169,33 @@ This would be perfect for anime/games/geek night! Impress your friends :D",
     author_id: users.sample.id
   },
   {
-    title: Faker::Food.unique.dish, 
-    body: Faker::Lorem.paragraph,
+    title: "Eggs in a Basket", 
+    body: "Unsalted butter, a thick slice of really good white or whole wheat country bread, and a sunflower-yellow, pastured egg is all you need for this utterly perfect meal.",
     recipe_img: open("https://imgur.com/r/food/TU6Tk1B"),
     published: true,
     author_id: users.sample.id
   },
   {
-    title: Faker::Food.unique.dish, 
-    body: Faker::Lorem.paragraph,
+    title: "Chinese Soup Dumplings (Xiao Long Bao)", 
+    body: "Soup dumplings are not extremely tough to make, but they are time-consuming, and here's why: in order to get the broth inside the 'pling, it must first be solidified, and that means making a real chicken and/or pork broth—no cheating by using the canned stuff.",
     recipe_img: open("https://i.imgur.com/sLEJw0q.jpg"),
     published: true,
     author_id: users.sample.id
   },
   {
-    title: Faker::Food.unique.dish, 
-    body: Faker::Lorem.paragraph,
+    title: "Baked Chicken Tenders", 
+    body: "Chicken tenders may be known as a kid favorite, but it's hard to find an adult who doesn't enjoy them just as much. And there's a lot to love when a crisp, golden brown coating meets juicy, tender chicken strips. This weeknight version strays slightly from the traditional deep-fried recipe: It can be pan-fried (see tip below), but it shines when baked in the oven. Proper chicken tenders, or the smaller muscle underneath the breast, can be hard to find, but boneless, skinless breasts — from chicken, or even turkey — sliced into thin strips are an excellent stand-in. For a little punch, feel free to add cayenne, crushed red-pepper flakes or fennel seed, or ground cumin to the flour mixture. Lastly, this version is paired with an herbed yogurt dip, but it can also be served with ketchup.",
     recipe_img: open("https://i.imgur.com/fbZXXZj.jpg"),
     published: true,
     author_id: users.sample.id
   },
   {
-    title: Faker::Food.unique.dish, 
-    body: Faker::Lorem.paragraph,
+    title: "Pizzapiazza Deep Dish Spinach Pizza", 
+    body: "Chicago-style pizza refers to several different styles of pizza developed in Chicago. Arguably, the most famous of these is known as deep-dish pizza.",
     recipe_img: open("https://i.imgur.com/8VqZPgx.jpg"),
     published: true,
     author_id: users.sample.id
-  },
-  {
-    title: Faker::Food.unique.dish, 
-    body: Faker::Lorem.paragraph,
-    recipe_img: open("https://i.imgur.com/HD8Pw0e.jpg"),
-    published: true,
-    author_id: users.sample.id
-  },
-  {
-    title: Faker::Food.unique.dish, 
-    body: Faker::Lorem.paragraph,
-    recipe_img: open("https://i.imgur.com/ZNi7cee.jpg"),
-    published: true,
-    author_id: users.sample.id
-  },
-  {
-    title: Faker::Food.unique.dish, 
-    body: Faker::Lorem.paragraph,
-    recipe_img: open("https://i.imgur.com/XDSbt0c.jpg"),
-    published: true,
-    author_id: users.sample.id
-  },
-  {
-    title: Faker::Food.unique.dish, 
-    body: Faker::Lorem.paragraph,
-    recipe_img: open("https://i.imgur.com/r18Aw7C.jpg"),
-    published: true,
-    author_id: users.sample.id
-  },
-  {
-    title: Faker::Food.unique.dish, 
-    body: Faker::Lorem.paragraph,
-    recipe_img: open("https://i.imgur.com/yEE8OLH.jpg"),
-    published: true,
-    author_id: users.sample.id
-  },
-  {
-    title: Faker::Food.unique.dish, 
-    body: Faker::Lorem.paragraph,
-    recipe_img: open("https://i.imgur.com/pPnwo7K.jpg"),
-    published: true,
-    author_id: users.sample.id
-  },
-  {
-    title: Faker::Food.unique.dish, 
-    body: Faker::Lorem.paragraph,
-    recipe_img: open("https://i.imgur.com/0boEAwO.jpg"),
-    published: true,
-    author_id: users.sample.id
-  },
-  {
-    title: Faker::Food.unique.dish, 
-    body: Faker::Lorem.paragraph,
-    recipe_img: open("https://i.imgur.com/CjRz23o.jpg"),
-    published: true,
-    author_id: users.sample.id
-  },
-  {
-    title: Faker::Food.unique.dish, 
-    body: Faker::Lorem.paragraph,
-    recipe_img: open("https://i.imgur.com/nqgqJwV.jpg"),
-    published: true,
-    author_id: users.sample.id
-  },
-  {
-    title: Faker::Food.unique.dish, 
-    body: Faker::Lorem.paragraph,
-    recipe_img: open("https://i.imgur.com/RrvFsX7.jpg"),
-    published: true,
-    author_id: users.sample.id
-  },
-  {
-    title: Faker::Food.unique.dish, 
-    body: Faker::Lorem.paragraph,
-    recipe_img: open("https://i.imgur.com/Iel2MAF.jpg"),
-    published: true,
-    author_id: users.sample.id
-  },
-  {
-    title: Faker::Food.unique.dish, 
-    body: Faker::Lorem.paragraph,
-    recipe_img: open("https://i.imgur.com/TqJCQhb.jpg"),
-    published: true,
-    author_id: users.sample.id
-  },
-  {
-    title: Faker::Food.unique.dish, 
-    body: Faker::Lorem.paragraph,
-    recipe_img: open("https://i.imgur.com/DbDNr16.jpg"),
-    published: true,
-    author_id: users.sample.id
-  },
-  {
-    title: Faker::Food.unique.dish, 
-    body: Faker::Lorem.paragraph,
-    recipe_img: open("https://i.imgur.com/dweVsuD.jpg"),
-    published: true,
-    author_id: users.sample.id
-  },
-  {
-    title: Faker::Food.unique.dish, 
-    body: Faker::Lorem.paragraph,
-    recipe_img: open("https://i.imgur.com/7Kx1t1m.jpg"),
-    published: true,
-    author_id: users.sample.id
-  },
-  {
-    title: Faker::Food.unique.dish, 
-    body: Faker::Lorem.paragraph,
-    recipe_img: open("https://i.imgur.com/vpblaZo.jpg"),
-    published: true,
-    author_id: users.sample.id
-  },
-  {
-    title: Faker::Food.unique.dish, 
-    body: Faker::Lorem.paragraph,
-    recipe_img: open("https://i.imgur.com/mC2R25e.jpg"),
-    published: true,
-    author_id: users.sample.id
-  },
-  {
-    title: Faker::Food.unique.dish, 
-    body: Faker::Lorem.paragraph,
-    recipe_img: open("https://i.imgur.com/L2noMXk.jpg"),
-    published: true,
-    author_id: users.sample.id
-  },
+  }
 ])
 
 recipe_one_steps = Step.create([
@@ -448,7 +322,7 @@ recipe_four_steps = Step.create([
     title: "Chicken Bones",
     body: "This first step is really fiddly so i did it first and just put them in the fridge when i was finished.
 
-If your chicken leg has skin on it, its fairly easy to remove, if you pull on it hard enough, half the time it will just rip off. When it gets to the base of the drumstick, cutting the skin off as you go, you will need to dig your scissors in and cut the joint off the end to reveal that nice looking bone which will be one of the bones sticking out of your Well Done Steak.
+If your chicken leg has skin on it, its fairly easy to remove, if you pull on it hard enough, half the time it will just rip off. When it gets to the base of the drumstick, cutting the skin off as you go, you will need to dig your scissors in and cut the joint off the end to reveal that nice looking bone which will be one of the bones sticking out of your Ano Niku.
 
 Once thats gone you can start snipping the meat in a few places to push it upward and expose more of the bone. Turning it kind of inside out in a way. Please remember in a drumstick theres actually 2 bones, one is very very fine, you WILL need to remove this just to be on the safe side, but its easy enough to cut it out.",
     order: 2,
@@ -516,7 +390,7 @@ Just roughly mix it all together with your basting brush, and when its been 30is
   },
   {
     title: "Finish!",
-    body: "I served up the Well done steak on lettuce as i felt like it added a caveman flair, i also dressed the plate up a bit with some roasted potatoes and Asparagus lightly fried in oil and herbs.
+    body: "I served up the Ano Niku on lettuce as i felt like it added a caveman flair, i also dressed the plate up a bit with some roasted potatoes and Asparagus lightly fried in oil and herbs.
 
 This was a serious hit with my household! Everyone enjoyed it and there was many food comas afterwards.
 
@@ -671,32 +545,147 @@ recipe_nine_steps = Step.create([
   }
 ])
 
+recipe_ten_steps = Step.create([
+  {
+    body: "Use a 2-inch cookie cutter to cut a hole in the middle of bread. Reserve the removed portion to toast, if desired. Break egg into a teacup.",
+    order: 1,
+    recipe_id: recipes[9].id,
+  },
+  {
+    body: "Heat a heavy cast-iron skillet over medium-high heat, or over a medium-hot grill, for about 2 minutes. Add butter. When butter stops foaming, place bread in pan and reduce heat to medium. Cook 3 minutes and flip over. Gently tip egg into hole.",
+    order: 2,
+    recipe_id: recipes[9].id,
+  },
+  {
+    body: "Sprinkle salt and pepper over egg and cook 3 minutes. Carefully flip egg and bread over, and cook for another 30 to 40 seconds, until egg is cooked just over-easy. Transfer to a plate and serve.",
+    order: 3,
+    recipe_id: recipes[9].id,
+  }
+])
 
-# Faker starts at [9-30]
-(9..30).each do |recipe_num|
-  steps = rand(4..9)
-  recipe_id = recipes[recipe_num].id
+recipe_eleven_steps = Step.create([
+  {
+    body: "Combine chicken bones, ham, scallion whites, half of scallion greens, ginger, and white peppercorns in a saucepan and cover with cold water. Bring to a boil over high heat, remove to a simmer, and simmer for 2 1/2 hours. Strain broth, season to taste with salt, cover, and refrigerate until set into a semi-firm jelly, at least 8 hours.",
+    order: 1,
+    recipe_id: recipes[10].id,
+  },
+  {
+    body: "Meanwhile, combine pork, shrimp, soy sauce, wine, sugar, 1 teaspoon salt, and remaining scallion greens in a food processor. Process until a fine paste is formed, about 12 to 15 one-second pulses. Refrigerate until ready to use.",
+    order: 2,
+    recipe_id: recipes[10].id,
+  },
+  {
+    body: "Meanwhile, place flour in bowl of food processor. With machine running, slowly drizzle in water until cohesive dough is formed (you probably won't need all the water). All dough to ride around processor for 30 seconds. Form into a ball using floured hands and transfer to a bowl. Cover with a damp towel and let rest for at least 30 minutes.",
+    order: 3,
+    recipe_id: recipes[10].id,
+  },
+  {
+    body: "Divide dough into 4 sections, and each section into 10 small tablespoon-sized balls, making 40 balls total. On a well-floured work surface, roll each ball into a round 3 1/2- to 4-inches in diameter. Stack wrappers and keep under plastic until all of them are rolled out.",
+    order: 4,
+    recipe_id: recipes[10].id,
+  },
+  {
+    body: "To form dumplings, place 1 tablespoon of filling in the center of a wrapper. Moisten the edges of the wrapper with a wet fingertip or a pastry brush. Pleat edges of the wrapper repeatedly, pinching the edge closed after each pleat until the entire dumpling is sealed. in a cinched purse shape. Pinch and twist top to seal. Transfer sealed dumplings to a lightly floured wooden or parchment-lined board.",
+    order: 5,
+    recipe_id: recipes[10].id,
+  },
+  {
+    body: "Place a bamboo steamer over a wok with 2 inches of water. Place over medium high heat until simmering. line steamer with napa cabbage leaves and place dumplings directly on leaves. Steam until cooked through, about 5 minutes. Serve immediately, being careful not to break them.",
+    order: 6,
+    recipe_id: recipes[10].id,
+  }
+])
 
-  (1..steps).each do |step_order|
-    Step.create(
-      title: Faker::Lorem.sentence(rand(3..4)),
-      body: Faker::Lorem.paragraph,
-      order: step_order,
-      recipe_id: recipe_id
-    )
-  end
+recipe_twelve_steps = Step.create([
+  {
+    body: "Make the dip: Mix yogurt, chives, parsley, dill, lemon juice and garlic in a small bowl; season with salt and plenty of pepper. Set aside.",
+    order: 1,
+    recipe_id: recipes[11].id,
+  },
+  {
+    body: "Prepare the chicken: Heat oven to 450 degrees. Cut chicken breasts lengthwise into about 1 1/4-inch-wide strips. Season with salt and pepper, and set aside.",
+    order: 2,
+    recipe_id: recipes[11].id,
+  },
+  {
+    body: "Mix together flour and paprika in a medium bowl, and season with salt and pepper. Place eggs in a large bowl and whisk with 1 teaspoon water. Season with salt and pepper. Put bread crumbs in a large bowl or shallow baking dish, and season with salt and pepper.",
+    order: 3,
+    recipe_id: recipes[11].id,
+  },
+  {
+    body: "Working with few pieces at a time, toss the chicken in the flour mixture, making sure it’s evenly coated. Shake off excess flour, and dip into egg wash. Shake off any excess.",
+    order: 4,
+    recipe_id: recipes[11].id,
+  },
+  {
+    body: "Dip chicken into bread crumb mixture a few pieces at a time, pressing to adhere as many bread crumbs as possible. Shake off any excess, and set chicken aside on a large plate.",
+    order: 5,
+    recipe_id: recipes[11].id,
+  },
+  {
+    body: "Place breaded chicken strips on a foil- or parchment-lined rimmed baking sheet. Drizzle with olive oil, and bake until one side is beginning to brown, 6 to 8 minutes. Using tongs or a spatula, flip chicken and continue to cook until the other side is golden brown and crisp, another 6 to 8 minutes. Serve with herbed yogurt dip.",
+    order: 6,
+    recipe_id: recipes[11].id,
+  }
+])
+
+recipe_thirteen_steps = Step.create([
+  {
+    body: "Place spinach in a large saucepan, cover and cook over medium heat three to four minutes, until the spinach wilts. Remove from heat, place in a colander, rinse spinach under cold water and then squeeze dry with the hands. Chop spinach.",
+    order: 1,
+    recipe_id: recipes[11].id,
+  },
+  {
+    body: "Heat oil in a skillet, add garlic and saute for 30 seconds. Add spinach and mix with a fork for a minute or so. Remove from heat.",
+    order: 2,
+    recipe_id: recipes[11].id,
+  },
+  {
+    body: "Preheat oven to 475 degrees. Lightly oil a 9-inch round baking pan 1 1/2 inches deep. Roll dough into a 12-inch circle and fit into pan. Dough should just cover the bottom and sides of the pan with no overhang.",
+    order: 3,
+    recipe_id: recipes[11].id,
+  },
+  {
+    body: "Mix cheeses together and spread 1 1/2 cups of the cheese mixture in the pan. Spread the tomato sauce over the cheese, covering the cheese completely. Spread spinach mixture over the tomato sauce, breaking up any clumps with your hands or a fork.",
+    order: 4,
+    recipe_id: recipes[11].id,
+  },
+  {
+    body: "Arrange alternating slices of tomato and basil leaves around the edge of the pan over the spinach. Fill the center with tomato slices. Then arrange alternating slices of green and red pepper in a spoke fashion over the tomatoes. Sprinkle with remaining cheese.",
+    order: 5,
+    recipe_id: recipes[11].id,
+  },
+  {
+    body: "Bake in preheated oven 25 minutes, until cheese and crust are golden and filling is bubbly. Remove from oven and allow to sit for 5 minutes before cutting.",
+    order: 6,
+    recipe_id: recipes[11].id,
+  }
+])
+
+
+
+COMMENTS = [
+  "My 33 year old daughter rates this recipe very incredible!",
+  "When I first saw this recipe come out in the new published recipe list, I just knew I'd like it, has everything in it I love. Finally had a chance to make it.",
+  "I like that this was healthy, easy, and fast to put together, and it wasn't bad, but it could use some more flavor to make it even better.",
+  "This is quick and easy to put together and pretty tasty. I thought it could use a bit more flavor, though.",
+  "I'll be making this again!",
+  "Made it for friends, they loved it.",
+  "Fantastic!",
+  "I took this to heart and it came out terrific.",
+  "Took me straight to Flavortown!",
+  "My daughter and her fiancé were over for dinner and we all swooned over the flavors",
+  "So easy, and addictive.",
+  "I've had better.",
+  "Tried it out and it felt too bland.",
+  "Worked out okay. Dog kept getting in the way."
+]
+
+COMMENTS.each do |comment|
+  Comment.create(
+    body: comment,
+    recipe_id: recipes.sample.id,
+    author_id: users.sample.id
+  )
 end
 
-
-
-
-
-
-
-
-### Comments
-100.times do |x|
-  Comment.create(body: Faker::Lorem.unique.sentence(4, true, 6),
-                  commenter_id: users.sample.id,
-                  recipe_id: recipes.sample.id)
-end
