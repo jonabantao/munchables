@@ -1,3 +1,4 @@
+
 var path = require("path");
 var webpack = require("webpack");
 
@@ -17,25 +18,30 @@ var prodPlugins = [
   })
 ];
 
+plugins = plugins.concat(
+  process.env.NODE_ENV === 'production' ? prodPlugins : devPlugins
+);
 
-
+// include plugins config
 module.exports = {
   context: __dirname,
-  entry: "./frontend/index.jsx",
+  entry: "./frontend/<name of entry file>",
   output: {
-    path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
+    path: path.resolve(__dirname, "app", "assets", "javascripts"),
     filename: "bundle.js"
   },
   plugins: plugins,
   module: {
-    loaders: [{
-      test: [/\.jsx?$/, /\.js?$/],
-      exclude: /(node_modules)/,
-      loader: 'babel-loader',
-      query: {
-        presets: ['env', 'react']
+    loaders: [
+      {
+        test: [/\.jsx?$/, /\.js?$/],
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        query: {
+          presets: ['react', 'env']
+        }
       }
-    }]
+    ]
   },
   devtool: 'source-map',
   resolve: {
