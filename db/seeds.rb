@@ -633,32 +633,32 @@ recipe_thirteen_steps = Step.create([
   {
     body: "Place spinach in a large saucepan, cover and cook over medium heat three to four minutes, until the spinach wilts. Remove from heat, place in a colander, rinse spinach under cold water and then squeeze dry with the hands. Chop spinach.",
     order: 1,
-    recipe_id: recipes[11].id,
+    recipe_id: recipes[12].id,
   },
   {
     body: "Heat oil in a skillet, add garlic and saute for 30 seconds. Add spinach and mix with a fork for a minute or so. Remove from heat.",
     order: 2,
-    recipe_id: recipes[11].id,
+    recipe_id: recipes[12].id,
   },
   {
     body: "Preheat oven to 475 degrees. Lightly oil a 9-inch round baking pan 1 1/2 inches deep. Roll dough into a 12-inch circle and fit into pan. Dough should just cover the bottom and sides of the pan with no overhang.",
     order: 3,
-    recipe_id: recipes[11].id,
+    recipe_id: recipes[12].id,
   },
   {
     body: "Mix cheeses together and spread 1 1/2 cups of the cheese mixture in the pan. Spread the tomato sauce over the cheese, covering the cheese completely. Spread spinach mixture over the tomato sauce, breaking up any clumps with your hands or a fork.",
     order: 4,
-    recipe_id: recipes[11].id,
+    recipe_id: recipes[12].id,
   },
   {
     body: "Arrange alternating slices of tomato and basil leaves around the edge of the pan over the spinach. Fill the center with tomato slices. Then arrange alternating slices of green and red pepper in a spoke fashion over the tomatoes. Sprinkle with remaining cheese.",
     order: 5,
-    recipe_id: recipes[11].id,
+    recipe_id: recipes[12].id,
   },
   {
     body: "Bake in preheated oven 25 minutes, until cheese and crust are golden and filling is bubbly. Remove from oven and allow to sit for 5 minutes before cutting.",
     order: 6,
-    recipe_id: recipes[11].id,
+    recipe_id: recipes[12].id,
   }
 ])
 
