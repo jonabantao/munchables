@@ -685,7 +685,7 @@ COMMENTS.each do |comment|
   Comment.create(
     body: comment,
     recipe_id: recipes.sample.id,
-    author_id: users.sample.id
+    commenter_id: users.sample.id
   )
 end
 
