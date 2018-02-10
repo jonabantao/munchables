@@ -2,8 +2,8 @@
 var path = require("path");
 var webpack = require("webpack");
 
-var plugins = []; // if using any plugins for both dev and production
-var devPlugins = []; // if using any plugins for development
+var plugins = []; 
+var devPlugins = []; 
 
 var prodPlugins = [
   new webpack.DefinePlugin({
@@ -22,10 +22,9 @@ plugins = plugins.concat(
   process.env.NODE_ENV === 'production' ? prodPlugins : devPlugins
 );
 
-// include plugins config
 module.exports = {
   context: __dirname,
-  entry: "./frontend/<name of entry file>",
+  entry: "./frontend/index.jsx",
   output: {
     path: path.resolve(__dirname, "app", "assets", "javascripts"),
     filename: "bundle.js"
