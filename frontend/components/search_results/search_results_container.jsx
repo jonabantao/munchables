@@ -8,8 +8,6 @@ const mapStateToProps = (state, ownProps) => ({
   recipes: Object.values(state.entities.recipes),
   authors: state.entities.users,
   searchTerm: state.term,
-  state,
-  ownProps
 });
 
 const mapDispatchToProps = dispatch => ({

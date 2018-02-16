@@ -34,7 +34,7 @@
     box-shadow: 0px 1px 10px $shadow-gray;
     overflow: hidden;
     &:hover {
-      box-shadow: 0px 1px 10px;
+      box-shadow: 0px 1px 9px $shadow-darkgray;
     }
   }
   &__item-img-container {

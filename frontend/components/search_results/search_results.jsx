@@ -28,14 +28,6 @@ class SearchResults extends Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-    const oldSearchTerm = this.state.term;
-
-    if (nextProps.searchTerm !== oldSearchTerm) {
-      this.setState({ term: nextProps.searchTerm });
-    }
-  }
-
   handleUpdate(e) {
     this.setState({ term: e.target.value });
   }
