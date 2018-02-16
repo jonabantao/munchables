@@ -28,6 +28,12 @@ class SearchResults extends Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.searchTerm !== nextProps.searchTerm) {
+      this.setState({ term: nextProps.searchTerm });
+    }
+  }
+
   handleUpdate(e) {
     this.setState({ term: e.target.value });
   }
