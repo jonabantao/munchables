@@ -6,7 +6,7 @@
 # Features
 ## Search
 <div align="center">
-  <img src="https://media.giphy.com/media/xUOwG0zGMhPKr02JIk/giphy.gif">
+  <img src="https://i.imgur.com/G5Yxn8f.gif">
 </div>
 
 Similiar to Instructable's Search, Munchables allows you to search for multiple words and return recipe titles that match with any words that you've input. In addition, like Instructables, search terms that have been input on the navigation search bar are stored in the main search bar in the Search page to help remember what the user was looking for.
@@ -71,7 +71,7 @@ In the front-end, the user is redirected back to the root page if they are not t
 
 ## Loading Spinners
 <div align="center">
-  <img src="https://media.giphy.com/media/xUNd9JfZd0CjCCejMA/giphy.gif">
+  <img src="https://i.imgur.com/wMhKNyy.gif">
 </div>
 There are times where the AJAX promise is not returned quickly enough before a render. In these cases, the webpage would crash because some of the rendering relies on the object being already stored in the state. In order to fix this, a null check was created along with certain AJAX requests sending Loading actions to the Loading reducer. Components that rely on this first check if they are waiting for the promise.
 
