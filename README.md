@@ -96,8 +96,6 @@ render() {
     ...
 ```
 
-## Munchable Creation
-
 # Planned Features
 * **User Profile Page** 
 
