@@ -1,0 +1,21 @@
+.footer {
+  height: 300px;
+  background-color: $background-darkgray;
+  padding: 5px 25px;
+  &__container {
+    margin: 0 auto;
+    margin-top: 50px;
+    max-width: 1600px;
+    display: flex;
+    justify-content: space-around;
+  }
+  &__icon {
+    font-size: 8rem;
+    color: $text-lightgray;
+    transition-timing-function: ease;
+    transition: 0.5s;
+    &:hover {
+      color: $text-gray; 
+    }
+  }
+}
