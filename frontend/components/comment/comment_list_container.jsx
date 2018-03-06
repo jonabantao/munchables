@@ -22,7 +22,7 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = (dispatch, { recipeId }) => ({
   fetchRecipeComments: () => dispatch(fetchRecipeComments(recipeId)),
   createComment: comment => dispatch(createComment(comment)),
-  // removeComment: id => dispatch(removeComment(id)), to be implemented later?
+  removeComment: id => dispatch(removeComment(id)),
   clearErrors: () => dispatch(clearCommentErrors()),
 });
 

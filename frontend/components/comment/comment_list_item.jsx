@@ -1,13 +1,21 @@
 import React from 'react';
 
-const CommentListItem = ({ comment, commenter, authorId }) => {
+const CommentListItem = ({ comment, commenter, authorId, currentUser, removeComment }) => {
   if (!commenter) {
-    return <p>Loading</p>;
+    return '';
   }
 
 
   const showAuthor = (commenter && commenter.id === authorId) ? 
     <small className="comments-list__author-txt">(author)</small> : '';
+
+  const showDelete = (currentUser && commenter && currentUser.id === commenter.id) ?
+    <button 
+      onClick={() => removeComment(comment.id)} 
+      className="comments-list__remove-comment"
+    >
+      &times;
+    </button> : '';
 
   return (
     <li className="comments-list__item-container">
@@ -20,12 +28,15 @@ const CommentListItem = ({ comment, commenter, authorId }) => {
           />
           </div>
         </div>
-        <div>
+        <div className="comments-list__author-info">
           <footer className="comments-list__footer">
-            {commenter.username} {showAuthor}
-            <p className="comments-list__postdate">
-              &nbsp; {comment.postdate}
-            </p>
+            <div>
+              {commenter.username} {showAuthor}
+              <p className="comments-list__postdate">
+                &nbsp; {comment.postdate}
+              </p>
+            </div>
+            {showDelete}
           </footer>
           <div className="comments-list__comment-text">
             {comment.body}

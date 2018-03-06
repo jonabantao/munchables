@@ -26,10 +26,10 @@ class Api::CommentsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @comment = Comment.find(params[:id])
 
-    if @comment.author_id == current_user.id
+    if @comment.commenter_id == current_user.id
       @comment.destroy
       render "api/comments/show"
     else

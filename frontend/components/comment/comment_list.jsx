@@ -98,6 +98,8 @@ class CommentsList extends Component {
           comment={comment}
           commenter={this.props.users[comment.commenter_id]}
           authorId={this.props.authorId}
+          removeComment={this.props.removeComment}
+          currentUser={this.props.currentUser}
         />
       ));
 

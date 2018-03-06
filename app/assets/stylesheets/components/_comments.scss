@@ -45,6 +45,17 @@
     margin-left: 10px;
     margin-right: 10px;
   }
+  &__author-info {
+    flex: 1;
+  }
+  &__remove-comment {
+    border: none;
+    color: $background-red;
+    cursor: pointer;
+    &:hover {
+      color: darken($background-red, 10%)
+    }
+  }
   &__img-wrapper {
     display: flex;
     justify-content: center;
@@ -69,7 +80,10 @@
     color: $text-gray;
   }
   &__footer {
+    display: flex;
+    justify-content: space-between;
     margin-bottom: 5px;
+    width: 100%;
   }
   &__author-txt {
     font-size: 0.8rem;
