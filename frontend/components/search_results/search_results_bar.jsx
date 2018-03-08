@@ -20,14 +20,14 @@ class SearchResultsBar extends Component {
     return (
       <section className="search-page-top">
         <h4 className="search-page-top__header">Let's Cook</h4>
-        <form>
+        <div>
           <input type="text"
             className="search-page-top__form"
             value={this.state.term}
             onChange={e => this.handleUpdate(e.target.value)}
             autoFocus
           />
-        </form>
+        </div>
       </section>
     );
   }
