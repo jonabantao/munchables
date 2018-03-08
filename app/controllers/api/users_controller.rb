@@ -10,6 +10,16 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def show
+    @user = User.includes(:authored_recipes).find_by(id: params[:id])
+
+    if @user
+      render "/api/users/profile"
+    else
+      render json: ["No user found"], status: 404
+    end
+  end
+
   private
 
   def user_params
