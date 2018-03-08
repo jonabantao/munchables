@@ -7,6 +7,10 @@ import {
   START_LOADING_COMMENTS,
   RECEIVE_COMMENTS,
 } from '../../actions/comment_actions';
+import {
+  RECEIVE_USER,
+  START_LOADING_USER,
+} from '../../actions/user_actions';
 import _ from 'lodash';
 
 const initState = {
@@ -27,6 +31,10 @@ const loadingReducer = (state = initState, action) => {
       return _.merge({}, state, { commentLoading: true });
     case RECEIVE_COMMENTS:
       return _.merge({}, state, { commentLoading: false });
+    case START_LOADING_USER:
+      return _.merge({}, state, { userLoading: true });
+    case RECEIVE_USER:
+      return _.merge({}, state, { userLoading: false });
     default:
       return state;
   }

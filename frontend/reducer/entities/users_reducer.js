@@ -7,6 +7,7 @@ import {
   RECEIVE_COMMENT,
   RECEIVE_COMMENTS,
 } from '../../actions/comment_actions';
+import { RECEIVE_USER } from '../../actions/user_actions';
 import _ from 'lodash';
 
 const usersReducer = (state = {}, action) => {
@@ -23,6 +24,7 @@ const usersReducer = (state = {}, action) => {
     case RECEIVE_COMMENTS:
       return _.merge({}, state, action.payload.users);
     case RECEIVE_COMMENT:
+    case RECEIVE_USER:
       return _.merge({}, state, action.payload.user);
     default:
       return state;
