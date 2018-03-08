@@ -12,6 +12,9 @@ const NavBar = ({ currentUser, logout, history }) => {
   /> :
     <NavBarSessionLinks />;
 
+  const displaySearchContainer = history.location.pathname !== "/search" ?
+    <SearchBarContainer /> : '';
+
   return (
     <section className="navbar-container">
       <nav className="navbar">
@@ -21,7 +24,7 @@ const NavBar = ({ currentUser, logout, history }) => {
               <img src="https://i.imgur.com/dfiQbk2.png" className="navbar__logo-img" />
             </Link>
           </div>
-          <SearchBarContainer />
+          {displaySearchContainer}
           <Link to="/recipes/new" className="navbar__create-recipe">
             Write a Munchable
         </Link>
