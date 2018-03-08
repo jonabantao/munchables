@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import RecipeItem from '../recipe/recipe_item';
+import SearchResultsBar from './search_results_bar';
+import _ from 'lodash';
 
 class SearchResults extends Component {
   constructor(props) {
     super(props);
-    
-    this.state = {
-      term: '',
-    };
 
     this.displayResultHeader = this.displayResultHeader.bind(this);
     this.createRecipeContainers = this.createRecipeContainers.bind(this);
@@ -23,25 +21,11 @@ class SearchResults extends Component {
     // Used to fill in list if page is reloaded
     if (this.props.searchTerm.length === 0) {
       this.props.searchRecipes('');
-    } else {
-      this.setState({ term: this.props.searchTerm });
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (this.props.searchTerm !== nextProps.searchTerm) {
-      this.setState({ term: nextProps.searchTerm });
-    }
-  }
-
-  handleUpdate(e) {
-    this.setState({ term: e.target.value });
-  }
-
-  handleSearch(e) {
-    e.preventDefault();
-
-    const search = this.state.term.trim();
+  handleSearch(term) {
+    const search = term.trim();
 
     this.props.searchRecipes(search);
   }
@@ -79,25 +63,14 @@ class SearchResults extends Component {
   }
   
   render() {
+    const handleSearch = _.debounce(term => { this.handleSearch(term); }, 300);
+
     return (
       <React.Fragment>
-        <section className="search-page-top">
-          <h4 className="search-page-top__header">Let's Cook</h4>
-          <form>
-            <input type="text" 
-              className="search-page-top__form"
-              value={this.state.term}
-              onChange={e => this.handleUpdate(e)}
-              autoFocus
-            />
-            <button
-              className="search-page-top__submit"
-              onClick={this.handleSearch}
-            >
-            <i className="fas fa-search search-page-top__icon--white" />
-            </button>
-          </form>
-        </section>
+        <SearchResultsBar 
+          onSearchTermChange={handleSearch}
+          searchTerm={this.props.searchTerm}
+        />
         <section className="search-page-container">
           <nav className="recipe-list">
             <section className="recipe-list__heading">
