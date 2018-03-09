@@ -9,11 +9,12 @@ class RecipeList extends Component {
 
   createRecipeContainers(recipes) {
     if (recipes.length) {
-      return recipes.map(recipe => <RecipeItem 
+      return recipes.map(recipe => {
+        return <RecipeItem 
         key={recipe.id} 
         recipe={recipe}
         authorName={this.props.authors[recipe.author_id].username} 
-      />);
+      />;});
     } 
   }
 

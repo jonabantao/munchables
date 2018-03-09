@@ -1,10 +1,14 @@
 json.user do
-  json.extract! @user, :id, :username
+  json.set! @user.id do
+    json.extract! @user, :id, :username
+    json.join_date "Joined #{@user.created_at.strftime("%B %d %Y")}"
 
-  if @user.profile_img_file_name.nil?
-    json.profile_img_url asset_path("default-profile#{@user.id % 7}.jpg")
-  else
-    json.profile_img_url asset_path(@user.profile_img.url)
+    if @user.profile_img_file_name.nil?
+      json.profile_img_url asset_path("default-profile#{@user.id % 7}.jpg")
+    else
+      json.profile_img_url asset_path(@user.profile_img.url)
+    end
+    json.comment_count @user.authored_comments.count
   end
 end
 

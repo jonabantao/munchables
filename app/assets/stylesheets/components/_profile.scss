@@ -1,0 +1,60 @@
+.profile-header-container {
+  min-height: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid $border-darkgray;
+}
+
+.profile-header {
+  margin: 50px 0;
+  display: flex;
+  justify-content: center;
+  &__image-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 115px;
+    height: 115px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 30px;
+  }
+  &__image {
+    max-width: 200px;
+    max-height: 150px;
+    width: auto;
+    height: auto;
+    align-self: center;
+  }
+  &__username {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+  }
+  &__footer {
+    line-height: 1.5;
+    font-size: 0.9rem;
+  }
+  &__user-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  &__join {
+    margin-right: 7px;
+    color: $text-blue;
+  }
+  &__comment {
+    margin-right: 7px;
+    color: $text-orange;
+  }
+}
+
+.profile-recipes-container {
+  min-height: 600px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $background-lightgray;
+}
