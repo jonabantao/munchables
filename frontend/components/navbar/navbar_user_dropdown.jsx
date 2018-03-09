@@ -13,7 +13,13 @@ const NavBarUserDropdown = (props) => {
       >
         Logout
       </button>
-      
+      <div className="lol">
+        <Link to={`/users/${props.currentUser.id}/`}>
+          <h2 className="navbar__dropdown-profile">
+            <i class="fas fa-user"></i> Profile
+          </h2>
+        </Link>
+      </div>
       <Link to="/recipes/new/">
         <div className="navbar__dropdown-create">
             Write a Munchable

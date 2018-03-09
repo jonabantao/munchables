@@ -47,6 +47,7 @@ class NavBarGreeting extends Component {
         <NavBarUserDropdown
           logout={this.props.logout}
           history={this.props.history}
+          currentUser={this.props.currentUser}
         />
       );
     }

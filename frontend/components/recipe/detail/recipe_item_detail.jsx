@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import RecipeStep from './recipe_step';
 import CommentListContainer from '../../comment/comment_list_container';
 import LoadingRecipes from '../../loading_recipes';
@@ -65,12 +66,15 @@ class RecipeItemDetail extends Component {
 
     const recipe = this.props.recipe;
     const author = this.props.authors[recipe.author_id].username;
+    const authorId = this.props.authors[recipe.author_id].id;
 
     return (
       <article className="detail">
         <header className="detail__header">
           <h2 className="detail__title">{recipe.title}</h2>
-          <h4 className="detail__author">By: {author}</h4>
+          <h4 className="detail__author">
+            By: <Link to={`/users/${authorId}/`}>{author}</Link>
+          </h4>
           <small>Posted: {recipe.creation}</small>
         </header>
         <section className="detail__intro-container">

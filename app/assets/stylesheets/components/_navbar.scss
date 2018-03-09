@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   background-color: $background-lightgray;
-    border-bottom: 1px solid $border-gray;
+  border-bottom: 1px solid $border-gray;
 }
 
 .navbar {
@@ -107,7 +107,8 @@
     }
   }
   &__search-bar-icon--white {
-    color: $text-whitesmoke;;
+    color: $text-whitesmoke;
+    ;
     font-size: 1.2rem;
   }
   &__profile-img-container {
@@ -140,21 +141,22 @@
   &__profile-dropdown {
     position: absolute;
     display: flex;
-    justify-content: space-around;
     flex-direction: column;
+    justify-content: space-between;
     top: 50px;
     right: 10px;
     background-color: $background-white;
     border: 1px solid $border-gray;
     border-radius: 5px;
-    padding: 10px;
-    width: 200px;
+    width: 270px;
     height: 100px;
     z-index: 4;
     cursor: default;
   }
   &__logout-button {
-    // float: right;
+    position: absolute;
+    right: 10px;
+    top: 5px;
     border: 1px solid rgb(158, 156, 156);
     border-radius: 5px;
     padding: 8px 15px;
@@ -169,9 +171,23 @@
       box-shadow: inset 0 0 3px rgb(185, 184, 184);
     }
   }
-  &__dropdown-create {
-    // margin-top: 150px;
+  &__dropdown-profile {
+    margin-top: 15px;
+    margin-left: 15px;
+    font-size: 1rem;
     width: 100%;
+    height: 30px;
+    border: none;
+    border-radius: 4px;
+    color: $text-offblack;
+    transition: ease-in-out 0.3s;
+    cursor: pointer;
+    &:hover {
+      color: black;
+    }
+  }
+  &__dropdown-create {
+    width: 250px;
     height: 30px;
     border: none;
     background-color: $background-orange;
@@ -181,8 +197,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 10px;
     &:hover {
       background-color: darken($background-orange, 10%);
     }
   }
+}
+
+.lol {
+  border-bottom: 1px solid $border-gray;
 }
