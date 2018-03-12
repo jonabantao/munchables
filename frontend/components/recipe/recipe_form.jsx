@@ -180,12 +180,15 @@ class RecipeForm extends Component {
   }
 
   render() {
+    const formHeader = this.props.formType === "edit" ? "Edit Munchable" :
+      "Create a Munchable";
+
     return (
       <section className="recipe-form-page">
         <div className="recipe-form">
           <header className="recipe-form__header">
             <h2 className="recipe-form__header-title">
-              Create a Munchable
+              {formHeader}
               </h2>
           </header>
           <section className="recipe-form__input-container">

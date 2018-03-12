@@ -2,7 +2,6 @@ import React from 'react';
 import PublishedRecipeItem from './published_recipe_item';
 
 const PublicProfile = ({ user, recipes }) => {
-  console.log(recipes);
   if (!recipes.length) {
     return (
       <section className="profile-recipes-container">

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import RecipeStep from './recipe_step';
 import CommentListContainer from '../../comment/comment_list_container';
 import LoadingRecipes from '../../loading_recipes';
@@ -62,6 +62,10 @@ class RecipeItemDetail extends Component {
   render() {
     if (this.props.isLoadingRecipe || !this.props.recipe) {
       return <LoadingRecipes />;
+    }
+
+    if (!this.props.recipe.published) {
+      return <Redirect to="/" />;
     }
 
     const recipe = this.props.recipe;

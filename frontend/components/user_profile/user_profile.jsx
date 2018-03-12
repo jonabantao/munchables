@@ -27,8 +27,8 @@ class UserProfile extends Component {
 
     const displayProfile = currentUser && currentUser.id === user.id ?
       <PersonalProfile 
-        publishedRecipes={pubRecipes} 
-        unpublishedRecipes={unpubRecipes}
+        pubRecipes={pubRecipes} 
+        unpubRecipes={unpubRecipes}
       /> : 
       <PublicProfile
         user={user}

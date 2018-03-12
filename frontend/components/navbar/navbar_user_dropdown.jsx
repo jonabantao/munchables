@@ -16,7 +16,7 @@ const NavBarUserDropdown = (props) => {
       <div className="lol">
         <Link to={`/users/${props.currentUser.id}/`}>
           <h2 className="navbar__dropdown-profile">
-            <i class="fas fa-user"></i> Profile
+            <i className="fas fa-user"></i> Profile
           </h2>
         </Link>
       </div>
