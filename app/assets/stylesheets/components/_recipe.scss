@@ -71,4 +71,10 @@
     object-position: center;
     position: absolute;
   }
+  &__author-link {
+    &:hover {
+      color: $text-offblack;
+      text-decoration: underline;
+    }
+  }
 }

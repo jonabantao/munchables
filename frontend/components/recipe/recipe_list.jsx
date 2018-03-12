@@ -14,7 +14,9 @@ class RecipeList extends Component {
         key={recipe.id} 
         recipe={recipe}
         authorName={this.props.authors[recipe.author_id].username} 
-      />;});
+        authorId={recipe.author_id}
+      />;
+      });
     } 
   }
 

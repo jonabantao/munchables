@@ -15,7 +15,11 @@ const RecipeItem = (props) => {
         </section>
         <section className="recipe-list__title-container">
           <h4 className="recipe-list__title-text">{props.recipe.title}</h4>
-          <p className="recipe-list__author-text">by {props.authorName}</p>
+          <p className="recipe-list__author-text">by&nbsp;
+            <Link to={`/users/${props.authorId}`} className="recipe-list__author-link">
+               {props.authorName}
+            </Link>
+          </p>
         </section>
       </Link>
     </li>
