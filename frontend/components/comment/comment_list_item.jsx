@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const CommentListItem = ({ comment, commenter, authorId, currentUser, removeComment }) => {
   if (!commenter) {
@@ -31,7 +32,12 @@ const CommentListItem = ({ comment, commenter, authorId, currentUser, removeComm
         <div className="comments-list__author-info">
           <footer className="comments-list__footer">
             <div>
-              {commenter.username} {showAuthor}
+              <span className="comments-list__author-name">
+                <Link to={`/users/${commenter.id}/`}>
+                  {commenter.username}
+                </Link>
+              </span>
+               {showAuthor}
               <p className="comments-list__postdate">
                 &nbsp; {comment.postdate}
               </p>

@@ -20,6 +20,9 @@
     font-size: 0.9rem;
     margin-bottom: 20px;
   }
+  &__author-name:hover {
+    text-decoration: underline;
+  }
   &__intro-container {
     display: flex;
     flex-direction: column;

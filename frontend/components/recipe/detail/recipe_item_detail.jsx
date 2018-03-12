@@ -73,7 +73,7 @@ class RecipeItemDetail extends Component {
         <header className="detail__header">
           <h2 className="detail__title">{recipe.title}</h2>
           <h4 className="detail__author">
-            By: <Link to={`/users/${authorId}/`}>{author}</Link>
+            By: <span className="detail__author-name"><Link to={`/users/${authorId}/`}>{author}</Link></span>
           </h4>
           <small>Posted: {recipe.creation}</small>
         </header>

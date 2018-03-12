@@ -48,6 +48,11 @@
   &__author-info {
     flex: 1;
   }
+  &__author-name {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
   &__remove-comment {
     border: none;
     color: $background-red;
