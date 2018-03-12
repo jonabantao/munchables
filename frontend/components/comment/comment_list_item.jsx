@@ -37,7 +37,7 @@ const CommentListItem = ({ comment, commenter, authorId, currentUser, removeComm
                   {commenter.username}
                 </Link>
               </span>
-               {showAuthor}
+               &nbsp;{showAuthor}
               <p className="comments-list__postdate">
                 &nbsp; {comment.postdate}
               </p>
