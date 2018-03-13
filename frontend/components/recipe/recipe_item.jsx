@@ -13,15 +13,18 @@ const RecipeItem = (props) => {
             className="recipe-list__item-img"
             alt="recipe-item-img" />
         </section>
+      </Link>
         <section className="recipe-list__title-container">
+        <Link to={`/recipes/${props.recipe.id}`}>
           <h4 className="recipe-list__title-text">{props.recipe.title}</h4>
+        </Link>
           <p className="recipe-list__author-text">by&nbsp;
             <Link to={`/users/${props.authorId}`} className="recipe-list__author-link">
                {props.authorName}
             </Link>
           </p>
         </section>
-      </Link>
+      
     </li>
   );
 };
