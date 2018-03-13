@@ -7,7 +7,7 @@ const PublicProfile = ({ user, recipes }) => {
       <section className="profile-recipes-container">
         <nav className="profile-recipes">
           <h3 className="profile-recipes__header">
-          {user.username} has not published any munchables... yet.
+          {user.username} has not published any Munchables... yet.
           </h3>
         </nav>
       </section>
