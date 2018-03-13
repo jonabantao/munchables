@@ -10,7 +10,7 @@ const Home = () => {
         <figure></figure>
         <figure></figure>
         <figure></figure>
-        <h1 className="hero-image__text">Let's Make Something...</h1>
+        <h1 className="hero-image__text">Let's Cook Something Tasty</h1>
       </section>
       <section className="main-container">
         <RecipeListContainer />
