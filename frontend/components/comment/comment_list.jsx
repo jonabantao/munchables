@@ -53,15 +53,15 @@ class CommentsList extends Component {
     e.preventDefault();
 
     if (!this.props.currentUser) {
-      this.props.history.push("/login");
+      this.props.history.push('/login');
     } else if (!this.state.isCommentFormOpen) {
       document.addEventListener('click', this.handleOutsideClick, false);
     } else {
       document.removeEventListener('click', this.handleOutsideClick, false);
     }
-    
+
     this.setState(prevState => ({
-      isCommentFormOpen: !prevState.isCommentFormOpen 
+      isCommentFormOpen: !prevState.isCommentFormOpen ,
     }));
   }
 
@@ -71,9 +71,9 @@ class CommentsList extends Component {
     if (length) {
       const addS = length > 1 ? 's' : '';
       return `${length} Comment${addS}`;
-    } else {
-      return "No comments yet.";
     }
+
+    return 'No comments yet.';
   }
 
   displayCommentForm() {

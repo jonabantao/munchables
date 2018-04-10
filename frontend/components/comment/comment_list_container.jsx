@@ -29,5 +29,5 @@ const mapDispatchToProps = (dispatch, { recipeId }) => ({
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(CommentList);

@@ -30,3 +30,4 @@ livereload/
 /config/application.yml
 latest.dump
 latest.dump.*
+.vscode

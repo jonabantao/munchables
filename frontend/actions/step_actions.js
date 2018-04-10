@@ -6,22 +6,22 @@ export const RECEIVE_STEP_ERRORS = 'RECEIVE_STEP_ERRORS';
 
 const receiveStep = step => ({
   type: RECEIVE_STEP,
-  step
+  step,
 });
 
 const deleteStep = stepId => ({
   type: DELETE_STEP,
-  stepId
+  stepId,
 });
 
 const receiveStepErrors = errors => ({
   type: RECEIVE_STEP_ERRORS,
-  errors
+  errors,
 });
 
 export const requestStep = stepId => dispatch => (
   APIUtil.fetchStep(stepId)
-    .then(fetchedStep => {
+    .then((fetchedStep) => {
       dispatch(receiveStep(fetchedStep));
       return fetchedStep;
     })
@@ -36,11 +36,11 @@ export const updateStep = step => dispatch => (
   APIUtil.updateStep(step)
     .then(
       updatedStep => dispatch(receiveStep(updatedStep)),
-      err => dispatch(receiveStepErrors(err))
+      err => dispatch(receiveStepErrors(err)),
     )
 );
 
 export const removeStep = stepId => dispatch => (
-  APIUtil.deleteStep(stepId) 
+  APIUtil.deleteStep(stepId)
     .then(() => dispatch(deleteStep(stepId)))
 );

@@ -13,9 +13,9 @@ class CommentForm extends Component {
   }
 
   componentWillUnmount() {
-            if (this.props.errors.length) {
-          this.props.clearErrors();
-        }
+    if (this.props.errors.length) {
+      this.props.clearErrors();
+    }
   }
 
   updateBody(e) {
@@ -24,9 +24,9 @@ class CommentForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const recipeId = this.props.recipeId;
+    const { recipeId } = this.props;
 
-    let commentBody = _.merge({}, this.state, { recipe_id: recipeId });
+    const commentBody = _.merge({}, this.state, { recipe_id: recipeId });
     this.props.createComment(commentBody)
       .then(() => {
         if (this.props.errors.length) {
@@ -52,25 +52,25 @@ class CommentForm extends Component {
       <section className="comment-form">
         <div className="comment-form__top">
           <div className="comments-list__commenter-img-container">
-            <div className="comments-list__img-wrapper 
-            comments-list__img-wrapper--shift-down">
-              <img src={this.props.currentUser.profile_img_url}
-                alt="profile image"
+            <div className="comments-list__img-wrapper comments-list__img-wrapper--shift-down">
+              <img
+                src={this.props.currentUser.profile_img_url}
+                alt="profile"
                 className="comments-list__commenter-img"
               />
             </div>
           </div>
           <div className="comment-form__textfield-container">
             <textarea
-             placeholder="Post your comment!"
-             className="comment-form__textfield"
-             onChange={e => this.updateBody(e)}
+              placeholder="Post your comment!"
+              className="comment-form__textfield"
+              onChange={e => this.updateBody(e)}
             />
           </div>
         </div>
         <div className="comment-form__bottom">
           {this.displayError()}
-          <button 
+          <button
             className="comment-form__post-button"
             onClick={e => this.handleSubmit(e)}
           >

@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const StepFormList = (props) => {
-  const step = props.step;
+  const { step } = props;
+  
   return (
     <li className="step__list">
       <div key={step.id} className="step__form-list">
