@@ -6,7 +6,7 @@ const PublishedRecipeItem = ({ recipeId, title, imageUrl }) => {
     <li className="profile-recipes__list-item">
       <Link to={`/recipes/${recipeId}`}>
         <section className="profile-recipes__img-container">
-          <img src="http://via.placeholder.com/250x225px"
+          <img src="https://via.placeholder.com/250x225px"
             className="profile-recipes__img-placeholder"
             alt="recipe-item-img" />
           <img src={imageUrl}

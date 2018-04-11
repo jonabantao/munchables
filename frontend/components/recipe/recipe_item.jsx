@@ -6,7 +6,7 @@ const RecipeItem = (props) => {
     <li className="recipe-list__item">
       <Link to={`/recipes/${props.recipe.id}`}>
         <section className="recipe-list__item-img-container">
-          <img src="http://via.placeholder.com/325x250"
+          <img src="https://via.placeholder.com/325x250"
             className="recipe-list__item-placeholder"
             alt="recipe-item-img" />
           <img src={props.recipe.recipe_img_url}
