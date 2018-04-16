@@ -97,10 +97,10 @@ render() {
 ```
 
 # Planned Features
-* **User Profile Page** 
+* **User Profile Page** (DONE)
 
   Users should be able to edit their profile, check which Munchables they have created and favorited.
-* **Add more images to one recipe**
+* **Add more images to one recipe** 
 
   Currently, a user is able to upload one video and one image per Munchable. 
 * **Categories**
@@ -108,3 +108,6 @@ render() {
   Users will be able to navigate through Munchables and tag their own creations through categories.
 * **Add infinite scrolling for recipe index views**
 * **Feature recipes ordered by how many users have favorited the Munchable, then randomized and selected**
+
+* **Testing**
+  Coverage of Jest and Enzyme in the frontend, Rspec for backend tests
