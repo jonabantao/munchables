@@ -1,6 +1,6 @@
-[<img src="https://i.imgur.com/ujt7Utj.png">](https://makemunchables.com)
+[<img src="https://i.imgur.com/ujt7Utj.png">](https://www.makemunchables.com/#/)
 
-[Munchables](https://makemunchables.com) is a single page web application clone inspired by [Instructables](https://www.instructables.com/) where users can post and share recipes and comment on other users' creations. Munchables uses Ruby on Rails on the backend, BCrypt handling user's password security, PostgreSQL for its database, and React/Redux for the front end. 
+[Munchables](https://www.makemunchables.com/#/) is a single page web application clone inspired by [Instructables](https://www.instructables.com/) where users can post and share recipes and comment on other users' creations. Munchables uses Ruby on Rails on the backend, BCrypt handling user's password security, PostgreSQL for its database, and React/Redux for the front end. 
 
 
 # Features
@@ -110,4 +110,5 @@ render() {
 * **Feature recipes ordered by how many users have favorited the Munchable, then randomized and selected**
 
 * **Testing**
+
   Coverage of Jest and Enzyme in the frontend, Rspec for backend tests
