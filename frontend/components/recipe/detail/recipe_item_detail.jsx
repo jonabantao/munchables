@@ -66,9 +66,10 @@ class RecipeItemDetail extends Component {
   }
 
   render() {
-    const { recipe, authors } = this.props;
+    const { recipe, authors, isLoadingRecipe } = this.props;
+    console.log(recipe);
 
-    if (this.props.isLoadingRecipe || !recipe) {
+    if (isLoadingRecipe || !recipe) {
       return <LoadingRecipes />;
     }
 

@@ -9,7 +9,7 @@ import {
 const mapStateToProps = (state, ownProps) => ({
   state,
   steps: Object.values(ownProps.steps),
-  recipeId: ownProps.recipeId
+  recipeId: ownProps.recipeId,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -20,5 +20,5 @@ const mapDispatchToProps = dispatch => ({
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(StepForm);

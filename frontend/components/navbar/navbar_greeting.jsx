@@ -19,12 +19,6 @@ class NavBarGreeting extends Component {
     document.removeEventListener('click', this.handleOutsideClick);
   }
 
-  handleOutsideClick(e) {
-    e.preventDefault();
-
-    this.handleClick();
-  }
-
   handleClick() {
     if (!this.state.isUserMenuOpen) {
       document.addEventListener('click', this.handleOutsideClick, false);
@@ -41,6 +35,12 @@ class NavBarGreeting extends Component {
     this.node = node;
   }
 
+  handleOutsideClick(e) {
+    e.preventDefault();
+
+    this.handleClick();
+  }
+
   displayDropdown() {
     if (this.state.isUserMenuOpen) {
       return (
@@ -51,22 +51,25 @@ class NavBarGreeting extends Component {
         />
       );
     }
+
+    return null;
   }
 
   render() {
-    const currentUser = this.props.currentUser;
+    const { currentUser } = this.props;
 
     return (
       <div className="navbar__wrapper" ref={this.setWrapper}>
         <section className="navbar__greeting" onClick={this.handleClick}>
           <div className="navbar__profile-img-container">
-            <img src={currentUser.profile_img_url}
-              alt="profile image"
+            <img
+              src={currentUser.profile_img_url}
+              alt="profile"
               className="navbar__profile-img"
             />
           </div>
           <small>{currentUser.username}</small>
-          <i className="fas fa-caret-down navbar__caret"></i>
+          <i className="fas fa-caret-down navbar__caret" />
         </section>
         {this.displayDropdown()}
       </div>

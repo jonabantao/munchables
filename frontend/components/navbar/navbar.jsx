@@ -5,14 +5,17 @@ import SearchBarContainer from './search/search_bar_container';
 import { Link } from 'react-router-dom';
 
 const NavBar = ({ currentUser, logout, history }) => {
-  const sessionContainer = currentUser ? <NavBarGreeting
-    currentUser={currentUser}
-    logout={logout}
-    history={history}
-  /> :
-    <NavBarSessionLinks />;
+  const sessionContainer = currentUser ? (
+    <NavBarGreeting
+      currentUser={currentUser}
+      logout={logout}
+      history={history}
+    />
+  ) : (
+    <NavBarSessionLinks />
+  );
 
-  const displaySearchContainer = history.location.pathname !== "/search" ?
+  const displaySearchContainer = history.location.pathname !== '/search' ?
     <SearchBarContainer /> : '';
 
   return (
@@ -21,13 +24,13 @@ const NavBar = ({ currentUser, logout, history }) => {
         <section className="navbar__left">
           <div className="navbar__logo-container">
             <Link to="/" className="navbar__logo">
-              <img src="https://i.imgur.com/dfiQbk2.png" className="navbar__logo-img" />
+              <img alt="logo" src="https://i.imgur.com/dfiQbk2.png" className="navbar__logo-img" />
             </Link>
           </div>
           {displaySearchContainer}
           <Link to="/recipes/new" className="navbar__create-recipe">
             Write a Munchable
-        </Link>
+          </Link>
         </section>
         {sessionContainer}
       </nav>

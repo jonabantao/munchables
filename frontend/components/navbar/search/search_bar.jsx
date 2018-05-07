@@ -43,7 +43,7 @@ class SearchBar extends Component {
   }
 
   moveToSearchPage() {
-    this.props.pushHistory("/search");
+    this.props.pushHistory('/search');
   }
 
 
@@ -51,13 +51,13 @@ class SearchBar extends Component {
     return (
       <form className="navbar__search-bar">
         <input value={this.state.term} 
-          placeholder="Let's Cook..." 
+          placeholder="Let's Cook..."
           onChange={this.handleUpdate}
           className="navbar__search-bar-input"
         />
-        <button 
+        <button
           className="navbar__search-bar-submit"
-          onClick={this.handleSearch}  
+          onClick={this.handleSearch}
         >
           <i className="fas fa-search navbar__search-bar-icon--white" />
         </button>

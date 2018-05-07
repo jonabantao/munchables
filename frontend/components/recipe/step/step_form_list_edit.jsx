@@ -44,7 +44,8 @@ class StepFormListEdit extends Component {
       <section className="step-edit">
         <section className="step-edit__container">
           <label className="step-edit__title">Step Title:<br />
-            <input type="text"
+            <input
+              type="text"
               value={this.state.title}
               onChange={this.update('title')}
               className="step-edit__texttitle"
@@ -58,13 +59,13 @@ class StepFormListEdit extends Component {
             />
           </label>
           <nav className="step-edit__nav">
-            <Link 
+            <Link
               to={`/recipes/${this.props.recipeId}/edit`}
               className="step-edit__back-button"
             >
               Go Back
             </Link>
-            <button 
+            <button
               onClick={this.handleUpdate}
               className="step-edit__update-button"
             >
