@@ -15,7 +15,7 @@
     "jest/valid-expect": "error",
     "jsx-a11y/anchor-is-valid": [ "error", {
             "components": [ "Link" ],
-            "specialLink": [ "hrefLeft", "hrefRight" ],
+            "specialLink": [ "hrefLeft", "hrefRight", "to" ],
             "aspects": [ "noHref", "invalidHref", "preferButton" ]
           }],
     "treatUndefinedAsUnspecified": true

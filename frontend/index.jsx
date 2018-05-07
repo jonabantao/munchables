@@ -5,13 +5,13 @@ import configureStore from './store/store';
 import { requestAllRecipes, requestRecipe } from './actions/recipe_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
-  let preloadedState = undefined;
+  let preloadedState;
 
   if (window.currentUser) {
     preloadedState = {
       session: {
         currentUser: window.currentUser,
-      }
+      },
     };
 
     delete window.currentUser;
