@@ -8,22 +8,22 @@ import LoadingRecipes from '../../loading_recipes';
 class RecipeItemDetail extends Component {
   constructor(props) {
     super(props);
-    
+
     this.formatYoutubeEmbed = this.formatYoutubeEmbed.bind(this);
   }
-  
+
   componentDidMount() {
-    this.props.requestRecipe(this.props.match.params.recipeId);
+    this.props.requestRecipe(this.props.recipeId);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (this.props.recipeId !== nextProps.match.params.recipeId) {
-      this.props.requestRecipe(nextProps.match.params.recipeId);
+  componentDidUpdate(prevProps) {
+    if (this.props.recipeId !== prevProps.recipeId) {
+      this.props.requestRecipe(this.props.recipeId);
     }
   }
 
   formatYoutubeEmbed() {
-    const regEx = "^(?:https?:)?//[^/]*(?:youtube(?:-nocookie)?\.com|youtu\.be).*[=/]([-\\w]{11})(?:\\?|=|&|$)";
+    const regEx = '^(?:https?:)?//[^/]*(?:youtube(?:-nocookie)?\.com|youtu\.be).*[=/]([-\\w]{11})(?:\\?|=|&|$)';
     const match = this.props.recipe.recipe_video_url.match(regEx);
 
     return match ? match[1] : '';
@@ -34,25 +34,31 @@ class RecipeItemDetail extends Component {
       const youTubeId = this.formatYoutubeEmbed();
       return (
         <div>
-          <iframe width="640" 
-            height="390" 
-            src={`https://www.youtube.com/embed/${youTubeId}`} 
-            frameBorder="0" 
+          <iframe
+            title="youtube"
+            width="640"
+            height="390"
+            src={`https://www.youtube.com/embed/${youTubeId}`}
+            frameBorder="0"
             allowFullScreen
-          ></iframe>
+          />
         </div>
       );
     }
+
+    return null;
   }
 
   displaySteps() {
     if (this.props.steps.length) {
-      let sortedSteps = this.sortSteps(this.props.steps);
+      const sortedSteps = this.sortSteps(this.props.steps);
 
-      return sortedSteps.map((step, idx) => 
-        <RecipeStep key={step.id} step={step} stepNum={idx + 1} />
+      return sortedSteps.map((step, idx) =>
+        <RecipeStep key={step.id} step={step} stepNum={idx + 1} />,
       );
     }
+
+    return null;
   }
 
   sortSteps(steps) {
@@ -60,17 +66,18 @@ class RecipeItemDetail extends Component {
   }
 
   render() {
-    if (this.props.isLoadingRecipe || !this.props.recipe) {
+    const { recipe, authors } = this.props;
+
+    if (this.props.isLoadingRecipe || !recipe) {
       return <LoadingRecipes />;
     }
 
-    if (!this.props.recipe.published) {
+    if (!recipe.published) {
       return <Redirect to="/" />;
     }
 
-    const recipe = this.props.recipe;
-    const author = this.props.authors[recipe.author_id].username;
-    const authorId = this.props.authors[recipe.author_id].id;
+    const author = authors[recipe.author_id].username;
+    const authorId = authors[recipe.author_id].id;
 
     return (
       <article className="detail">
@@ -84,7 +91,7 @@ class RecipeItemDetail extends Component {
         <section className="detail__intro-container">
           {this.displayVideo()}
           <div className="detail__intro-img-container">
-            <img src={recipe.recipe_img_url} className="detail__intro-img" />
+            <img alt="recipe" src={recipe.recipe_img_url} className="detail__intro-img" />
           </div>
           <div className="detail__step-body">
             <p>
@@ -93,9 +100,9 @@ class RecipeItemDetail extends Component {
           </div>
         </section>
         {this.displaySteps()}
-        <CommentListContainer 
+        <CommentListContainer
           recipeId={recipe.id} 
-          history={this.props.history} 
+          history={this.props.history}
           authorId={recipe.author_id}
         />
       </article>

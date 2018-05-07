@@ -1,12 +1,12 @@
-import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+
 import NavBar from './navbar';
 import { logoutUser } from '../../actions/session_actions';
-import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = ({ session }, { history }) => ({
   currentUser: session.currentUser,
-  history
+  history,
 });
 
 const mapDispatchToProps = dispatch => ({
