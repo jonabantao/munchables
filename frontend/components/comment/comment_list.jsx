@@ -37,16 +37,16 @@ class CommentsList extends Component {
     document.removeEventListener('click', this.handleOutsideClick, false);
   }
 
+  setWrapper(node) {
+    this.node = node;
+  }
+
   handleOutsideClick(e) {
     if (this.node.contains(e.target)) {
       return;
     }
 
     this.toggleCommentForm(e);
-  }
-
-  setWrapper(node) {
-    this.node = node;
   }
 
   toggleCommentForm(e) {
@@ -61,12 +61,12 @@ class CommentsList extends Component {
     }
 
     this.setState(prevState => ({
-      isCommentFormOpen: !prevState.isCommentFormOpen ,
+      isCommentFormOpen: !prevState.isCommentFormOpen,
     }));
   }
 
   displayCommentsHeader() {
-    const length = this.props.comments.length;
+    const { length } = this.props.comments;
 
     if (length) {
       const addS = length > 1 ? 's' : '';
@@ -88,6 +88,8 @@ class CommentsList extends Component {
         />
       );
     }
+
+    return null;
   }
 
   displayComments() {
@@ -109,6 +111,8 @@ class CommentsList extends Component {
         </ul>
       );
     }
+
+    return null;
   }
 
   render() {

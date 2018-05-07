@@ -19,40 +19,43 @@ class UserProfile extends Component {
       return <LoadingRecipes />;
     }
 
-    const currentUser = this.props.currentUser;
-    const user = this.props.user;
-    const pubRecipes = this.props.recipes.filter(recipe => recipe.published);
-    const unpubRecipes = this.props.recipes.filter(recipe => !recipe.published);
-    const plural = this.props.user.comment_count === 1 ? '' : 's';
+    const { currentUser, user, recipes } = this.props;
+    const pubRecipes = recipes.filter(recipe => recipe.published);
+    const unpubRecipes = recipes.filter(recipe => !recipe.published);
+    const plural = user.comment_count === 1 ? '' : 's';
 
     const displayProfile = currentUser && currentUser.id === user.id ?
-      <PersonalProfile 
-        pubRecipes={pubRecipes} 
-        unpubRecipes={unpubRecipes}
-      /> : 
-      <PublicProfile
-        user={user}
-        recipes={pubRecipes}
-      />;
+      (
+        <PersonalProfile
+          pubRecipes={pubRecipes}
+          unpubRecipes={unpubRecipes}
+        />
+      ) : (
+        <PublicProfile
+          user={user}
+          recipes={pubRecipes}
+        />
+      );
 
     return (
       <React.Fragment>
         <header className="profile-header-container">
           <section className="profile-header">
             <div className="profile-header__image-wrapper">
-              <img src={user.profile_img_url}
-                alt="profile image"
+              <img
+                src={user.profile_img_url}
+                alt="profile"
                 className="profile-header__image"
               />
             </div>
             <div className="profile-header__user-info">
               <h3 className="profile-header__username">{user.username}</h3>
               <footer className="profile-header__footer">
-                <i className="fas fa-user-plus profile-header__join"></i>
+                <i className="fas fa-user-plus profile-header__join" />
                 {user.join_date}
               </footer>
               <footer className="profile-header__footer">
-                <i className="fas fa-comment profile-header__comment"></i><strong>{user.comment_count}</strong> Comment{plural}
+                <i className="fas fa-comment profile-header__comment" /><strong>{user.comment_count}</strong> Comment{plural}
               </footer>
             </div>
           </section>

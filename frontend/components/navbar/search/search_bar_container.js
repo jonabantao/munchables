@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+
 import SearchBar from './search_bar';
 import { requestFilteredRecipes } from '../../../actions/recipe_actions';
-import { withRouter } from 'react-router-dom';
+
 
 const mapStateToProps = (_, ownProps) => ({
   pushHistory: ownProps.history.push,
@@ -15,5 +16,5 @@ const mapDispatchToProps = dispatch => ({
 
 export default withRouter(connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(SearchBar));
