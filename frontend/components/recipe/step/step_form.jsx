@@ -3,9 +3,24 @@ import { Link } from 'react-router-dom';
 import StepFormList from './step_form_list';
 
 class StepForm extends Component {
+  // Steps can possibly be out of order?
+  static sortSteps(arr) {
+    return Array.from(arr)
+      .sort((step, nextStep) => step.order - nextStep.order);
+  }
+
+  static createNewStepLayout(nextOrder, recipeId) {
+    return {
+      title: '',
+      body: '',
+      order: nextOrder,
+      recipe_id: recipeId,
+    };
+  }
+
   constructor(props) {
     super(props);
-    
+
     this.state = {
       steps: [],
     };
@@ -16,24 +31,10 @@ class StepForm extends Component {
     this.displaySteps = this.displaySteps.bind(this);
   }
 
+  // TODO: Refactor componentWillReceiveProps to another lifecycle
   componentWillReceiveProps(newProps) {
     let sorted = this.sortSteps(newProps.steps);
     this.setState({ steps: sorted });
-  }
-
-  // Steps can possibly be out of order?
-  sortSteps(arr) {
-    let tempSteps = Array.from(arr);
-    return tempSteps.sort((step, nextStep) => step.order - nextStep.order);
-  }
-
-  createNewStepLayout(nextOrder, recipeId) {
-    return {
-      title: '',
-      body: '',
-      order: nextOrder,
-      recipe_id: recipeId,
-    };
   }
 
   handleAddStep(e) {
@@ -69,9 +70,9 @@ class StepForm extends Component {
           {totalSteps}
         </ul>
       );
-    } else {
-      return null;
     }
+
+    return null;
   }
 
   render() {

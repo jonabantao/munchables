@@ -1,4 +1,3 @@
-import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import RecipeList from './recipe_list';
 import { requestAllRecipes, requestRecipe } from '../../actions/recipe_actions';
@@ -9,12 +8,12 @@ const mapStateToProps = ({ entities, ui }) => ({
   isLoadingRecipe: ui.loading.recipeLoading,
 });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   requestAllRecipes: () => dispatch(requestAllRecipes()),
   requestRecipe: id => dispatch(requestRecipe(id)),
 });
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(RecipeList);

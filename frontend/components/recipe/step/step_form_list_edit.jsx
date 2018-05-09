@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 class StepFormListEdit extends Component {
   constructor(props) {
     super(props);
-   
+
     this.state = {
       title: '',
       body: '',
@@ -12,7 +12,7 @@ class StepFormListEdit extends Component {
 
     this.handleUpdate = this.handleUpdate.bind(this);
   }
-  
+
   componentDidMount() {
     this.props.requestStep(this.props.stepId);
   }
@@ -22,7 +22,7 @@ class StepFormListEdit extends Component {
       title: step.title || '',
       body: step.body || '',
     };
-    
+
     this.setState(updatedState);
   }
 
@@ -30,9 +30,7 @@ class StepFormListEdit extends Component {
     let updateState = Object.assign({}, this.state, { id: this.props.stepId });
 
     this.props.updateStep(updateState)
-      .then(
-        () => this.props.history.push(`/recipes/${this.props.recipeId}/edit`)
-      );
+      .then(() => this.props.history.push(`/recipes/${this.props.recipeId}/edit`));
   }
 
   update(propType) {
@@ -43,15 +41,16 @@ class StepFormListEdit extends Component {
     return (
       <section className="step-edit">
         <section className="step-edit__container">
-          <label className="step-edit__title">Step Title:<br />
+          <label htmlFor="step-title" className="step-edit__title">Step Title:<br />
             <input
+              id="step-title"
               type="text"
               value={this.state.title}
               onChange={this.update('title')}
               className="step-edit__texttitle"
             />
           </label>
-          <label className="step-edit__title">Step Body:<br />
+          <label htmlFor="step-body" className="step-edit__title">Step Body:<br />
             <textarea
               value={this.state.body}
               onChange={this.update('body')}

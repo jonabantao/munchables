@@ -2,22 +2,22 @@ import React, { Component } from 'react';
 import RecipeItem from './recipe_item';
 import LoadingRecipes from '../loading_recipes';
 
-class RecipeList extends Component {  
+class RecipeList extends Component {
   componentDidMount() {
     this.props.requestAllRecipes();
   }
 
   createRecipeContainers(recipes) {
     if (recipes.length) {
-      return recipes.map(recipe => {
-        return <RecipeItem 
-        key={recipe.id} 
-        recipe={recipe}
-        authorName={this.props.authors[recipe.author_id].username} 
-        authorId={recipe.author_id}
-      />;
-      });
-    } 
+      return recipes.map(recipe => (
+        <RecipeItem
+          key={recipe.id}
+          recipe={recipe}
+          authorName={this.props.authors[recipe.author_id].username}
+          authorId={recipe.author_id}
+        />
+      ));
+    }
   }
 
   render() {

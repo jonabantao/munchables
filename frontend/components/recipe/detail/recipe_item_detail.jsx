@@ -6,6 +6,10 @@ import LoadingRecipes from '../../loading_recipes';
 
 
 class RecipeItemDetail extends Component {
+  static sortSteps(steps) {
+    return steps.sort((step, nextStep) => step.order - nextStep.order);
+  }
+
   constructor(props) {
     super(props);
 
@@ -59,10 +63,6 @@ class RecipeItemDetail extends Component {
     }
 
     return null;
-  }
-
-  sortSteps(steps) {
-    return steps.sort((step, nextStep) => step.order - nextStep.order);
   }
 
   render() {

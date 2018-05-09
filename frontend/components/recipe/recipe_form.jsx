@@ -21,21 +21,15 @@ class RecipeForm extends Component {
   }
 
   componentDidMount() {
-    if (this.props.formType === "edit") {
+    if (this.props.formType === 'edit') {
       this.props.requestRecipe(this.props.ownProps.match.params.recipeId)
-        .then(recipe => {
+        .then((recipe) => {
           if (recipe.author_id === this.props.currentUser.id) {
             return this.updateEditedState();
-          } else {
-            this.props.history.replace("/");
           }
-        });
-    }
-  }
 
-  componentWillUnmount() {
-    if (this.props.errors.length) {
-      this.props.clearErrors();
+          return this.props.history.replace('/');
+        });
     }
   }
 
@@ -43,6 +37,14 @@ class RecipeForm extends Component {
     if (this.props.errors.length) {
       this.props.clearErrors();
     }
+  }
+
+  componentWillUnmount() {
+    if (this.props.errors.length) {
+      this.props.clearErrors();
+    }
+
+    return null;
   }
 
   updateEditedState() {
@@ -57,13 +59,13 @@ class RecipeForm extends Component {
   }
 
   uploadImage(e) {
-    let file = e.currentTarget.files[0];
+    const file = e.currentTarget.files[0];
     const reader = new FileReader();
 
     reader.onloadend = () => {
       this.setState({
         imageFile: file,
-        imageUrl: reader.result
+        imageUrl: reader.result,
       });
     };
 
@@ -77,7 +79,7 @@ class RecipeForm extends Component {
   }
 
   checkValidYouTubeUrl() {
-    const regEx = "^(?:https?:)?//[^/]*(?:youtube(?:-nocookie)?\.com|youtu\.be).*[=/]([-\\w]{11})(?:\\?|=|&|$)";
+    const regEx = '^(?:https?:)?//[^/]*(?:youtube(?:-nocookie)?\.com|youtu\.be).*[=/]([-\\w]{11})(?:\\?|=|&|$)';
     const match = this.state.recipe_video_url.match(regEx);
 
     return match ? this.state.recipe_video_url : '';
@@ -87,7 +89,7 @@ class RecipeForm extends Component {
     e.preventDefault();
 
     const file = this.state.imageFile;
-    let formData = new FormData();
+    const formData = new FormData();
     formData.append('recipe[body]', this.state.body);
     formData.append('recipe[title]', this.state.title);
     formData.append('recipe[recipe_video_url]', this.checkValidYouTubeUrl());
@@ -104,8 +106,8 @@ class RecipeForm extends Component {
     e.preventDefault();
 
     const file = this.state.imageFile;
-    let recipeId = this.props.match.params.recipeId;
-    let formData = new FormData();
+    const { recipeId } = this.props.match.params;
+    const formData = new FormData();
     formData.append('recipe[body]', this.state.body);
     formData.append('recipe[title]', this.state.title);
     formData.append('recipe[recipe_video_url]', this.checkValidYouTubeUrl());
@@ -120,56 +122,78 @@ class RecipeForm extends Component {
   }
 
   displayImage() {
-    if (this.props.formType === "edit" && this.state.imageFile === null && this.props.recipe) {
-      return <img src={`${this.props.recipe.recipe_img_url}`}
-        className="recipe-form__img-main" />;
-    } else if (this.state.imageUrl) {
-      return <img src={`${this.state.imageUrl}`}
-        className="recipe-form__img-main" />;
-    } else {
+    if (this.props.formType === 'edit' && this.state.imageFile === null && this.props.recipe) {
       return (
-        <h3 className="recipe-form__img-upload-text">
-          <i className="fas fa-plus"></i> Click To Add Title Image
-        </h3>
+        <img
+          alt="recipe"
+          src={`${this.props.recipe.recipe_img_url}`}
+          className="recipe-form__img-main"
+        />
+      );
+    } else if (this.state.imageUrl) {
+      return (
+        <img
+          alt="recipe"
+          src={`${this.state.imageUrl}`}
+          className="recipe-form__img-main"
+        />
       );
     }
+
+    return (
+      <h3 className="recipe-form__img-upload-text">
+        <i className="fas fa-plus" />Click To Add Title Image
+      </h3>
+    );
   }
 
   displayBeginStepAddButton() {
-    if (this.props.formType === "new") {
-      return <button
-        className="recipe-form__button"
-        onClick={this.handleInitialSubmit}
-      >
-        Start Writing Steps
-      </button>;
+    if (this.props.formType === 'new') {
+      return (
+        <button
+          className="recipe-form__button"
+          onClick={this.handleInitialSubmit}
+        >
+          Start Writing Steps
+        </button>
+      );
     }
+
+    return null;
   }
 
   displayPublishButton() {
-    if (this.props.formType === "edit") {
-      return <button className="recipe-form__button"
-        onClick={this.handlePublishSubmit}
-      >
-        Publish Munchable
-      </button>;
+    if (this.props.formType === 'edit') {
+      return (
+        <button
+          className="recipe-form__button"
+          onClick={this.handlePublishSubmit}
+        >
+          Publish Munchable
+        </button>
+      );
     }
+
+    return null;
   }
 
   displayStepContainer() {
-    if (this.props.formType === "edit") {
-      return <StepFormContainer
-        recipeId={this.props.match.params.recipeId}
-        steps={this.props.steps}
-      />;
+    if (this.props.formType === 'edit') {
+      return (
+        <StepFormContainer
+          recipeId={this.props.match.params.recipeId}
+          steps={this.props.steps}
+        />
+      );
     }
+
+    return null;
   }
 
   displayErrors() {
     if (this.props.errors.length) {
-      let errorListItem = this.props.errors.map(err =>
-        <li key={err} className="recipe-form__error">{err}</li>
-      );
+      const errorListItem = this.props.errors
+        .map(err => <li key={err} className="recipe-form__error">{err}</li>);
 
       return (
         <ul className="recipe-form__errors-container">
@@ -177,11 +201,12 @@ class RecipeForm extends Component {
         </ul>
       );
     }
+
+    return null;
   }
 
   render() {
-    const formHeader = this.props.formType === "edit" ? "Edit Munchable" :
-      "Create a Munchable";
+    const formHeader = this.props.formType === 'edit' ? 'Edit Munchable' : 'Create a Munchable';
 
     return (
       <section className="recipe-form-page">
@@ -189,12 +214,13 @@ class RecipeForm extends Component {
           <header className="recipe-form__header">
             <h2 className="recipe-form__header-title">
               {formHeader}
-              </h2>
+            </h2>
           </header>
           <section className="recipe-form__input-container">
-            <label className="recipe-form__img-upload">
+            <label htmlFor="recipeform-img-upload" className="recipe-form__img-upload">
               <div className="recipe-form__img-container">
                 <input
+                  id="recipeform-img-upload"
                   type="file"
                   className="recipe-form__img-input"
                   onChange={this.uploadImage}
@@ -202,25 +228,30 @@ class RecipeForm extends Component {
                 {this.displayImage()}
               </div>
             </label>
-            <div className="recipe-form__title-subform">
-              <label className="recipe-form__intro-label">Title:<br />
-                <input type="text"
+            <div className="recipeform__title-subform">
+              <label htmlFor="recipeform-title" className="recipe-form__intro-label">Title:<br />
+                <input
+                  id="recipe-form-title"
+                  type="text"
                   value={this.state.title}
                   className="recipe-form__textinput"
                   placeholder="Munchable Title"
                   onChange={this.update('title')}
                 />
               </label>
-              <label className="recipe-form__intro-label">Video URL:<br />
-                <input type="text"
+              <label htmlFor="recipeform-video-url" className="recipe-form__intro-label">Video URL:<br />
+                <input
+
+                  type="text"
                   value={this.state.recipe_video_url}
                   className="recipe-form__textinput"
                   placeholder="Youtube URLs Only"
                   onChange={this.update('recipe_video_url')}
                 />
               </label>
-              <label className="recipe-form__intro-label">Intro:<br />
+              <label htmlFor="recipeform-summary" className="recipe-form__intro-label">Intro:<br />
                 <textarea
+                  id="recipeform-summary"
                   className="recipe-form__textarea"
                   value={this.state.body}
                   placeholder="Brief summary of your Munchable"

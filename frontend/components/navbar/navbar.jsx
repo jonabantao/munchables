@@ -1,8 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import NavBarGreeting from './navbar_greeting';
 import NavBarSessionLinks from './navbar_session_links';
 import SearchBarContainer from './search/search_bar_container';
-import { Link } from 'react-router-dom';
 
 const NavBar = ({ currentUser, logout, history }) => {
   const sessionContainer = currentUser ? (

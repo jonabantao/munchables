@@ -1,17 +1,16 @@
-import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import RecipeForm from './recipe_form';
-import { 
-  createRecipe, 
-  updateRecipe, 
+import {
+  createRecipe,
+  updateRecipe,
   requestRecipe,
-  clearRecipeErrors
+  clearRecipeErrors,
 } from '../../actions/recipe_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  const formType = ownProps.match.path === "/recipes/new" ? "new" : "edit";
+  const formType = ownProps.match.path === '/recipes/new' ? 'new' : 'edit';
 
-  let propState = {
+  const propState = {
     formType,
     ownProps,
     steps: state.entities.steps,
@@ -19,14 +18,14 @@ const mapStateToProps = (state, ownProps) => {
     currentUser: state.session.currentUser,
   };
 
-  if (formType === "edit") {
+  if (formType === 'edit') {
     propState.recipe = state.entities.recipes[ownProps.match.params.recipeId];
   }
 
   return propState;
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
+const mapDispatchToProps = dispatch => ({
   createRecipe: recipe => dispatch(createRecipe(recipe)),
   updateRecipe: (recipe, recipeId) => dispatch(updateRecipe(recipe, recipeId)),
   requestRecipe: id => dispatch(requestRecipe(id)),
@@ -36,5 +35,5 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(RecipeForm);
