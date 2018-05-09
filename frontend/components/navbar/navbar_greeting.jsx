@@ -19,6 +19,10 @@ class NavBarGreeting extends Component {
     document.removeEventListener('click', this.handleOutsideClick);
   }
 
+  setWrapper(node) {
+    this.node = node;
+  }
+
   handleClick() {
     if (!this.state.isUserMenuOpen) {
       document.addEventListener('click', this.handleOutsideClick, false);
@@ -27,12 +31,8 @@ class NavBarGreeting extends Component {
     }
 
     this.setState(prevState => ({
-      isUserMenuOpen: !prevState.isUserMenuOpen
+      isUserMenuOpen: !prevState.isUserMenuOpen,
     }));
-  }
-
-  setWrapper(node) {
-    this.node = node;
   }
 
   handleOutsideClick(e) {
@@ -60,7 +60,13 @@ class NavBarGreeting extends Component {
 
     return (
       <div className="navbar__wrapper" ref={this.setWrapper}>
-        <section className="navbar__greeting" onClick={this.handleClick}>
+        <section
+          className="navbar__greeting"
+          onKeyPress={this.handleClick}
+          onClick={this.handleClick}
+          tabIndex={0}
+          role="menu"
+        >
           <div className="navbar__profile-img-container">
             <img
               src={currentUser.profile_img_url}

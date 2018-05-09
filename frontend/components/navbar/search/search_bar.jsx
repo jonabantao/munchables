@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class SearchBar extends Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
       term: '',
     };
@@ -14,9 +14,8 @@ class SearchBar extends Component {
     this.moveToSearchPage = this.moveToSearchPage.bind(this);
   }
 
-  
   handleUpdate(e) {
-    this.setState({term: e.target.value});
+    this.setState({ term: e.target.value });
   }
 
   handleSearch(e) {
@@ -24,7 +23,6 @@ class SearchBar extends Component {
 
     const search = this.state.term.trim();
     const isAtSearchPage = this.props.path === "/search";
-
 
     if (isAtSearchPage) {
       this.props.searchRecipes(search)
@@ -50,7 +48,8 @@ class SearchBar extends Component {
   render() {
     return (
       <form className="navbar__search-bar">
-        <input value={this.state.term} 
+        <input
+          value={this.state.term}
           placeholder="Let's Cook..."
           onChange={this.handleUpdate}
           className="navbar__search-bar-input"
