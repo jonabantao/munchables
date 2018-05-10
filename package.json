@@ -23,7 +23,7 @@
     "test": "jest",
     "start": "webpack",
     "postinstall": "webpack",
-    "watch": "watch"
+    "watch": "webpack -w"
   },
   "repository": {
     "type": "git",

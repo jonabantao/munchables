@@ -25,7 +25,6 @@ class StepForm extends Component {
       steps: [],
     };
 
-    this.createNewStepLayout = this.createNewStepLayout.bind(this);
     this.handleAddStep = this.handleAddStep.bind(this);
     this.displaySteps = this.displaySteps.bind(this);
   }
@@ -78,12 +77,7 @@ class StepForm extends Component {
     return (
       <React.Fragment>
         {this.displaySteps()}
-        <button
-          className="step__add-step-button"
-          onClick={this.handleAddStep}
-        >
-          Add Step
-        </button>
+
       </React.Fragment>
     );
   }

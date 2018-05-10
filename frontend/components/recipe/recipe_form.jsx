@@ -220,7 +220,6 @@ class RecipeForm extends Component {
             <label htmlFor="recipeform-img-upload" className="recipe-form__img-upload">
               <div className="recipe-form__img-container">
                 <input
-                  id="recipeform-img-upload"
                   type="file"
                   className="recipe-form__img-input"
                   onChange={this.uploadImage}
@@ -231,7 +230,6 @@ class RecipeForm extends Component {
             <div className="recipeform__title-subform">
               <label htmlFor="recipeform-title" className="recipe-form__intro-label">Title:<br />
                 <input
-                  id="recipe-form-title"
                   type="text"
                   value={this.state.title}
                   className="recipe-form__textinput"
@@ -241,7 +239,6 @@ class RecipeForm extends Component {
               </label>
               <label htmlFor="recipeform-video-url" className="recipe-form__intro-label">Video URL:<br />
                 <input
-
                   type="text"
                   value={this.state.recipe_video_url}
                   className="recipe-form__textinput"
@@ -251,7 +248,6 @@ class RecipeForm extends Component {
               </label>
               <label htmlFor="recipeform-summary" className="recipe-form__intro-label">Intro:<br />
                 <textarea
-                  id="recipeform-summary"
                   className="recipe-form__textarea"
                   value={this.state.body}
                   placeholder="Brief summary of your Munchable"
