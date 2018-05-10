@@ -142,7 +142,7 @@ class RecipeForm extends Component {
 
     return (
       <h3 className="recipe-form__img-upload-text">
-        <i className="fas fa-plus" />Click To Add Title Image
+        <i className="fas fa-plus" />&nbsp;Click To Add Title Image
       </h3>
     );
   }
@@ -227,7 +227,7 @@ class RecipeForm extends Component {
                 {this.displayImage()}
               </div>
             </label>
-            <div className="recipeform__title-subform">
+            <div className="recipe-form__title-subform">
               <label htmlFor="recipeform-title" className="recipe-form__intro-label">Title:<br />
                 <input
                   type="text"
