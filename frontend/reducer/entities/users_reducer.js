@@ -1,18 +1,19 @@
+import _ from 'lodash';
+
 import {
   RECEIVE_ALL_RECIPES,
   RECEIVE_FILTERED_RECIPES,
-  RECEIVE_RECIPE
+  RECEIVE_RECIPE,
 } from '../../actions/recipe_actions';
 import {
   RECEIVE_COMMENT,
   RECEIVE_COMMENTS,
 } from '../../actions/comment_actions';
 import { RECEIVE_USER } from '../../actions/user_actions';
-import _ from 'lodash';
 
 const usersReducer = (state = {}, action) => {
   Object.freeze(state);
-  let newState = {};
+  const newState = {};
 
   switch (action.type) {
     case RECEIVE_ALL_RECIPES:

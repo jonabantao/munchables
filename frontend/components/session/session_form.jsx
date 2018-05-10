@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom';
 import SessionErrors from './session_errors';
 
 class sessionForm extends Component {
+  static renderErrorContainer(errors) {
+    return <SessionErrors errors={errors} />;
+  }
+
   constructor(props) {
     super(props);
 
@@ -10,10 +14,18 @@ class sessionForm extends Component {
       username: '',
       password: '',
       email: '',
-      password_confirmation: ''
+      password_confirmation: '',
     };
 
     this.displayGuestButton = this.displayGuestButton.bind(this);
+  }
+
+  // TODO: Refactor Will Receive Props
+  componentWillReceiveProps() {
+    if (this.props.errors.length) {
+      this.props.clearErrors();
+    }
+    this.resetForm();
   }
 
   componentWillUnmount() {
@@ -22,18 +34,14 @@ class sessionForm extends Component {
     }
   }
 
-  componentWillReceiveProps() {
-    if (this.props.errors.length) {
-      this.props.clearErrors();
-    }
-    this.resetForm();
-  }
-
   handleSubmit(e) {
     e.preventDefault();
+
     this.props.handleSession(this.state)
-      .then(() => this.props.history.push('/'),
-        this.resetForm());
+      .then(
+        () => this.props.history.push('/'),
+        this.resetForm(),
+      );
   }
 
   handleGuest(e) {
@@ -50,63 +58,75 @@ class sessionForm extends Component {
       username: '',
       password: '',
       email: '',
-      password_confirmation: ''
+      password_confirmation: '',
     });
   }
 
   emailInput() {
-    if (this.props.formType === "signup") {
-      return <input
-        type="text"
-        placeholder="Email"
-        value={this.state.email}
-        onChange={this.formUpdate('email')}
-        className="session__input"
-      />;
+    if (this.props.formType === 'signup') {
+      return (
+        <input
+          type="text"
+          placeholder="Email"
+          value={this.state.email}
+          onChange={this.formUpdate('email')}
+          className="session__input"
+        />
+      );
     }
+
+    return null;
   }
 
   confirmPasswordInput() {
-    if (this.props.formType === "signup") {
-      return <input
-        type="password"
-        placeholder="Confirm Password"
-        value={this.state.password_confirmation}
-        onChange={this.formUpdate('password_confirmation')}
-        className="session__input"
-      />;
+    if (this.props.formType === 'signup') {
+      return (
+        <input
+          type="password"
+          placeholder="Confirm Password"
+          value={this.state.password_confirmation}
+          onChange={this.formUpdate('password_confirmation')}
+          className="session__input"
+        />
+      );
     }
+
+    return null;
   }
 
   redirectSessionText() {
     const currentPath = this.props.history.location.pathname;
-    const login = currentPath === "/login";
-    const signup = currentPath === "/signup";
+    const login = currentPath === '/login';
+    const signup = currentPath === '/signup';
 
-    return this.props.formType === "signup" ?
-      (<p className="session__redirect-text">
-        Already a member? &nbsp;
-        <Link to="/login"
-          replace={login}
-          className="session__redirect-text session__redirect-text--underline"
-        >
-          Login!
-        </Link>
-      </p>) :
-      (<p className="session__redirect-text">
-        Looking to sign up? &nbsp;
-        <Link to="/signup"
-          replace={signup}
-          className="session__redirect-text session__redirect-text--underline"
-        >
-          Sign Up here!
-        </Link>
-      </p>
+    return this.props.formType === 'signup' ?
+      (
+        <p className="session__redirect-text">
+          Already a member? &nbsp;
+          <Link
+            to="/login"
+            replace={login}
+            className="session__redirect-text session__redirect-text--underline"
+          >
+            Login!
+          </Link>
+        </p>
+      ) : (
+        <p className="session__redirect-text">
+          Looking to sign up? &nbsp;
+          <Link
+            to="/signup"
+            replace={signup}
+            className="session__redirect-text session__redirect-text--underline"
+          >
+            Sign Up here!
+          </Link>
+        </p>
       );
   }
 
   displayGuestButton() {
-    if (this.props.formType !== "signup") {
+    if (this.props.formType !== 'signup') {
       return (
         <button
           onClick={e => this.handleGuest(e)}
@@ -116,15 +136,13 @@ class sessionForm extends Component {
         </button>
       );
     }
-  }
 
-  renderErrorContainer(errors) {
-    return <SessionErrors errors={errors} />;
+    return null;
   }
 
   render() {
-    const submitValue = this.props.formType === "signup" ? "Sign Up" : "Login";
-    const errors = this.props.errors;
+    const submitValue = this.props.formType === 'signup' ? 'Sign Up' : 'Login';
+    const { errors } = this.props;
 
     return (
       <main className="session">

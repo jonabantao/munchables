@@ -21,8 +21,9 @@
   },
   "scripts": {
     "test": "jest",
-    "start": "webpack -w",
-    "postinstall": "webpack"
+    "start": "webpack",
+    "postinstall": "webpack",
+    "watch": "watch"
   },
   "repository": {
     "type": "git",

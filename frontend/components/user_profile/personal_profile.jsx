@@ -9,7 +9,7 @@ const PersonalProfile = ({ pubRecipes, unpubRecipes }) => {
       <section className="profile-recipes-container">
         <nav className="profile-recipes">
           <h3 className="profile-recipes__header">
-            You haven't started writing a Munchable yet.
+            You haven&apos;t started writing a Munchable yet.
           </h3>
           <Link to="/recipes/new" className="profile-recipes__new-recipe">
             Create One!
@@ -19,35 +19,36 @@ const PersonalProfile = ({ pubRecipes, unpubRecipes }) => {
     );
   }
 
-  const publishedRecipes = pubRecipes.map(recipe =>
+  const publishedRecipes = pubRecipes.map(recipe => (
     <PublishedRecipeItem
       key={recipe.id}
       recipeId={recipe.id}
       title={recipe.title}
       imageUrl={recipe.recipe_img_url}
     />
-  );
+  ));
 
-  const unpublishedRecipes = unpubRecipes.map(recipe =>
+  const unpublishedRecipes = unpubRecipes.map(recipe => (
     <UnpublishedRecipeItem
       key={recipe.id}
       recipeId={recipe.id}
       title={recipe.title}
       imageUrl={recipe.recipe_img_url}
     />
-  );
+  ));
 
-  const displayUnpublished = unpubRecipes.length ?
+  const displayUnpublished = unpubRecipes.length ? (
     <nav className="profile-recipes">
       <h3 className="profile-recipes__header">
         YOUR UNPUBLISHED MUNCHABLES
-        </h3>
+      </h3>
       <ul className="profile-recipes__list">
         {unpublishedRecipes}
       </ul>
-    </nav> : '';
+    </nav>
+  ) : '';
 
-  const displayPublished = pubRecipes.length ? 
+  const displayPublished = pubRecipes.length ? (
     <nav className="profile-recipes">
       <h3 className="profile-recipes__header">
         YOUR PUBLISHED MUNCHABLES
@@ -55,7 +56,8 @@ const PersonalProfile = ({ pubRecipes, unpubRecipes }) => {
       <ul className="profile-recipes__list">
         {publishedRecipes}
       </ul>
-    </nav> : '';
+    </nav>
+  ) : '';
 
   return (
     <section className="profile-recipes-container">

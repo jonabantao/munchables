@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 import {
   START_LOADING_RECIPES,
   RECEIVE_ALL_RECIPES,
@@ -11,7 +13,6 @@ import {
   RECEIVE_USER,
   START_LOADING_USER,
 } from '../../actions/user_actions';
-import _ from 'lodash';
 
 const initState = {
   recipeLoading: false,

@@ -6,7 +6,7 @@ const searchTermReducer = (state = '', action) => {
     case RECEIVE_FILTERED_RECIPES:
       return action.term;
     case CLEAR_SEARCH_TERM:
-      return ''; 
+      return '';
     default:
       return state;
   }

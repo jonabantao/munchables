@@ -1,9 +1,10 @@
+import _ from 'lodash';
+
 import {
   RECEIVE_RECIPE_ERRORS,
   RESET_RECIPE_ERRORS,
   RECEIVE_RECIPE,
 } from '../../actions/recipe_actions';
-import _ from 'lodash';
 
 const recipeErrorsReducer = (state = [], action) => {
   Object.freeze(state);

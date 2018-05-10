@@ -1,7 +1,7 @@
 export const createRecipe = recipe => (
   $.ajax({
-    method: "POST",
-    url: "/api/recipes",
+    method: 'POST',
+    url: '/api/recipes',
     processData: false,
     contentType: false,
     data: recipe,
@@ -10,22 +10,22 @@ export const createRecipe = recipe => (
 
 export const fetchRecipe = id => (
   $.ajax({
-    method: "GET",
+    method: 'GET',
     url: `/api/recipes/${id}`,
   })
 );
 
 export const fetchRecipes = search => (
   $.ajax({
-    method: "GET",
-    url: "/api/recipes",
-    data: { search }
+    method: 'GET',
+    url: '/api/recipes',
+    data: { search },
   })
 );
 
 export const updateRecipe = (recipe, id) => (
   $.ajax({
-    method: "PATCH",
+    method: 'PATCH',
     url: `/api/recipes/${id}`,
     processData: false,
     contentType: false,
@@ -35,7 +35,7 @@ export const updateRecipe = (recipe, id) => (
 
 export const deleteRecipe = id => (
   $.ajax({
-    method: "DELETE",
-    url: `/api/recipes/${id}`
+    method: 'DELETE',
+    url: `/api/recipes/${id}`,
   })
 );

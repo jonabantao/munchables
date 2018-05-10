@@ -18,6 +18,8 @@ class RecipeList extends Component {
         />
       ));
     }
+
+    return null;
   }
 
   render() {

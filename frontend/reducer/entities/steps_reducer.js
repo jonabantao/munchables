@@ -1,11 +1,10 @@
+import _ from 'lodash';
+
 import {
   RECEIVE_STEP,
   DELETE_STEP,
 } from '../../actions/step_actions';
-import {
-  RECEIVE_RECIPE
-} from '../../actions/recipe_actions';
-import _ from 'lodash';
+import { RECEIVE_RECIPE } from '../../actions/recipe_actions';
 
 const stepsReducer = (state = {}, action) => {
   Object.freeze(state);
