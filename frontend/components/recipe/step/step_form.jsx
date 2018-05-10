@@ -39,7 +39,7 @@ class StepForm extends Component {
     e.preventDefault();
 
     const numOfSteps = this.state.steps;
-    const recipeId = this.props.recipeId;
+    const { recipeId } = this.props;
     // Default order if no steps created
     let nextOrder = 1;
 
@@ -77,7 +77,12 @@ class StepForm extends Component {
     return (
       <React.Fragment>
         {this.displaySteps()}
-
+        <button
+          className="step__add-step-button"
+          onClick={this.handleAddStep}
+        >
+          Add Step
+        </button>
       </React.Fragment>
     );
   }
