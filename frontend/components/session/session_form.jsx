@@ -164,7 +164,7 @@ class sessionForm extends Component {
               className="session__input"
             />
             {this.confirmPasswordInput()}
-            {errors.length ? this.renderErrorContainer(errors) : null}
+            {errors.length ? this.constructor.renderErrorContainer(errors) : null}
             <input
               type="submit"
               value={submitValue}

@@ -55,7 +55,7 @@ class RecipeItemDetail extends Component {
 
   displaySteps() {
     if (this.props.steps.length) {
-      const sortedSteps = this.sortSteps(this.props.steps);
+      const sortedSteps = this.constructor.sortSteps(this.props.steps);
 
       return sortedSteps.map((step, idx) =>
         <RecipeStep key={step.id} step={step} stepNum={idx + 1} />,

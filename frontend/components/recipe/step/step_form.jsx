@@ -25,7 +25,6 @@ class StepForm extends Component {
       steps: [],
     };
 
-    this.sortSteps = this.sortSteps.bind(this);
     this.createNewStepLayout = this.createNewStepLayout.bind(this);
     this.handleAddStep = this.handleAddStep.bind(this);
     this.displaySteps = this.displaySteps.bind(this);
@@ -33,7 +32,7 @@ class StepForm extends Component {
 
   // TODO: Refactor componentWillReceiveProps to another lifecycle
   componentWillReceiveProps(newProps) {
-    let sorted = this.sortSteps(newProps.steps);
+    const sorted = this.constructor.sortSteps(newProps.steps);
     this.setState({ steps: sorted });
   }
 
@@ -50,7 +49,7 @@ class StepForm extends Component {
       nextOrder = numOfSteps[numOfSteps.length - 1].order + 1;
     }
 
-    this.props.createStep(this.createNewStepLayout(nextOrder, recipeId));
+    this.props.createStep(this.constructor.createNewStepLayout(nextOrder, recipeId));
   }
 
   displaySteps() {
