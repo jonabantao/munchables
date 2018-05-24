@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+
 import SessionErrors from './session_errors';
 
 class sessionForm extends Component {
@@ -39,7 +40,7 @@ class sessionForm extends Component {
 
     this.props.handleSession(this.state)
       .then(
-        () => this.props.history.push('/'),
+        <Redirect to="/" />,
         this.resetForm(),
       );
   }

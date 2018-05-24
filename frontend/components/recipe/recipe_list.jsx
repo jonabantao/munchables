@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import RecipeItem from './recipe_item';
-import LoadingRecipes from '../loading_recipes';
+import LoadingRecipes from '../loading/loading_recipes';
 
 class RecipeList extends Component {
   componentDidMount() {

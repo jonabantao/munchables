@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import LoadingRecipes from '../loading_recipes';
+import LoadingRecipes from '../loading/loading_recipes';
 import PersonalProfile from './personal_profile';
 import PublicProfile from './public_profile';
 

@@ -8,4 +8,6 @@ Rails.application.routes.draw do
     resources :steps, except: [:new, :edit]
     resources :comments, only: [:index, :create, :show, :destroy]
   end
+
+  match "*path", to: "static_pages#root", via: :all
 end

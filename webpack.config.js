@@ -1,35 +1,31 @@
 
-var path = require("path");
-var webpack = require("webpack");
+const path = require('path');
+const webpack = require('webpack');
 
-var plugins = []; 
-var devPlugins = []; 
-
-var prodPlugins = [
+const devPlugins = [];
+const prodPlugins = [
   new webpack.DefinePlugin({
     'process.env': {
-      'NODE_ENV': JSON.stringify('production')
-    }
+      NODE_ENV: JSON.stringify('production'),
+    },
   }),
   new webpack.optimize.UglifyJsPlugin({
     compress: {
-      warnings: true
-    }
-  })
+      warnings: true,
+    },
+  }),
 ];
 
-plugins = plugins.concat(
-  process.env.NODE_ENV === 'production' ? prodPlugins : devPlugins
-);
+const plugins = process.env.NODE_ENV === 'production' ? prodPlugins : devPlugins;
 
 module.exports = {
   context: __dirname,
-  entry: "./frontend/index.jsx",
+  entry: './frontend/index.jsx',
   output: {
-    path: path.resolve(__dirname, "app", "assets", "javascripts"),
-    filename: "bundle.js"
+    path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
+    filename: 'bundle.js',
   },
-  plugins: plugins,
+  plugins,
   module: {
     loaders: [
       {
@@ -37,13 +33,13 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
-          presets: ['react', 'env']
-        }
-      }
-    ]
+          presets: ['react', 'env'],
+        },
+      },
+    ],
   },
   devtool: 'source-map',
   resolve: {
-    extensions: [".js", ".jsx", "*"]
-  }
+    extensions: ['.js', '.jsx', '*'],
+  },
 };
