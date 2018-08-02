@@ -1,4 +1,6 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+
 import {
   createComment,
   fetchRecipeComments,
@@ -12,7 +14,6 @@ const mapStateToProps = (state, ownProps) => ({
   users: state.entities.users,
   recipeId: ownProps.recipeId,
   currentUser: state.session.currentUser,
-  history: ownProps.history,
   authorId: ownProps.authorId,
   errors: state.errors.comment,
   isLoadingComments: state.ui.loading.commentLoading,
@@ -26,7 +27,7 @@ const mapDispatchToProps = (dispatch, { recipeId }) => ({
 });
 
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps,
-)(CommentList);
+)(CommentList));
