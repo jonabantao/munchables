@@ -2,7 +2,7 @@
   "name": "munchables",
   "private": true,
   "dependencies": {
-    "lodash": "^4.17.10",
+    "lodash": "^4.17.13",
     "normalize.css": "^7.0.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
